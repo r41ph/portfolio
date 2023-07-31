@@ -2,6 +2,9 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
+import tw from "twin.macro";
+
+const Title = tw.h1`text-lg font-bold underline`;
 
 function App() {
   const [count, setCount] = useState(0);
@@ -21,6 +24,7 @@ function App() {
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
+        <Title>Hello styled comps + tailwind</Title>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>

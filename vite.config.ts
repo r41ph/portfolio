@@ -1,11 +1,13 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import eslint from "vite-plugin-eslint";
+import macrosPlugin from "vite-plugin-babel-macros";
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    react(),
+    react({ plugins: [["@swc/plugin-styled-components", {}]] }),
+    macrosPlugin(),
     {
       // default settings on build (i.e. fail on error)
       // eslint-disable-next-line @typescript-eslint/no-unsafe-call
