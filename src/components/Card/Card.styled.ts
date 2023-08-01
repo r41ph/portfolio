@@ -1,0 +1,34 @@
+import styled, { css } from "styled-components";
+import tw from "twin.macro";
+
+export const CardWrapper = styled.figure<{ withShadow?: boolean }>(
+  ({ withShadow }) => [
+    tw`h-full relative`,
+    withShadow && tw`shadow-lg bg-white m-0`,
+  ],
+);
+
+export const CardContent = styled.div<{ image: string }>(({ image }) => [
+  tw`bg-no-repeat object-cover bg-cover relative bg-center flex flex-col max-w-[100%] justify-end aspect-square`,
+  css`
+    background-image: url(${image});
+  `,
+]);
+
+export const CardCaption = tw.figcaption`
+  pt-1
+`;
+
+/*
+
+import styled, { css } from "styled-components/macro";
+import tw, { theme } from "twin.macro";
+const XXX = styled.button<{ isGrey: boolean }>(({ isGrey }) => [
+  tw`bg-blue`, // tailwind
+  isGrey && tw`[color: grey]`, // conditional + custom css
+  css`
+    text-decoration: underline; // custom css
+  `,
+]);
+
+*/

@@ -5,7 +5,8 @@
   "type": "module",
   "babelMacros": {
     "twin": {
-      "preset": "styled-components"
+      "preset": "styled-components",
+      "includeClassNames": true
     }
   },
   "scripts": {
@@ -16,9 +17,12 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "normalize.css": "^8.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "styled-components": "^6.0.5"
+    "react-router-dom": "^6.14.2",
+    "styled-components": "^6.0.5",
+    "vite-plugin-svgr": "^3.2.0"
   },
   "devDependencies": {
     "@swc/core": "^1.3.71",
