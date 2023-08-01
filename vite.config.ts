@@ -22,6 +22,7 @@ export default defineConfig({
       ...eslint({
         failOnWarning: false,
         failOnError: false,
+        exclude: [/virtual:/, /node_modules/],
       }),
       apply: "serve",
       enforce: "post",
