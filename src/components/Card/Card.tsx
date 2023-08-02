@@ -38,7 +38,7 @@ export function Card({
         </a>
       </CardContent>
       <CardCaption>
-        <h2 tw="text-base">{project.name}</h2>
+        <h2 className="text-base">{project.name}</h2>
         {project.stack.map((tech) => (
           <Label text={tech}></Label>
         ))}

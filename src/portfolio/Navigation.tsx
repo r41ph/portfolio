@@ -1,18 +1,17 @@
 import { NavLink } from "react-router-dom";
 import logo from "../assets/images/logo.png";
-import "twin.macro";
 
 export function Navigation() {
   return (
     <nav>
-      <ul tw="flex justify-center items-center dark:text-grey-light">
-        <li tw="w-10">
+      <ul className="flex justify-center items-center dark:text-grey-light">
+        <li className="w-10 font-semibold">
           <NavLink to="/">Work</NavLink>
         </li>
-        <li tw="w-20 mx-14">
-          <img tw="rounded-full" src={logo} alt="ralph.es" />
+        <li className="w-20 mx-14">
+          <img className="rounded-full" src={logo} alt="ralph.es" />
         </li>
-        <li tw="w-10">
+        <li className="w-10 font-semibold">
           <NavLink to="/labs">Labs</NavLink>
         </li>
       </ul>
