@@ -1,7 +1,7 @@
 import { StoryFn, Meta, Decorator } from "@storybook/react";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
 
-import App from "./App";
+import App from "../App";
 
 const reactRouterDecorator: Decorator = (Story) => {
   return (
@@ -14,7 +14,7 @@ const reactRouterDecorator: Decorator = (Story) => {
 };
 
 export default {
-  title: "Client/Website",
+  title: "Portfolio/Website",
   component: App,
   decorators: [reactRouterDecorator],
 } as Meta<typeof App>;
