@@ -4,7 +4,7 @@ import logo from "../assets/images/logo.png";
 export function Navigation() {
   return (
     <nav>
-      <ul className="flex justify-center items-center dark:text-grey-light">
+      <ul className="flex justify-center items-center dark:animate-dark-fade-in">
         <li className="w-10 font-semibold">
           <NavLink to="/">Work</NavLink>
         </li>

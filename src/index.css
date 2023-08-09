@@ -1,22 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;400;600&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
-  body {
-    @apply dark:bg-blue-darker
-  }
+body {
+  position: relative;
+}
+@layer base {
   .active {
     border-bottom: 2px solid;
     @apply border-b-blue;
   }
 }
 
+body {
+  font-family: "Noto Sans JP", sans-serif;
+}
+
 a {
   text-decoration: none;
 }
 
-ul, ol, li {
+ul,
+ol,
+li {
   list-style-type: none;
   margin: 0;
   padding: 0;

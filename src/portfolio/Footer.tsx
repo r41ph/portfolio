@@ -1,6 +1,5 @@
-import { ReactComponent as GithubLogo } from "../assets/svg/github.svg";
-import { ReactComponent as CodePenLogo } from "../assets/svg/codepen.svg";
-import { ReactComponent as Envelope } from "../assets/svg/envelope.svg";
+import { Icon } from "../components/Icon/Icon";
+import { IconType } from "../../types/types";
 
 export const Footer = () => {
   return (
@@ -8,17 +7,26 @@ export const Footer = () => {
       <ul className="flex justify-center">
         <li>
           <a href="#">
-            <GithubLogo />
+            <Icon
+              className=" dark:animate-dark-fade-in"
+              type={IconType.GITHUBLOGO}
+            />
           </a>
         </li>
         <li className="px-10">
           <a href="#">
-            <CodePenLogo />
+            <Icon
+              className=" dark:animate-dark-fade-in"
+              type={IconType.CODEPENLOGO}
+            />
           </a>
         </li>
         <li>
           <a href="#">
-            <Envelope />
+            <Icon
+              className=" dark:animate-dark-fade-in"
+              type={IconType.ENVELOPE}
+            />
           </a>
         </li>
       </ul>

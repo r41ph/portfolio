@@ -10,26 +10,35 @@ import { ReactComponent as StyledComponentsLogo } from "../../assets/svg/styled-
 import { ReactComponent as WordpressLogo } from "../../assets/svg/wordpress-logo.svg";
 import { ReactComponent as JestLogo } from "../../assets/svg/jest-logo.svg";
 import { ReactComponent as RTLLogo } from "../../assets/svg/rtl-logo.svg";
+
+import { ReactComponent as GithubLogo } from "../../assets/svg/github.svg";
+import { ReactComponent as CodePenLogo } from "../../assets/svg/codepen.svg";
+import { ReactComponent as Envelope } from "../../assets/svg/envelope.svg";
+import { ReactComponent as Sun } from "../../assets/svg/sun.svg";
+import { ReactComponent as Moon } from "../../assets/svg/moon.svg";
+
 import { IconType } from "../../../types/types";
 
-export const Icon = ({ type }: { type: IconType }) => {
-  const icon = type.toUpperCase();
+export const Icon = ({ type: iconType }: { type: IconType }) => {
   return (
     <>
-      {icon === IconType.CSS.toUpperCase() && <CSSLogo />}
-      {icon === IconType.HTML.toUpperCase() && <HTMLLogo />}
-      {icon === IconType.GRAPHQL.toUpperCase() && <GraphqlLogo />}
-      {icon === IconType.JAVASCRIPT.toUpperCase() && <JSLogo />}
-      {icon === IconType.LESS.toUpperCase() && <LESSLogo />}
-      {icon === IconType.REACT.toUpperCase() && <ReactLogo />}
-      {icon === IconType.REDUX.toUpperCase() && <ReduxLogo />}
-      {icon === IconType.SCSS.toUpperCase() && <SCSSLogo />}
-      {icon === IconType["STYLED-COMPONENTS"].toUpperCase() && (
-        <StyledComponentsLogo />
-      )}
-      {icon === IconType.WORDPRESS.toUpperCase() && <WordpressLogo />}
-      {icon === IconType.JEST.toUpperCase() && <JestLogo />}
-      {icon === IconType.RTL.toUpperCase() && <RTLLogo />}
+      {iconType === IconType.CSS && <CSSLogo />}
+      {iconType === IconType.HTML && <HTMLLogo />}
+      {iconType === IconType.GRAPHQL && <GraphqlLogo />}
+      {iconType === IconType.JAVASCRIPT && <JSLogo />}
+      {iconType === IconType.LESS && <LESSLogo />}
+      {iconType === IconType.REACT && <ReactLogo />}
+      {iconType === IconType.REDUX && <ReduxLogo />}
+      {iconType === IconType.SCSS && <SCSSLogo />}
+      {iconType === IconType["STYLED-COMPONENTS"] && <StyledComponentsLogo />}
+      {iconType === IconType.WORDPRESS && <WordpressLogo />}
+      {iconType === IconType.JEST && <JestLogo />}
+      {iconType === IconType.RTL && <RTLLogo />}
+      {iconType === IconType.GITHUBLOGO && <GithubLogo />}
+      {iconType === IconType.CODEPENLOGO && <CodePenLogo />}
+      {iconType === IconType.ENVELOPE && <Envelope />}
+      {iconType === IconType.SUN && <Sun />}
+      {iconType === IconType.MOON && <Moon />}
     </>
   );
 };

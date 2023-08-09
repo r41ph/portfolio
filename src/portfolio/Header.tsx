@@ -1,9 +1,8 @@
 import { Navigation } from "./Navigation";
-import "twin.macro";
 
 export function Header() {
   return (
-    <header tw="my-10">
+    <header className="my-10 z-20 relative">
       <Navigation></Navigation>
     </header>
   );

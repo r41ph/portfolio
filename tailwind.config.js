@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
   content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
@@ -6,22 +7,70 @@ module.exports = {
       screens: {
         xs: "480px",
       },
-      keyframes: {
-        "border-scale": {
-          "0%": {
-            transform: "scale(1)",
-            opacity: 0,
-            "border-color": "transparent",
+      keyframes: ({ theme }) => {
+        return {
+          "border-scale": {
+            "0%": {
+              transform: "scale(1)",
+              opacity: 0,
+              "border-color": "transparent",
+            },
+            "100%": {
+              transform: "scale(0.9)",
+              opacity: 1,
+              "border-color": "white",
+            },
           },
-          "100%": {
-            transform: "scale(0.9)",
-            opacity: 1,
-            "border-color": "white",
+          "dark-bg-spread": {
+            "0%": {
+              width: 0,
+              height: 0,
+              "background-color": theme("colors.blue-darker"),
+            },
+            "100%": {
+              width: "max(140vw, 140vh)",
+              height: "max(140vw, 140vh)",
+              "background-color": theme("colors.blue-darker"),
+            },
           },
-        },
+          "dark-bg-shrink": {
+            "0%": {
+              width: "max(140vw, 140vh)",
+              height: "max(140vw, 140vh)",
+              "background-color": theme("colors.blue-darker"),
+            },
+            "100%": {
+              width: 0,
+              height: 0,
+              "background-color": theme("colors.blue-darker"),
+            },
+          },
+          "dark-fade-in": {
+            "0%": {
+              "background-color": theme("colors.grey-dark"),
+              opacity: 0,
+              display: "none",
+            },
+            "1%": {
+              opacity: 0,
+              display: "block",
+              color: theme("colors.grey-light"),
+              fill: theme("colors.grey-light"),
+            },
+            "100%": {
+              display: "block",
+              opacity: 1,
+              color: theme("colors.grey-light"),
+              fill: theme("colors.grey-light"),
+            },
+          },
+        };
       },
       animation: {
         "border-scale": "border-scale .2s linear forwards",
+        "dark-bg-spread": "dark-bg-spread 500ms forwards",
+        "dark-bg-shrink": "dark-bg-shrink 500ms forwards",
+        "dark-fade-in": "dark-fade-in 500ms forwards",
       },
     },
     colors: {

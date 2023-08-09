@@ -1,11 +1,14 @@
 export interface IProject {
   name: string;
-  stack: IStack[];
+  stack: Icons[];
   company: string;
   image: string;
 }
 
-export enum IStack {
+export enum Icons {
+  GITHUBLOGO = "GITHUBLOGO",
+  CODEPENLOGO = "CODEPENLOGO",
+  ENVELOPE = "ENVELOPE",
   HTML = "HTML",
   CSS = "CSS",
   GRAPHQL = "GraphQL",
@@ -18,13 +21,15 @@ export enum IStack {
   WORDPRESS = "Wordpress",
   JEST = "Jest",
   RTL = "RTL",
+  SUN = "SUN",
+  MOON = "MOON",
 }
 
 // IStack and IconType are equal enums
 // See https://devimalplanet.com/typescript-how-to-extend-one-enum-from-another
-export type IconType = IStack;
+export type IconType = Icons;
 // eslint-disable-next-line @typescript-eslint/no-redeclare
-export const IconType = { ...IStack };
+export const IconType = { ...Icons };
 
 export interface ILabel {
   text: string;

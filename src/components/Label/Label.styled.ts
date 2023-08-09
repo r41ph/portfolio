@@ -36,7 +36,6 @@ export const LabelWrapper = styled.div<{ size?: ILabelSize }>(({ size }) => [
     py-px
     items-center
     [&>svg]:mr-1
-    dark:bg-grey-dark
-    dark:text-grey-light
+    dark:animate-dark-fade-in
   `,
 ]);

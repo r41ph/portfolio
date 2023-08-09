@@ -38,9 +38,9 @@ export function Card({
         </a>
       </CardContent>
       <CardCaption>
-        <h2 className="text-base">{project.name}</h2>
+        <h2 className="text-base dark:animate-dark-fade-in">{project.name}</h2>
         {project.stack.map((tech) => (
-          <Label text={tech}></Label>
+          <Label key={tech} text={tech}></Label>
         ))}
       </CardCaption>
     </CardWrapper>
