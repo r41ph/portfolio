@@ -1,3 +1,5 @@
+/// <reference types="vitest" />
+
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import eslint from "vite-plugin-eslint";
@@ -5,6 +7,7 @@ import macrosPlugin from "vite-plugin-babel-macros";
 import svgr from "vite-plugin-svgr";
 import autoprefixer from "autoprefixer";
 import tailwindcss from "tailwindcss";
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -33,5 +36,10 @@ export default defineConfig({
     postcss: {
       plugins: [autoprefixer, tailwindcss],
     },
+  },
+  test: {
+    globals: true,
+    environment: "jsdom",
+    setupFiles: ["./src/setupTest.ts"],
   },
 });

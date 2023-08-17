@@ -22,7 +22,7 @@
 
     "baseUrl": ".",
 
-    "types": ["vite/client"],
+    "types": ["vite/client", "vitest/globals"],
   },
   "include": ["src", "types", "vite.config.ts"],
   "exclude": [".eslintrc.cjs", "tailwind.config.js"],
