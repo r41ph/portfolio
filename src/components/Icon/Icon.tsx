@@ -19,26 +19,111 @@ import { ReactComponent as Moon } from "../../assets/svg/moon.svg";
 
 import { IconType } from "../../../types/types";
 
-export const Icon = ({ type: iconType }: { type: IconType }) => {
+export const Icon = ({
+  type: iconType,
+  className = "",
+}: {
+  type: IconType;
+  className?: string;
+}) => {
   return (
     <>
-      {iconType === IconType.CSS && <CSSLogo />}
-      {iconType === IconType.HTML && <HTMLLogo />}
-      {iconType === IconType.GRAPHQL && <GraphqlLogo />}
-      {iconType === IconType.JAVASCRIPT && <JSLogo />}
-      {iconType === IconType.LESS && <LESSLogo />}
-      {iconType === IconType.REACT && <ReactLogo />}
-      {iconType === IconType.REDUX && <ReduxLogo />}
-      {iconType === IconType.SCSS && <SCSSLogo />}
-      {iconType === IconType["STYLED-COMPONENTS"] && <StyledComponentsLogo />}
-      {iconType === IconType.WORDPRESS && <WordpressLogo />}
-      {iconType === IconType.JEST && <JestLogo />}
-      {iconType === IconType.RTL && <RTLLogo />}
-      {iconType === IconType.GITHUBLOGO && <GithubLogo />}
-      {iconType === IconType.CODEPENLOGO && <CodePenLogo />}
-      {iconType === IconType.ENVELOPE && <Envelope />}
-      {iconType === IconType.SUN && <Sun />}
-      {iconType === IconType.MOON && <Moon />}
+      {iconType === IconType.CSS && (
+        <CSSLogo
+          className={className}
+          data-testid={`${iconType.toLowerCase()}`}
+        />
+      )}
+      {iconType === IconType.HTML && (
+        <HTMLLogo
+          className={className}
+          data-testid={`${iconType.toLowerCase()}`}
+        />
+      )}
+      {iconType === IconType.GRAPHQL && (
+        <GraphqlLogo
+          className={className}
+          data-testid={`${iconType.toLowerCase()}`}
+        />
+      )}
+      {iconType === IconType.JAVASCRIPT && (
+        <JSLogo
+          className={className}
+          data-testid={`${iconType.toLowerCase()}`}
+        />
+      )}
+      {iconType === IconType.LESS && (
+        <LESSLogo
+          className={className}
+          data-testid={`${iconType.toLowerCase()}`}
+        />
+      )}
+      {iconType === IconType.REACT && (
+        <ReactLogo
+          className={className}
+          data-testid={`${iconType.toLowerCase()}`}
+        />
+      )}
+      {iconType === IconType.REDUX && (
+        <ReduxLogo
+          className={className}
+          data-testid={`${iconType.toLowerCase()}`}
+        />
+      )}
+      {iconType === IconType.SCSS && (
+        <SCSSLogo
+          className={className}
+          data-testid={`${iconType.toLowerCase()}`}
+        />
+      )}
+      {iconType === IconType["STYLED-COMPONENTS"] && (
+        <StyledComponentsLogo
+          className={className}
+          data-testid={`${iconType.toLowerCase()}`}
+        />
+      )}
+      {iconType === IconType.WORDPRESS && (
+        <WordpressLogo
+          className={className}
+          data-testid={`${iconType.toLowerCase()}`}
+        />
+      )}
+      {iconType === IconType.JEST && (
+        <JestLogo
+          className={className}
+          data-testid={`${iconType.toLowerCase()}`}
+        />
+      )}
+      {iconType === IconType.RTL && (
+        <RTLLogo
+          className={className}
+          data-testid={`${iconType.toLowerCase()}`}
+        />
+      )}
+      {iconType === IconType.GITHUBLOGO && (
+        <GithubLogo
+          className={className}
+          data-testid={`${iconType.toLowerCase()}`}
+        />
+      )}
+      {iconType === IconType.CODEPENLOGO && (
+        <CodePenLogo
+          className={className}
+          data-testid={`${iconType.toLowerCase()}`}
+        />
+      )}
+      {iconType === IconType.ENVELOPE && (
+        <Envelope
+          className={className}
+          data-testid={`${iconType.toLowerCase()}`}
+        />
+      )}
+      {iconType === IconType.SUN && (
+        <Sun className={className} data-testid={`${iconType.toLowerCase()}`} />
+      )}
+      {iconType === IconType.MOON && (
+        <Moon className={className} data-testid={`${iconType.toLowerCase()}`} />
+      )}
     </>
   );
 };
