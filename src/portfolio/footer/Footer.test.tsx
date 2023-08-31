@@ -4,9 +4,15 @@ import { Footer } from "./Footer";
 describe("Footer", () => {
   test("should render the icons pointing to the right URLs", () => {
     render(<Footer />);
-    const githubLink = screen.getByTestId(/github-link/i);
-    const codepenLink = screen.getByTestId(/codepen-link/i);
-    const contactLink = screen.getByTestId(/mailto-link/i);
+    const githubLink = screen.getByRole("link", {
+      name: "Link to r41ph github account",
+    });
+    const codepenLink = screen.getByRole("link", {
+      name: "Link to r41ph codepen account",
+    });
+    const contactLink = screen.getByRole("link", {
+      name: "Send email to r41ph",
+    });
     expect(githubLink).toBeInTheDocument();
     expect(codepenLink).toBeInTheDocument();
     expect(contactLink).toBeInTheDocument();
