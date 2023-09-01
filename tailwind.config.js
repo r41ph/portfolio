@@ -49,16 +49,13 @@ module.exports = {
             "0%": {
               "background-color": theme("colors.grey-dark"),
               opacity: 0,
-              display: "none",
             },
             "1%": {
               opacity: 0,
-              display: "block",
               color: theme("colors.grey-light"),
               fill: theme("colors.grey-light"),
             },
             "100%": {
-              display: "block",
               opacity: 1,
               color: theme("colors.grey-light"),
               fill: theme("colors.grey-light"),
