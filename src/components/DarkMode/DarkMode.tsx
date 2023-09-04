@@ -1,24 +1,25 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as Styled from "./DarkMode.styled";
 import { IconType } from "../../../types/types";
 import { Icon } from "../Icon/Icon";
+import useFirstRender from "../../hooks/useFirstRender";
 
 export function DarkMode() {
+  const htmlTag = useRef(document.getElementsByTagName("html")[0]);
   const preferedColorScheme = window.matchMedia(
     "(prefers-color-scheme: dark)",
   ).matches;
   const [isDarkTheme, setIsDarkTheme] = useState<boolean>(preferedColorScheme);
-  const htmlTag = document.getElementsByTagName("html")[0];
-
+  const isFirstRender = useFirstRender();
   function toggleDarkMode() {
     setIsDarkTheme((darkTheme) => !darkTheme);
   }
 
   useEffect(() => {
     if (isDarkTheme) {
-      htmlTag.classList.add("dark");
+      htmlTag.current.classList.add("dark");
     } else {
-      htmlTag.classList.remove("dark");
+      htmlTag.current.classList.remove("dark");
     }
   }, [htmlTag, isDarkTheme]);
 
@@ -38,7 +39,11 @@ export function DarkMode() {
         <Styled.DarkModeBackground
           id="theme-background"
           className={
-            isDarkTheme ? "animate-dark-bg-spread" : "animate-dark-bg-shrink"
+            isDarkTheme
+              ? "animate-dark-bg-spread"
+              : isFirstRender
+              ? ""
+              : "animate-dark-bg-shrink"
           }
         ></Styled.DarkModeBackground>
       </Styled.DarkMode>
