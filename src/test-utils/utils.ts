@@ -32,4 +32,5 @@ const renderWithRouter = (ui: ReactElement, { route = "/" } = {}) => {
 };
 
 export * from "@testing-library/react";
+export { userEvent };
 export { renderWithRouter };

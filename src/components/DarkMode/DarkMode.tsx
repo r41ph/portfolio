@@ -5,7 +5,7 @@ import { Icon } from "../Icon/Icon";
 import useFirstRender from "../../hooks/useFirstRender";
 
 export function DarkMode() {
-  const htmlTag = useRef(document.getElementsByTagName("html")[0]);
+  const htmlTag = useRef(document.documentElement);
   const preferedColorScheme = window.matchMedia(
     "(prefers-color-scheme: dark)",
   ).matches;
@@ -28,6 +28,7 @@ export function DarkMode() {
       <button
         className="fixed top-4 right-4 z-10 w-8 h-8"
         onClick={toggleDarkMode}
+        aria-label="Toggle dark mode"
       >
         {isDarkTheme ? (
           <Icon type={IconType.SUN} />
