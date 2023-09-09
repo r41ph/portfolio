@@ -4,6 +4,31 @@ import { IconType } from "../../../types/types";
 import { Icon } from "../Icon/Icon";
 import useFirstRender from "../../hooks/useFirstRender";
 
+function DarkModeToggle({
+  toggleDarkMode,
+  isDarkTheme,
+}: {
+  toggleDarkMode: () => void;
+  isDarkTheme: boolean;
+}) {
+  return (
+    <button
+      className="fixed top-4 right-4 z-10 w-8 h-8"
+      onClick={toggleDarkMode}
+      aria-label="Toggle dark mode"
+    >
+      {isDarkTheme ? (
+        <Icon type={IconType.SUN} />
+      ) : (
+        <Icon type={IconType.MOON} />
+      )}
+    </button>
+  );
+}
+
+/**
+  Renders a dark mode toggle button and a background that animates when the dark mode is toggled.
+ */
 export function DarkMode() {
   const htmlTag = useRef(document.documentElement);
   const preferedColorScheme = window.matchMedia(
@@ -11,6 +36,7 @@ export function DarkMode() {
   ).matches;
   const [isDarkTheme, setIsDarkTheme] = useState<boolean>(preferedColorScheme);
   const isFirstRender = useFirstRender();
+
   function toggleDarkMode() {
     setIsDarkTheme((darkTheme) => !darkTheme);
   }
@@ -25,17 +51,10 @@ export function DarkMode() {
 
   return (
     <>
-      <button
-        className="fixed top-4 right-4 z-10 w-8 h-8"
-        onClick={toggleDarkMode}
-        aria-label="Toggle dark mode"
-      >
-        {isDarkTheme ? (
-          <Icon type={IconType.SUN} />
-        ) : (
-          <Icon type={IconType.MOON} />
-        )}
-      </button>
+      <DarkModeToggle
+        toggleDarkMode={toggleDarkMode}
+        isDarkTheme={isDarkTheme}
+      />
       <Styled.DarkMode>
         <Styled.DarkModeBackground
           id="theme-background"
