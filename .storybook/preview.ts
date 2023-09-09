@@ -2,6 +2,8 @@ import "normalize.css";
 import "../src/index.css";
 import type { Preview } from "@storybook/react";
 
+import "./styles.css";
+
 const preview: Preview = {
   parameters: {
     actions: { argTypesRegex: "^on[A-Z].*" },

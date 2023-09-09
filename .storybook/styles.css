@@ -1,0 +1,4 @@
+/* Fix darkmode button visibility in story */
+#anchor--portfolio-components-darkmode--default .css-1wjen9k {
+  min-height: 140px;
+}
