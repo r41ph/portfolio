@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import * as Styled from "./DarkMode.styled";
 import { IconType } from "../../../types/types";
 import { Icon } from "../Icon/Icon";
-import useFirstRender from "../../hooks/useFirstRender";
+import useFirstRender from "../../hooks/use-first-render";
 
 function DarkModeToggle({
   toggleDarkMode,
