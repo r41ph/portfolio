@@ -20,13 +20,17 @@ export function Card({
       text: tw`bg-white bg-opacity-80 text-blue-dark px-1 py-0 h-12 w-14 flex justify-center items-center text-lg`,
     },
     bottom: {
-      link: tw`bg-white bg-opacity-0 opacity-0 w-full h-8 flex flex-col justify-end hover:opacity-100`,
-      text: tw`text-blue-dark`,
+      link: tw`opacity-0 hover:opacity-80 w-full h-full flex flex-col justify-end`,
+      text: tw`text-blue-dark bg-white px-1 py-3 flex justify-center items-center text-lg`,
     },
   };
 
   return (
-    <CardWrapper withShadow={withShadow}>
+    <CardWrapper
+      withShadow={withShadow}
+      className={withShadow ? "with-shadow" : ""}
+      data-testid="card"
+    >
       <CardContent image={project.image}>
         <a
           href="http://ralph.es"

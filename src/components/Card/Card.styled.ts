@@ -4,7 +4,7 @@ import tw from "twin.macro";
 export const CardWrapper = styled.figure<{ withShadow?: boolean }>(
   ({ withShadow }) => [
     tw`h-full relative`,
-    withShadow && tw`shadow-lg bg-white m-0`,
+    withShadow && tw`shadow-lg bg-white m-0 p-1`,
   ],
 );
 
