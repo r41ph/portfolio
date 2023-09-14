@@ -3,6 +3,7 @@ export interface IProject {
   stack: Icons[];
   company: string;
   image: string;
+  description?: string;
 }
 
 export enum Icons {
