@@ -7,12 +7,14 @@ interface CardProps {
   project: IProject;
   linkType?: ICardLinkType;
   withShadow?: boolean;
+  withDescription?: boolean;
 }
 
 export function Card({
   project,
   linkType = ICardLinkType.CENTER,
   withShadow,
+  withDescription,
 }: CardProps) {
   const styles = {
     center: {
@@ -42,7 +44,12 @@ export function Card({
         </a>
       </CardContent>
       <CardCaption>
-        <h2 className="text-base dark:animate-dark-fade-in">{project.name}</h2>
+        <h2 className="text-base pb-2 dark:animate-dark-fade-in">
+          {project.name}
+        </h2>
+        {withDescription && project.description && (
+          <p className="text-sm pb-2">{project.description}</p>
+        )}
         {project.stack.map((tech) => (
           <Label key={tech} text={tech}></Label>
         ))}
