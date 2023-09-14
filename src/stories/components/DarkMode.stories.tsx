@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { DarkMode } from "../../../components/DarkMode/DarkMode";
+import { DarkMode } from "../../components/DarkMode/DarkMode";
 import { within, userEvent } from "@storybook/testing-library";
 import { expect } from "@storybook/jest";
 
 const meta: Meta<typeof DarkMode> = {
-  title: "Portfolio/Components/DarkMode",
+  title: "Portfolio/Components/Dark Mode",
   component: DarkMode,
   tags: ["autodocs"],
   play: async ({ canvasElement }) => {

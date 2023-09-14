@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { IconType } from "../../../../types/types";
+import { IconType } from "../../../types/types";
 
-import { Label } from "../../../components/Label/Label";
+import { Label } from "../../components/Label/Label";
 
 const meta: Meta<typeof Label> = {
   title: "Portfolio/Components/Label",
