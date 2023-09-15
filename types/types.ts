@@ -32,6 +32,13 @@ export type IconType = Icons;
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const IconType = { ...Icons };
 
+export enum IIconSize {
+  XS = "xs",
+  SM = "sm",
+  MD = "md",
+  LG = "lg",
+}
+
 export interface ILabel {
   text: string;
   icon?: IconType;

@@ -17,113 +17,48 @@ import { ReactComponent as Envelope } from "../../assets/svg/envelope.svg";
 import { ReactComponent as Sun } from "../../assets/svg/sun.svg";
 import { ReactComponent as Moon } from "../../assets/svg/moon.svg";
 
-import { IconType } from "../../../types/types";
+import { IIconSize, IconType } from "../../../types/types";
+import { IconWrapper } from "./Icon.styles";
+
+/**
+ * Renders an icon based on the type passed in.
+ * @param type - The type of icon to render.
+ * @param className - Optional class name to add to the icon.
+ * @param size - Optional size of the icon. Defaults to small. See IIconSize for options.
+ */
 
 export const Icon = ({
   type: iconType,
   className = "",
+  size = IIconSize.SM,
 }: {
   type: IconType;
   className?: string;
+  size?: IIconSize;
 }) => {
   return (
-    <>
-      {iconType === IconType.CSS && (
-        <CSSLogo
-          className={className}
-          data-testid={`${iconType.toLowerCase()}`}
-        />
-      )}
-      {iconType === IconType.HTML && (
-        <HTMLLogo
-          className={className}
-          data-testid={`${iconType.toLowerCase()}`}
-        />
-      )}
-      {iconType === IconType.GRAPHQL && (
-        <GraphqlLogo
-          className={className}
-          data-testid={`${iconType.toLowerCase()}`}
-        />
-      )}
-      {iconType === IconType.JAVASCRIPT && (
-        <JSLogo
-          className={className}
-          data-testid={`${iconType.toLowerCase()}`}
-        />
-      )}
-      {iconType === IconType.LESS && (
-        <LESSLogo
-          className={className}
-          data-testid={`${iconType.toLowerCase()}`}
-        />
-      )}
-      {iconType === IconType.REACT && (
-        <ReactLogo
-          className={className}
-          data-testid={`${iconType.toLowerCase()}`}
-        />
-      )}
-      {iconType === IconType.REDUX && (
-        <ReduxLogo
-          className={className}
-          data-testid={`${iconType.toLowerCase()}`}
-        />
-      )}
-      {iconType === IconType.SCSS && (
-        <SCSSLogo
-          className={className}
-          data-testid={`${iconType.toLowerCase()}`}
-        />
-      )}
-      {iconType === IconType["STYLED-COMPONENTS"] && (
-        <StyledComponentsLogo
-          className={className}
-          data-testid={`${iconType.toLowerCase()}`}
-        />
-      )}
-      {iconType === IconType.WORDPRESS && (
-        <WordpressLogo
-          className={className}
-          data-testid={`${iconType.toLowerCase()}`}
-        />
-      )}
-      {iconType === IconType.JEST && (
-        <JestLogo
-          className={className}
-          data-testid={`${iconType.toLowerCase()}`}
-        />
-      )}
-      {iconType === IconType.RTL && (
-        <RTLLogo
-          className={className}
-          data-testid={`${iconType.toLowerCase()}`}
-        />
-      )}
-      {iconType === IconType.GITHUBLOGO && (
-        <GithubLogo
-          className={className}
-          data-testid={`${iconType.toLowerCase()}`}
-        />
-      )}
-      {iconType === IconType.CODEPENLOGO && (
-        <CodePenLogo
-          className={className}
-          data-testid={`${iconType.toLowerCase()}`}
-        />
-      )}
-      {iconType === IconType.ENVELOPE && (
-        <Envelope
-          className={className}
-          data-testid={`${iconType.toLowerCase()}`}
-        />
-      )}
-      {iconType === IconType.SUN && (
-        <Sun className={className} data-testid={`${iconType.toLowerCase()}`} />
-      )}
-      {iconType === IconType.MOON && (
-        <Moon className={className} data-testid={`${iconType.toLowerCase()}`} />
-      )}
-    </>
+    <IconWrapper
+      size={size}
+      data-testid={`${iconType.toLowerCase()}`}
+      className={className}
+    >
+      {iconType === IconType.CSS && <CSSLogo />}
+      {iconType === IconType.HTML && <HTMLLogo />}
+      {iconType === IconType.GRAPHQL && <GraphqlLogo />}
+      {iconType === IconType.JAVASCRIPT && <JSLogo />}
+      {iconType === IconType.LESS && <LESSLogo />}
+      {iconType === IconType.REACT && <ReactLogo />}
+      {iconType === IconType.REDUX && <ReduxLogo />}
+      {iconType === IconType.SCSS && <SCSSLogo />}
+      {iconType === IconType["STYLED-COMPONENTS"] && <StyledComponentsLogo />}
+      {iconType === IconType.WORDPRESS && <WordpressLogo />}
+      {iconType === IconType.JEST && <JestLogo />}
+      {iconType === IconType.RTL && <RTLLogo />}
+      {iconType === IconType.GITHUBLOGO && <GithubLogo />}
+      {iconType === IconType.CODEPENLOGO && <CodePenLogo />}
+      {iconType === IconType.ENVELOPE && <Envelope />}
+      {iconType === IconType.SUN && <Sun />}
+      {iconType === IconType.MOON && <Moon />}
+    </IconWrapper>
   );
 };

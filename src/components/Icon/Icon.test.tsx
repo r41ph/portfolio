@@ -8,7 +8,7 @@ describe("Icon", () => {
     expect(screen.getByTestId("css")).toBeInTheDocument();
   });
 
-  test("receives the className prop", () => {
+  test("renders an Icon with a custom CSS class", () => {
     render(<Icon type={IconType.CSS} className="test-class" />);
     expect(screen.getByTestId("css")).toHaveClass("test-class");
   });
