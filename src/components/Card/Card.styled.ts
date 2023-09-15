@@ -1,10 +1,10 @@
 import styled, { css } from "styled-components";
 import tw from "twin.macro";
 
-export const CardWrapper = styled.figure<{ withShadow?: boolean }>(
-  ({ withShadow }) => [
+export const CardWrapper = styled.figure<{ $shadow?: boolean }>(
+  ({ $shadow }) => [
     tw`h-full relative max-w-xs`,
-    withShadow && tw`shadow-lg bg-white m-0 p-1`,
+    $shadow && tw`shadow-lg bg-white m-0 p-1`,
   ],
 );
 

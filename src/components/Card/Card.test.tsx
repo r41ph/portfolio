@@ -30,13 +30,13 @@ describe("Card", () => {
   });
 
   test("renders a Card with shadow", () => {
-    render(<Card project={project} withShadow />);
+    render(<Card project={project} $shadow />);
     const card = screen.getByTestId("card");
     expect(card).toHaveClass("with-shadow");
   });
 
   test("renders a Card with description", () => {
-    render(<Card project={project} withDescription />);
+    render(<Card project={project} description />);
     const description = screen.getByText(
       /Lorem ipsum dolor sit amet, consectetur adipiscing elit./i,
     );

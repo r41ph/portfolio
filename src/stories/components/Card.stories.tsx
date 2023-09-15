@@ -20,11 +20,11 @@ BottomLink.args = {
   linkType: ICardLinkType.BOTTOM,
 };
 
-export const WithShadow = Template.bind({});
-WithShadow.args = {
-  withShadow: true,
+export const Shadow = Template.bind({});
+Shadow.args = {
+  $shadow: true,
 };
-export const WithDescription = Template.bind({});
-WithDescription.args = {
-  withDescription: true,
+export const Description = Template.bind({});
+Description.args = {
+  description: true,
 };

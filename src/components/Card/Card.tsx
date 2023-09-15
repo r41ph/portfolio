@@ -6,15 +6,15 @@ import tw from "twin.macro";
 interface CardProps {
   project: IProject;
   linkType?: ICardLinkType;
-  withShadow?: boolean;
-  withDescription?: boolean;
+  $shadow?: boolean; // See https://styled-components.com/docs/api#transient-props
+  description?: boolean;
 }
 
 export function Card({
   project,
   linkType = ICardLinkType.CENTER,
-  withShadow,
-  withDescription,
+  $shadow,
+  description,
 }: CardProps) {
   const styles = {
     center: {
@@ -29,8 +29,8 @@ export function Card({
 
   return (
     <CardWrapper
-      withShadow={withShadow}
-      className={withShadow ? "with-shadow" : ""}
+      $shadow={$shadow}
+      className={$shadow ? "with-shadow" : ""}
       data-testid="card"
     >
       <CardContent image={project.image}>
@@ -47,7 +47,7 @@ export function Card({
         <h2 className="text-base pb-2 dark:animate-dark-fade-in">
           {project.name}
         </h2>
-        {withDescription && project.description && (
+        {description && project.description && (
           <p className="text-sm pb-2">{project.description}</p>
         )}
         {project.stack.map((tech) => (
