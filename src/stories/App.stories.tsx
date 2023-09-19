@@ -3,7 +3,7 @@ import { MemoryRouter, Route, Routes } from "react-router-dom";
 
 import App from "../App";
 
-const reactRouterDecorator: Decorator = (Story) => {
+const ReactRouterDecorator: Decorator = (Story) => {
   return (
     <MemoryRouter>
       <Routes>
@@ -16,15 +16,12 @@ const reactRouterDecorator: Decorator = (Story) => {
 const meta: Meta<typeof App> = {
   title: "Portfolio/Website",
   component: App,
-  decorators: [reactRouterDecorator],
+  decorators: [ReactRouterDecorator],
+  parameters: { options: { showPanel: false } },
 };
 
 export default meta;
 
-const Template: StoryFn<typeof App> = (args) => <App {...args} />;
+const Template: StoryFn<typeof App> = () => <App />;
 
 export const Website = Template.bind({});
-
-Website.args = {
-  theme: true,
-};

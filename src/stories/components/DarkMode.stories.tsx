@@ -7,6 +7,7 @@ const meta: Meta<typeof DarkMode> = {
   title: "Portfolio/Components/Dark Mode",
   component: DarkMode,
   tags: ["autodocs"],
+  parameters: { options: { showPanel: true } },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     const darkModeButton = canvas.getByRole("button", {

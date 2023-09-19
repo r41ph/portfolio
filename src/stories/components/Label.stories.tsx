@@ -7,6 +7,7 @@ const meta: Meta<typeof Label> = {
   title: "Portfolio/Components/Label",
   component: Label,
   tags: ["autodocs"],
+  parameters: { options: { showPanel: true } },
   args: {
     text: "My Label",
   },

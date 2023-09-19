@@ -9,6 +9,7 @@ const meta: Meta<typeof Icon> = {
   args: {
     type: Icons.GITHUB,
   },
+  parameters: { options: { showPanel: true } },
 };
 
 export default meta;

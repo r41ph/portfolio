@@ -7,6 +7,7 @@ import { projects } from "../../assets/data";
 const meta: Meta<typeof Card> = {
   title: "Portfolio/Components/Card",
   component: Card,
+  parameters: { options: { showPanel: true } },
 };
 export default meta;
 

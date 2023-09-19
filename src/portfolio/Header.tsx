@@ -1,9 +1,3 @@
-import { Navigation } from "./Navigation";
-
-export function Header() {
-  return (
-    <header className="my-10 z-20 relative">
-      <Navigation></Navigation>
-    </header>
-  );
+export function Header({ children }: { children: React.ReactNode }) {
+  return <header>{children}</header>;
 }

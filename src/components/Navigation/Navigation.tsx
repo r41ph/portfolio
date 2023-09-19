@@ -1,9 +1,9 @@
 import { NavLink } from "react-router-dom";
-import logo from "../assets/images/logo.png";
+import logo from "../../assets/images/logo.png";
 
 export function Navigation() {
   return (
-    <nav>
+    <nav className="my-10 z-20 relative">
       <ul className="flex justify-center items-center dark:animate-dark-fade-in">
         <li className="w-10 font-semibold">
           <NavLink to="/">Work</NavLink>
