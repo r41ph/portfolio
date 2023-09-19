@@ -1,7 +1,7 @@
 import { StoryFn, Meta } from "@storybook/react";
 
 import { Card } from "../../components/Card/Card";
-import { ICardLinkType } from "../../../types/types";
+import { CardLinkType } from "../../../types/types";
 import { projects } from "../../assets/data";
 
 const meta: Meta<typeof Card> = {
@@ -18,7 +18,7 @@ export const Default = Template.bind({});
 
 export const BottomLink = Template.bind({});
 BottomLink.args = {
-  linkType: ICardLinkType.BOTTOM,
+  linkType: CardLinkType.BOTTOM,
 };
 
 export const Shadow = Template.bind({});

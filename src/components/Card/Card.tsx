@@ -1,18 +1,18 @@
 import { Label } from "../../components/Label/Label";
-import { ICardLinkType, IProject } from "../../../types/types";
+import { CardLinkType, IProject } from "../../../types/types";
 import { CardWrapper, CardContent, CardCaption } from "./Card.styled";
 import tw from "twin.macro";
 
 interface CardProps {
   project: IProject;
-  linkType?: ICardLinkType;
+  linkType?: CardLinkType;
   $shadow?: boolean; // See https://styled-components.com/docs/api#transient-props
   description?: boolean;
 }
 
 export function Card({
   project,
-  linkType = ICardLinkType.CENTER,
+  linkType = CardLinkType.CENTER,
   $shadow,
   description,
 }: CardProps) {

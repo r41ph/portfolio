@@ -13,34 +13,18 @@ const reactRouterDecorator: Decorator = (Story) => {
   );
 };
 
-export default {
+const meta: Meta<typeof App> = {
   title: "Portfolio/Website",
   component: App,
   decorators: [reactRouterDecorator],
-} as Meta<typeof App>;
+};
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
+export default meta;
+
 const Template: StoryFn<typeof App> = (args) => <App {...args} />;
 
 export const Website = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
+
 Website.args = {
   theme: true,
 };
-
-// export const Secondary = Template.bind({});
-// Secondary.args = {
-//   label: 'App',
-// };
-
-// export const Large = Template.bind({});
-// Large.args = {
-//   size: 'large',
-//   label: 'App',
-// };
-
-// export const Small = Template.bind({});
-// Small.args = {
-//   size: 'small',
-//   label: 'App',
-// };

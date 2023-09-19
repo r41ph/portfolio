@@ -1,4 +1,4 @@
-import { ICardLinkType, Icons } from "../../../types/types";
+import { CardLinkType, Icons } from "../../../types/types";
 import { render, screen } from "../../test-utils/utils";
 import { Card } from "./Card";
 
@@ -21,7 +21,7 @@ describe("Card", () => {
   });
 
   test("renders a Card with a link that points to a new tab/window", () => {
-    render(<Card project={project} linkType={ICardLinkType.CENTER} />);
+    render(<Card project={project} linkType={CardLinkType.CENTER} />);
     const card = screen.getByTestId("card");
     expect(card).toBeInTheDocument();
     const link = screen.getByRole("link");

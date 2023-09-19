@@ -17,7 +17,7 @@ import { ReactComponent as Envelope } from "../../assets/svg/envelope.svg";
 import { ReactComponent as Sun } from "../../assets/svg/sun.svg";
 import { ReactComponent as Moon } from "../../assets/svg/moon.svg";
 
-import { IIconSize, IconType } from "../../../types/types";
+import { IconSize, IconType } from "../../../types/types";
 import { IconWrapper } from "./Icon.styles";
 
 /**
@@ -30,11 +30,11 @@ import { IconWrapper } from "./Icon.styles";
 export const Icon = ({
   type: iconType,
   className = "",
-  size = IIconSize.SM,
+  size = IconSize.SM,
 }: {
   type: IconType;
   className?: string;
-  size?: IIconSize;
+  size?: IconSize;
 }) => {
   return (
     <IconWrapper
@@ -54,8 +54,8 @@ export const Icon = ({
       {iconType === IconType.WORDPRESS && <WordpressLogo />}
       {iconType === IconType.JEST && <JestLogo />}
       {iconType === IconType.RTL && <RTLLogo />}
-      {iconType === IconType.GITHUBLOGO && <GithubLogo />}
-      {iconType === IconType.CODEPENLOGO && <CodePenLogo />}
+      {iconType === IconType.GITHUB && <GithubLogo />}
+      {iconType === IconType.CODEPEN && <CodePenLogo />}
       {iconType === IconType.ENVELOPE && <Envelope />}
       {iconType === IconType.SUN && <Sun />}
       {iconType === IconType.MOON && <Moon />}

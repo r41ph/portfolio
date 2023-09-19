@@ -14,7 +14,7 @@ export const Footer = () => {
           >
             <Icon
               className="dark:animate-dark-fade-in"
-              type={IconType.GITHUBLOGO}
+              type={IconType.GITHUB}
             />
           </a>
         </li>
@@ -27,7 +27,7 @@ export const Footer = () => {
           >
             <Icon
               className="dark:animate-dark-fade-in"
-              type={IconType.CODEPENLOGO}
+              type={IconType.CODEPEN}
             />
           </a>
         </li>

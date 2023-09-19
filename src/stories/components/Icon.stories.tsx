@@ -1,13 +1,13 @@
 import { Meta, StoryFn } from "@storybook/react";
 import { Icon } from "../../components/Icon/Icon";
-import { IIconSize, Icons } from "../../../types/types";
+import { IconSize, Icons } from "../../../types/types";
 
 const meta: Meta<typeof Icon> = {
   title: "Portfolio/Components/Icon",
   component: Icon,
   tags: ["autodocs"],
   args: {
-    type: Icons.GITHUBLOGO,
+    type: Icons.GITHUB,
   },
 };
 
@@ -16,13 +16,13 @@ export default meta;
 const Template: StoryFn<typeof Icon> = (args) => <Icon {...args} />;
 
 export const ExtraSmall = Template.bind({});
-ExtraSmall.args = { size: IIconSize.XS };
+ExtraSmall.args = { size: IconSize.XS };
 
 export const Small = Template.bind({});
-Small.args = { size: IIconSize.SM };
+Small.args = { size: IconSize.SM };
 
 export const Medium = Template.bind({});
-Medium.args = { size: IIconSize.MD };
+Medium.args = { size: IconSize.MD };
 
 export const Large = Template.bind({});
-Large.args = { size: IIconSize.LG };
+Large.args = { size: IconSize.LG };

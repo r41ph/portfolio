@@ -7,9 +7,9 @@ export interface IProject {
 }
 
 export enum Icons {
-  GITHUBLOGO = "GITHUBLOGO",
-  CODEPENLOGO = "CODEPENLOGO",
-  ENVELOPE = "ENVELOPE",
+  GITHUB = "Github",
+  CODEPEN = "Codepen",
+  ENVELOPE = "Envelope",
   HTML = "HTML",
   CSS = "CSS",
   GRAPHQL = "GraphQL",
@@ -22,8 +22,8 @@ export enum Icons {
   WORDPRESS = "Wordpress",
   JEST = "Jest",
   RTL = "RTL",
-  SUN = "SUN",
-  MOON = "MOON",
+  SUN = "Sun",
+  MOON = "Moon",
 }
 
 // IStack and IconType are equal enums
@@ -32,28 +32,28 @@ export type IconType = Icons;
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const IconType = { ...Icons };
 
-export enum IIconSize {
+export enum IconSize {
   XS = "xs",
   SM = "sm",
   MD = "md",
   LG = "lg",
 }
 
-export interface ILabel {
+export interface Label {
   text: string;
   icon?: IconType;
   callback?: () => void;
-  size?: ILabelSize;
+  size?: LabelSize;
 }
 
-export enum ILabelSize {
+export enum LabelSize {
   XS = "xs",
   SM = "sm",
   MD = "md",
   LG = "lg",
 }
 
-export enum ICardLinkType {
+export enum CardLinkType {
   "CENTER" = "center",
   "BOTTOM" = "bottom",
 }

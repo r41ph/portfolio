@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ILabelSize, IconType } from "../../../types/types";
+import { LabelSize, IconType } from "../../../types/types";
 
 import { Label } from "../../components/Label/Label";
 
@@ -8,7 +8,7 @@ const meta: Meta<typeof Label> = {
   component: Label,
   tags: ["autodocs"],
   args: {
-    text: "React",
+    text: "My Label",
   },
 };
 
@@ -19,38 +19,38 @@ export const Default: Story = {};
 
 export const WithIcon: Story = {
   args: {
-    text: "React",
-    icon: IconType.REACT,
-    size: ILabelSize.MD,
+    text: "Github",
+    icon: IconType.GITHUB,
+    size: LabelSize.MD,
   },
 };
 WithIcon.name = "With Icon";
 
 export const ExtraSmall: Story = {
   args: {
-    text: "React",
-    size: ILabelSize.XS,
+    text: "My Label",
+    size: LabelSize.XS,
   },
 };
 ExtraSmall.name = "Extra small";
 
 export const Small: Story = {
   args: {
-    text: "React",
-    size: ILabelSize.SM,
+    text: "My Label",
+    size: LabelSize.SM,
   },
 };
 
 export const Medium: Story = {
   args: {
-    text: "React",
-    size: ILabelSize.MD,
+    text: "My Label",
+    size: LabelSize.MD,
   },
 };
 
 export const Large: Story = {
   args: {
-    text: "React",
-    size: ILabelSize.LG,
+    text: "My Label",
+    size: LabelSize.LG,
   },
 };

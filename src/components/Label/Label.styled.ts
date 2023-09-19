@@ -1,27 +1,27 @@
 import styled from "styled-components";
 import tw from "twin.macro";
-import { ILabelSize } from "../../../types/types";
+import { LabelSize } from "../../../types/types";
 
-export const LabelWrapper = styled.div<{ size?: ILabelSize }>(({ size }) => [
-  size === ILabelSize.XS &&
+export const LabelWrapper = styled.div<{ size?: LabelSize }>(({ size }) => [
+  size === LabelSize.XS &&
     tw`
       text-xs
       [&>svg]:w-4
       [&>svg]:h-4
     `,
-  size === ILabelSize.SM &&
+  size === LabelSize.SM &&
     tw`
       text-sm
       [&>svg]:w-5
       [&>svg]:h-5
     `,
-  size === ILabelSize.MD &&
+  size === LabelSize.MD &&
     tw`
       text-base
       [&>svg]:w-6
       [&>svg]:h-6
     `,
-  size === ILabelSize.LG &&
+  size === LabelSize.LG &&
     tw`
       text-lg
       [&>svg]:w-7
