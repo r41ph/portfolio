@@ -14,23 +14,8 @@ export default defineConfig({
     react({ plugins: [["@swc/plugin-styled-components", {}]] }),
     macrosPlugin(),
     svgr(),
-    {
-      // default settings on build (i.e. fail on error)
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-      ...eslint(),
-      apply: "build",
-    },
-    {
-      // do not fail on serve (i.e. local development)
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-      ...eslint({
-        failOnWarning: false,
-        failOnError: false,
-        exclude: [/virtual:/, /node_modules/],
-      }),
-      apply: "serve",
-      enforce: "post",
-    },
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+    eslint(),
   ],
   css: {
     postcss: {
