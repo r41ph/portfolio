@@ -42,6 +42,7 @@ export enum IconSize {
 export interface Label {
   text: string;
   icon?: IconType;
+  key?: string;
   callback?: () => void;
   size?: LabelSize;
 }

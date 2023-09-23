@@ -51,7 +51,7 @@ export function Card({
           <p className="text-sm pb-2">{project.description}</p>
         )}
         {project.stack.map((tech) => (
-          <Label key={tech} text={tech}></Label>
+          <Label key={tech} text={tech} />
         ))}
       </CardCaption>
     </CardWrapper>
