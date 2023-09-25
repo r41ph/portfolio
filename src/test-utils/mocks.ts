@@ -8,7 +8,7 @@ vi.mock("../assets/data", () => {
         name: "Mock project",
         stack: [Icons.HTML, Icons.CSS, Icons.JAVASCRIPT],
         company: "Syrox",
-        image: "/src/assets/images/projects/green-sheep-thumbnail.jpg",
+        image: "/images/projects/green-sheep-thumbnail.jpg",
       },
     ],
   };
