@@ -17,7 +17,7 @@ export default defineConfig({
     {
       // default settings on build (i.e. fail on error)
       // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-      ...eslint(),
+      ...eslint({ exclude: [/virtual:/, /node_modules/] }),
       apply: "build",
     },
     {
