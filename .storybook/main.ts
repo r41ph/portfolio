@@ -25,7 +25,7 @@ const config: StorybookConfig = {
     // }
 
     if (configType === "PRODUCTION") {
-      config.base = "/storybook/";
+      config.base = "./storybook/";
     }
 
     return mergeConfig(config, {
