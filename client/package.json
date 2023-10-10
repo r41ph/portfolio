@@ -19,11 +19,9 @@
     "build-storybook": "storybook build -- -o public/storybook",
     "test-storybook": "test-storybook",
     "test": "vitest",
-    "test:ui": "vitest --ui",
-    "serve": "node scripts/serve.js"
+    "test:ui": "vitest --ui"
   },
   "dependencies": {
-    "express": "^4.18.2",
     "normalize.css": "^8.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
