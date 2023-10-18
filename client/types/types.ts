@@ -58,3 +58,53 @@ export enum CardLinkType {
   "CENTER" = "center",
   "BOTTOM" = "bottom",
 }
+
+export interface Project {
+  name: string;
+  stack: Icons[];
+  company: string;
+  image: string;
+  description: string;
+}
+
+export interface Lab {
+  name: string;
+  source: string;
+}
+
+export interface AppState {
+  projects: Project[] | null;
+  labs: Lab[] | null;
+}
+
+export enum ActionType {
+  SET_PROJECT = "SET_PROJECT",
+  SET_LAB = "SET_LAB",
+}
+
+export interface Action {
+  type: ActionType;
+}
+
+export interface ProjectAction extends Action {
+  payload: Project[];
+}
+
+export interface LabAction extends Action {
+  payload: Lab[];
+}
+
+export type AppAction = ProjectAction | LabAction;
+
+// Actions type Guards
+export function isProjectAction(action: Action): action is ProjectAction {
+  return action.type === ActionType.SET_PROJECT;
+}
+export function isLabAction(action: Action): action is LabAction {
+  return action.type === ActionType.SET_LAB;
+}
+
+export interface AppContextType {
+  state: AppState;
+  setState: React.Dispatch<AppAction>;
+}

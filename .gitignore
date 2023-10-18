@@ -9,6 +9,9 @@ lerna-debug.log*
 
 node_modules
 dist
+server/public
+client/public/storybook
+client/storybook-static
 dist-ssr
 *.local
 
