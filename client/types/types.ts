@@ -73,8 +73,8 @@ export interface Lab {
 }
 
 export interface AppState {
-  projects: Project[] | null;
-  labs: Lab[] | null;
+  projects: Project[];
+  labs: Lab[];
 }
 
 export enum ActionType {
