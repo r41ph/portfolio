@@ -27,14 +27,22 @@ export const Work = () => {
   }, [setState, state?.projects?.length]);
 
   return (
-    <ul className="grid xs:grid-cols-2 md:grid-cols-3 gap-4">
-      {state?.projects?.map((project: Project) => {
-        return (
-          <li key={project.name}>
-            <Card project={project} linkType={CardLinkType.CENTER} />
-          </li>
-        );
-      })}
-    </ul>
+    <>
+      {state?.projects?.length ? (
+        <ul className="grid xs:grid-cols-2 md:grid-cols-3 gap-4">
+          {state?.projects?.map((project: Project) => {
+            return (
+              <li key={project.name}>
+                <Card project={project} linkType={CardLinkType.CENTER} />
+              </li>
+            );
+          })}
+        </ul>
+      ) : (
+        <div className="flex justify-center items-center h-96">
+          <p className="text-xl text-gray-500">Loading...</p>
+        </div>
+      )}
+    </>
   );
 };
