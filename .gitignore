@@ -14,6 +14,7 @@ client/public/storybook
 client/storybook-static
 dist-ssr
 *.local
+.env.local
 
 # Editor directories and files
 .vscode/*

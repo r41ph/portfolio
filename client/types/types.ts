@@ -108,3 +108,11 @@ export interface AppContextType {
   state: AppState;
   setState: React.Dispatch<AppAction>;
 }
+
+export interface UnsplashImage {
+  src: string;
+  author: {
+    name: string;
+    url: string;
+  };
+}
