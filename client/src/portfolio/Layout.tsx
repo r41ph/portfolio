@@ -41,7 +41,7 @@ export function Layout() {
         <Outlet />
       </main>
       <Footer />
-      {state?.labs?.length || (state?.projects?.length && <DarkMode />)}
+      {state?.labs?.length > 0 || (state?.projects?.length > 0 && <DarkMode />)}
     </AppContext.Provider>
   );
 }
