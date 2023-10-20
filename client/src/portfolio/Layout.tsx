@@ -1,7 +1,7 @@
 import { createContext, useReducer } from "react";
 import { Outlet } from "react-router-dom";
 import { Footer } from "./footer/Footer";
-import { Header } from "./Header";
+import { Header } from "./header/Header";
 import { DarkMode } from "../components/DarkMode/DarkMode";
 import { Navigation } from "../components/Navigation/Navigation";
 import {
