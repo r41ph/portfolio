@@ -76,7 +76,7 @@
     "vite": "^4.4.4",
     "vite-plugin-babel-macros": "^1.0.6",
     "vite-plugin-eslint": "^1.8.1",
-    "vitest": "^0.34.1"
+    "vitest": "^0.34.5"
   },
   "engines": {
     "node": "16.20.1"
