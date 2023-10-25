@@ -1,8 +1,8 @@
 import { useContext, useEffect } from "react";
-import { ActionType, CardLinkType, Project } from "../../types/types";
-import { Card } from "../components/Card/Card";
-import { AppContext } from "./Layout";
-import api from "../utils/api";
+import { ActionType, CardLinkType, Project } from "../../../types/types";
+import { Card } from "../../components/Card/Card";
+import { AppContext } from "../Layout/Layout";
+import api from "../../utils/api";
 
 export const Work = () => {
   const { state, setState } = useContext(AppContext);

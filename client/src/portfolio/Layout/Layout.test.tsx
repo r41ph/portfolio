@@ -3,7 +3,7 @@ import { BrowserRouter } from "react-router-dom";
 import { AppContext, Layout } from "./Layout";
 
 describe("Layout", () => {
-  it("renders the header", () => {
+  test("renders the header", () => {
     const { getByRole } = render(
       <BrowserRouter>
         <AppContext.Provider
@@ -16,7 +16,7 @@ describe("Layout", () => {
     expect(getByRole("banner")).toBeInTheDocument();
   });
 
-  it("renders the footer", () => {
+  test("renders the footer", () => {
     const { getByRole } = render(
       <BrowserRouter>
         <AppContext.Provider
@@ -29,7 +29,7 @@ describe("Layout", () => {
     expect(getByRole("contentinfo")).toBeInTheDocument();
   });
 
-  it("does not render the dark mode toggle if there are no projects or labs", () => {
+  test("does not render the dark mode toggle if there are no projects or labs", () => {
     const { queryByLabelText } = render(
       <BrowserRouter>
         <AppContext.Provider

@@ -1,9 +1,9 @@
 import { createContext, useReducer } from "react";
 import { Outlet } from "react-router-dom";
-import { Footer } from "./footer/Footer";
-import { Header } from "./header/Header";
-import { DarkMode } from "../components/DarkMode/DarkMode";
-import { Navigation } from "../components/Navigation/Navigation";
+import { Footer } from "../Footer/Footer";
+import { Header } from "../Header/Header";
+import { DarkMode } from "../../components/DarkMode/DarkMode";
+import { Navigation } from "../../components/Navigation/Navigation";
 import {
   AppContextType,
   AppState,
@@ -11,7 +11,7 @@ import {
   ActionType,
   isProjectAction,
   isLabAction,
-} from "../../types/types";
+} from "../../../types/types";
 
 const initialState: AppState = { projects: [], labs: [] };
 

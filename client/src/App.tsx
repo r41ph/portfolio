@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom";
-import { Layout } from "./portfolio/Layout";
-import { Work } from "./portfolio/Work";
+import { Layout } from "./portfolio/Layout/Layout";
+import { Work } from "./portfolio/Work/Work";
 import { Labs } from "./portfolio/Labs";
-import { NotFound } from "./portfolio/not-found/NotFound";
+import { NotFound } from "./portfolio/Not-found/NotFound";
 
 function App() {
   return (
