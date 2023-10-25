@@ -25,6 +25,7 @@ export const handlers = [
             stack: ["HTML", "CSS", "JAVASCRIPT"],
             company: "Syrox",
             image: "/images/projects/green-sheep-thumbnail.jpg",
+            description: "Mock description",
           },
         ],
       }),
