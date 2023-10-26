@@ -12,6 +12,7 @@ dist
 server/public
 client/public/storybook
 client/storybook-static
+client/coverage
 dist-ssr
 *.local
 .env.local
