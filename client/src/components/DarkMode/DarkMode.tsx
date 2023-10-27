@@ -26,9 +26,6 @@ function DarkModeToggle({
   );
 }
 
-/**
-  Renders a dark mode toggle button and a background that animates when the dark mode is toggled.
- */
 export function DarkMode() {
   const htmlTag = useRef(document.documentElement);
   const preferedColorScheme = window.matchMedia(
