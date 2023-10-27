@@ -14,7 +14,7 @@ export const Work = () => {
   if (isLoading) {
     return (
       <div className="flex justify-center items-center h-96">
-        <p className="text-xl text-gray-500">Loading...</p>
+        <p className="text-md text-gray-500">Loading...</p>
       </div>
     );
   }
