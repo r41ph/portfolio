@@ -1,29 +1,16 @@
-import { useEffect, useState } from "react";
 import getUnsplashImage from "../../utils/unsplash-api";
-import { UnsplashImage } from "../../../types/types";
+import { useQuery } from "@tanstack/react-query";
 
 export function NotFound() {
-  const [image, setImage] = useState<UnsplashImage>({
-    src: "",
-    author: {
-      name: "",
-      url: "",
-    },
-  });
-
-  useEffect(() => {
-    if (!image.src) {
+  const { data, isLoading } = useQuery({
+    queryKey: ["404-image"],
+    queryFn: () =>
       getUnsplashImage({
         query: "404",
         orientation: "landscape",
-      })
-        .then((response) => {
-          setImage(response);
-        })
-        .catch((err) => {
-          console.log("err", err);
-        });
-    }
+      }),
+    refetchOnWindowFocus: false,
+    refetchOnMount: false,
   });
 
   return (
@@ -32,13 +19,17 @@ export function NotFound() {
       <p className="text-md mb-20">
         The page you are looking for does not exist.
       </p>
-      {image.src && (
+      {isLoading ? (
+        <div className="flex justify-center items-center h-96">
+          <p className="text-md text-gray-500">Loading...</p>
+        </div>
+      ) : (
         <figure className="flex flex-col items-center w-1/2">
-          <img className="h-96" src={image.src} alt="404" />
+          <img className="h-96" src={data?.src} alt="404" />
           <figcaption className="text-xs items-end-l mt-1 ml-auto">
             Image by{" "}
-            <a className="underline" href={image.author.url}>
-              {image.author.name}
+            <a className="underline" href={data?.author.url}>
+              {data?.author.name}
             </a>
           </figcaption>
         </figure>
