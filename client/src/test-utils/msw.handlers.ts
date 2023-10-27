@@ -1,7 +1,7 @@
 import { rest } from "msw";
 
 export const handlers = [
-  rest.get("https://api.unsplash.com/photos/random", (req, res, ctx) => {
+  rest.get("https://api.unsplash.com/photos/random", (_req, res, ctx) => {
     return res(
       ctx.status(200),
       ctx.json([
@@ -15,7 +15,7 @@ export const handlers = [
       ]),
     );
   }),
-  rest.get("api/projects", (req, res, ctx) => {
+  rest.get("api/projects", (_req, res, ctx) => {
     return res(
       ctx.status(200),
       ctx.json({
@@ -39,13 +39,3 @@ export const handlers = [
     );
   }),
 ];
-// {
-//     projects: [
-//       {
-//         name: "Mock project",
-//         stack: [Icons.HTML, Icons.CSS, Icons.JAVASCRIPT],
-//         company: "Syrox",
-//         image: "/images/projects/green-sheep-thumbnail.jpg",
-//       },
-//     ],
-//   }
