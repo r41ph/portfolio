@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 import tw from "twin.macro";
 
-export const CardWrapper = styled.figure<{ $shadow?: boolean }>(
+export const CardWrapper = styled.article<{ $shadow?: boolean }>(
   ({ $shadow }) => [
     tw`h-full relative max-w-xs`,
     $shadow && tw`shadow-lg bg-white m-0 p-1`,
@@ -15,7 +15,7 @@ export const CardContent = styled.div<{ image: string }>(({ image }) => [
   `,
 ]);
 
-export const CardCaption = tw.figcaption`
+export const CardCaption = tw.footer`
   pt-1
 `;
 
