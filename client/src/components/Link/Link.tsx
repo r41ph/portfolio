@@ -5,11 +5,12 @@ import { AriaFocusRingProps, useFocusRing } from "@react-aria/focus";
 
 type LinkProps = {
   children: React.ReactNode;
+  ariaLabel: string;
 } & AriaLinkOptions &
   AriaFocusRingProps;
 
 export function Link(props: LinkProps) {
-  const { children, href } = props;
+  const { children, href, ariaLabel } = props;
   // const ref = useRef(null);
   const { isFocusVisible, focusProps } = useFocusRing(props);
   // TODO: find out why useLink is returning "Invalid hook call." error
@@ -22,6 +23,7 @@ export function Link(props: LinkProps) {
       // ref={ref}
       target="_blank"
       className={`${isFocusVisible ? "focus-ring" : ""}`}
+      aria-label={ariaLabel}
     >
       {children}
     </a>

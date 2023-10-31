@@ -11,7 +11,7 @@ export const Footer = () => {
             href="https://github.com/r41ph"
             target="_blank"
             rel="noreferrer"
-            aria-label="Link to r41ph github account"
+            ariaLabel="Link to r41ph github account"
           >
             <Icon
               className="dark:animate-dark-fade-in"
@@ -24,7 +24,7 @@ export const Footer = () => {
             href="https://codepen.io/r41ph"
             target="_blank"
             rel="noreferrer"
-            aria-label="Link to r41ph codepen account"
+            ariaLabel="Link to r41ph codepen account"
           >
             <Icon
               className="dark:animate-dark-fade-in"
@@ -37,7 +37,7 @@ export const Footer = () => {
             href="mailto:jobs@rgalan.es?subject=Nice portfolio. Let's talk!"
             target="_blank"
             rel="noreferrer"
-            aria-label="Send email to r41ph"
+            ariaLabel="Send email to r41ph"
           >
             <Icon
               className="dark:animate-dark-fade-in"
