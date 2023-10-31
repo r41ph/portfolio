@@ -2,20 +2,23 @@ import { Label } from "../../components/Label/Label";
 import { CardLinkType, IProject } from "../../../types/types";
 import { CardWrapper, CardContent, CardCaption } from "./Card.styled";
 import tw from "twin.macro";
+import { AriaFocusRingProps, useFocusRing } from "@react-aria/focus";
 
-interface CardProps {
+type CardProps = {
   project: IProject;
   linkType?: CardLinkType;
   $shadow?: boolean; // See https://styled-components.com/docs/api#transient-props
   description?: boolean;
-}
+} & AriaFocusRingProps;
 
-export function Card({
-  project,
-  linkType = CardLinkType.CENTER,
-  $shadow,
-  description,
-}: CardProps) {
+export function Card(props: CardProps) {
+  const {
+    project,
+    linkType = CardLinkType.CENTER,
+    $shadow,
+    description,
+  } = props;
+  const { isFocusVisible, focusProps } = useFocusRing(props);
   const styles = {
     center: {
       link: tw`border-solid border-2 border-white h-full w-full z-50 hover:animate-border-scale flex justify-center items-center flex-col opacity-0`,
@@ -35,6 +38,8 @@ export function Card({
     >
       <CardContent image={project.image}>
         <a
+          {...focusProps}
+          className={`${isFocusVisible ? "focus-ring" : ""}`}
           href="http://ralph.es"
           target="_blank"
           rel="noopener noreferrer"

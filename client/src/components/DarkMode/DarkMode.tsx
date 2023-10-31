@@ -3,6 +3,7 @@ import * as Styled from "./DarkMode.styled";
 import { IconType } from "../../../types/types";
 import { Icon } from "../Icon/Icon";
 import useFirstRender from "../../hooks/use-first-render";
+import { Button } from "../Button/Button";
 
 function DarkModeToggle({
   toggleDarkMode,
@@ -12,7 +13,8 @@ function DarkModeToggle({
   isDarkTheme: boolean;
 }) {
   return (
-    <button
+    <Button
+      tabIndex={1}
       className="fixed top-4 right-4 z-10 w-8 h-8"
       onClick={toggleDarkMode}
       aria-label="Toggle dark mode"
@@ -22,7 +24,7 @@ function DarkModeToggle({
       ) : (
         <Icon type={IconType.MOON} />
       )}
-    </button>
+    </Button>
   );
 }
 

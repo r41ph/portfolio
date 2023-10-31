@@ -1,12 +1,13 @@
 import { Icon } from "../../components/Icon/Icon";
 import { IconType } from "../../../types/types";
+import { Link } from "../../components/Link/Link";
 
 export const Footer = () => {
   return (
     <footer className="my-10">
       <ul className="flex justify-center">
         <li>
-          <a
+          <Link
             href="https://github.com/r41ph"
             target="_blank"
             rel="noreferrer"
@@ -16,10 +17,10 @@ export const Footer = () => {
               className="dark:animate-dark-fade-in"
               type={IconType.GITHUB}
             />
-          </a>
+          </Link>
         </li>
         <li className="px-10">
-          <a
+          <Link
             href="https://codepen.io/r41ph"
             target="_blank"
             rel="noreferrer"
@@ -29,10 +30,10 @@ export const Footer = () => {
               className="dark:animate-dark-fade-in"
               type={IconType.CODEPEN}
             />
-          </a>
+          </Link>
         </li>
         <li>
-          <a
+          <Link
             href="mailto:jobs@rgalan.es?subject=Nice portfolio. Let's talk!"
             target="_blank"
             rel="noreferrer"
@@ -42,7 +43,7 @@ export const Footer = () => {
               className="dark:animate-dark-fade-in"
               type={IconType.ENVELOPE}
             />
-          </a>
+          </Link>
         </li>
       </ul>
     </footer>
