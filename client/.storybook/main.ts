@@ -8,6 +8,7 @@ const config: StorybookConfig = {
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
     "@storybook/addon-mdx-gfm",
+    "@storybook/addon-a11y",
   ],
   core: {
     builder: "@storybook/builder-vite", // 👈 The builder enabled here.

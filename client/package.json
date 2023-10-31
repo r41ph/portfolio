@@ -25,6 +25,11 @@
     "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
+    "@react-aria/button": "^3.8.4",
+    "@react-aria/focus": "^3.14.3",
+    "@react-aria/interactions": "^3.19.1",
+    "@react-aria/link": "^3.6.1",
+    "@react-aria/utils": "^3.21.1",
     "@tanstack/react-query": "^5.0.5",
     "@tanstack/react-query-devtools": "^5.4.2",
     "axios": "^1.5.1",
@@ -37,6 +42,7 @@
     "vite-plugin-svgr": "^3.2.0"
   },
   "devDependencies": {
+    "@storybook/addon-a11y": "^7.5.2",
     "@storybook/addon-essentials": "^7.4.0",
     "@storybook/addon-interactions": "^7.4.0",
     "@storybook/addon-links": "^7.4.0",
@@ -52,7 +58,6 @@
     "@swc/plugin-styled-components": "^1.5.70",
     "@testing-library/jest-dom": "^6.0.0",
     "@testing-library/react": "^14.0.0",
-    "@types/mongodb": "^4.0.7",
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
     "@typescript-eslint/eslint-plugin": "^5.61.0",
