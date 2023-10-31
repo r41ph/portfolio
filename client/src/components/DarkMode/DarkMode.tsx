@@ -15,7 +15,7 @@ function DarkModeToggle({
   return (
     <Button
       tabIndex={1}
-      className="fixed top-4 right-4 z-10 w-8 h-8"
+      className="absolute top-1 right-4 z-50 w-8 h-8"
       onClick={toggleDarkMode}
       aria-label="Toggle dark mode"
     >
