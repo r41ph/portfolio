@@ -12,9 +12,9 @@ body {
     @apply border-b-blue;
   }
   .focus-ring {
-    outline-width: 2px;
-    outline-style: solid;
-    outline-color: theme("colors.blue-light");
+    outline-width: 2px !important;
+    outline-style: solid !important;
+    outline-color: theme("colors.blue-light") !important;
   }
 }
 
@@ -36,4 +36,8 @@ li {
 
 figure {
   margin: 0;
+}
+
+*:focus {
+  outline: 3px solid pink;
 }

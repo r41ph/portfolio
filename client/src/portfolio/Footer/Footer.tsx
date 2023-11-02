@@ -8,6 +8,7 @@ export const Footer = () => {
       <ul className="flex justify-center">
         <li>
           <Link
+            className="block"
             href="https://github.com/r41ph"
             target="_blank"
             rel="noreferrer"
@@ -21,6 +22,7 @@ export const Footer = () => {
         </li>
         <li className="px-10">
           <Link
+            className="block"
             href="https://codepen.io/r41ph"
             target="_blank"
             rel="noreferrer"
@@ -34,6 +36,7 @@ export const Footer = () => {
         </li>
         <li>
           <Link
+            className="block"
             href="mailto:jobs@rgalan.es?subject=Nice portfolio. Let's talk!"
             target="_blank"
             rel="noreferrer"

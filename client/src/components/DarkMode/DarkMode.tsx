@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import * as Styled from "./DarkMode.styled";
-import { IconType } from "../../../types/types";
+import { ButtonSize, IconType } from "../../../types/types";
 import { Icon } from "../Icon/Icon";
 import useFirstRender from "../../hooks/use-first-render";
 import { Button } from "../Button/Button";
@@ -14,9 +14,11 @@ function DarkModeToggle({
 }) {
   return (
     <Button
+      size={ButtonSize.AUTO}
       tabIndex={1}
-      className="absolute top-1 right-4 z-50 w-8 h-8"
-      onClick={toggleDarkMode}
+      className="absolute top-1 right-4 z-50"
+      // onPress => https://react-spectrum.adobe.com/blog/building-a-button-part-1.html
+      onPress={toggleDarkMode}
       aria-label="Toggle dark mode"
       noBorder
     >

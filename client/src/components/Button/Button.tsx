@@ -36,8 +36,8 @@ export function Button(props: ButtonProps) {
       tabIndex={tabIndex ?? 0}
       style={{ opacity: isHovered ? 0.6 : 1 }}
       size={size}
-      noBorder={noBorder}
-      withIcon={withIcon}
+      $noBorder={noBorder}
+      $withIcon={withIcon}
     >
       {children}
     </ButtonStyled>
