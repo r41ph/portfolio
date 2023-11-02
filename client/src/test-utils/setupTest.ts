@@ -1,7 +1,7 @@
 import { afterEach } from "vitest";
 import { cleanup } from "@testing-library/react";
 import { server } from "./node.js";
-import "@testing-library/jest-dom";
+import "@testing-library/jest-dom/vitest";
 import "./mocks";
 import "./utils";
 
