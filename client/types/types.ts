@@ -116,3 +116,11 @@ export interface UnsplashImage {
     url: string;
   };
 }
+
+export enum ButtonSize {
+  XS = "xs",
+  SM = "sm",
+  MD = "md",
+  LG = "lg",
+  AUTO = "auto",
+}

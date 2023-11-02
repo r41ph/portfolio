@@ -18,6 +18,7 @@ function DarkModeToggle({
       className="absolute top-1 right-4 z-50 w-8 h-8"
       onClick={toggleDarkMode}
       aria-label="Toggle dark mode"
+      noBorder
     >
       {isDarkTheme ? (
         <Icon type={IconType.SUN} />
