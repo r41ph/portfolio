@@ -7,8 +7,6 @@ import macrosPlugin from "vite-plugin-babel-macros";
 import svgr from "vite-plugin-svgr";
 import autoprefixer from "autoprefixer";
 import tailwindcss from "tailwindcss";
-// import { viteStaticCopy } from "vite-plugin-static-copy";
-// import copy from "rollup-plugin-copy";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -45,17 +43,5 @@ export default defineConfig({
       apply: "serve",
       enforce: "post",
     },
-    // {
-    //   ...copy({
-    //     targets: [
-    //       {
-    //         src: "dist/*",
-    //         dest: "server/public",
-    //       },
-    //     ],
-    //     verbose: true,
-    //   }),
-    //   enforce: "post",
-    // },
   ],
 });
