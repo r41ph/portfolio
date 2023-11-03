@@ -1,5 +1,6 @@
 import { renderWithWrappers, screen } from "../../test-utils/utils";
 import { NotFound } from "./NotFound";
+import { describe, expect, test } from "vitest";
 
 describe("NoMatch", () => {
   test("renders the loading message", () => {

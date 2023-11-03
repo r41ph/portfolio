@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { Label } from "./Label";
 import { IconType } from "../../../types/types";
 import { userEvent } from "@storybook/testing-library";
+import { describe, expect, test } from "vitest";
 
 describe("Label", () => {
   test("displays the text and icon passed to it", () => {

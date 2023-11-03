@@ -1,6 +1,7 @@
 import { CardLinkType, Icons } from "../../../types/types";
 import { render, screen } from "../../test-utils/utils";
 import { Card } from "./Card";
+import { describe, expect, test } from "vitest";
 
 describe("Card", () => {
   const project = {

@@ -1,6 +1,7 @@
 import { render, screen } from "../../test-utils/utils";
 import { IconType } from "../../../types/types";
 import { Icon } from "./Icon";
+import { describe, expect, test } from "vitest";
 
 describe("Icon", () => {
   test("renders the correct icon", () => {

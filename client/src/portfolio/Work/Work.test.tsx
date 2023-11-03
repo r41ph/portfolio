@@ -1,6 +1,6 @@
 import { renderWithWrappers, screen } from "../../test-utils/utils";
-import { expect, test } from "vitest";
 import { Work } from "./Work";
+import { describe, expect, test } from "vitest";
 
 describe("Work component", () => {
   test("renders loading message when projects are not loaded", () => {

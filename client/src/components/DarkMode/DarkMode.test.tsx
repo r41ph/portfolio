@@ -1,5 +1,6 @@
 import { userEvent, render, screen } from "../../test-utils/utils";
 import { DarkMode } from "./DarkMode";
+import { describe, expect, test } from "vitest";
 
 describe("DarkMode", () => {
   const user = userEvent.setup();

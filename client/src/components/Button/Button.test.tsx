@@ -1,5 +1,6 @@
 import { render, fireEvent, screen, act } from "../../test-utils/utils";
 import { Button } from "./Button";
+import { describe, expect, test } from "vitest";
 
 describe("Button", () => {
   test("renders children", () => {

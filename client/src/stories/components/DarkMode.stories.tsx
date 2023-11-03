@@ -13,6 +13,7 @@ const meta: Meta<typeof DarkMode> = {
     const darkModeButton = canvas.getByRole("button", {
       name: "Toggle dark mode",
     });
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
     await expect(darkModeButton).toBeInTheDocument();
 
     await userEvent.click(darkModeButton, {
