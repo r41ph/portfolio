@@ -37,7 +37,3 @@ li {
 figure {
   margin: 0;
 }
-
-*:focus {
-  outline: 3px solid pink;
-}
