@@ -12,6 +12,6 @@ describe("App", () => {
   test("App navigating", async () => {
     renderWithWrappers(<App />);
     await userEvent.click(screen.getByText(/labs/i));
-    expect(screen.getByText(/labs page/i)).toBeInTheDocument();
+    expect(screen.getByText(/mock lab/i)).toBeInTheDocument();
   });
 });

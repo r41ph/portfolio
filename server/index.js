@@ -32,6 +32,20 @@ app.use("/api/projects", (req, res) => {
     });
 });
 
+app.use("/api/labs", (req, res) => {
+  const db = getDb();
+  db.collection("labs")
+    .find()
+    .toArray()
+    .then((labs) => {
+      res.status(200).json({ labs });
+    })
+    .catch((error) => {
+      console.error(error);
+      res.json({ error });
+    });
+});
+
 app.use(express.static(__dirname + "/public"));
 app.use(express.static(__dirname + "/public/storybook"));
 
@@ -49,10 +63,10 @@ mongoConnect(() => {
 
 // const saveProjects = () => {
 //   const db = getDb();
-//   db.collection("projects")
+//   db.collection("labs")
 //     .insertMany([
 //       {
-//         name: "Little Green Sheep",
+//         name: "Labs Little Green Sheep",
 //         stack: [
 //           "HTML",
 //           "CSS",

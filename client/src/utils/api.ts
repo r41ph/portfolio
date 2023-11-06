@@ -13,3 +13,8 @@ export async function getProjects() {
     return response.data as { projects: Project[] };
   });
 }
+export async function getLabs() {
+  return await api.get("/api/labs").then((response) => {
+    return response.data as { labs: Project[] };
+  });
+}
