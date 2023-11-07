@@ -1,11 +1,3 @@
-export interface IProject {
-  name: string;
-  stack: Icons[];
-  company: string;
-  image: string;
-  description?: string;
-}
-
 export enum Icons {
   GITHUB = "Github",
   CODEPEN = "Codepen",
@@ -64,7 +56,15 @@ export interface Project {
   stack: Icons[];
   company: string;
   image: string;
+  url: string;
   description: string;
+  type: ProjectType;
+}
+
+export enum ProjectType {
+  APPLICATION = "application",
+  WEBSITE = "website",
+  ECOMMERCE = "ecommerce",
 }
 
 export interface Lab {
