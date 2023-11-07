@@ -1,6 +1,6 @@
-import { IProject, Icons } from "../../types/types";
+import { Project, Icons, ProjectType } from "../../types/types";
 
-export const projects: IProject[] = [
+export const projects: Project[] = [
   {
     name: "Little Green Sheep",
     stack: [
@@ -12,64 +12,42 @@ export const projects: IProject[] = [
       Icons.RTL,
       Icons["STYLED-COMPONENTS"],
     ],
+    url: "https://google.com/",
+    company: "Syrox",
+    image: "/images/projects/green-sheep-thumbnail.jpg",
+    description: "",
+  },
+  {
+    name: "Little Green Sheep",
+    stack: [
+      Icons.HTML,
+      Icons.CSS,
+      Icons.JAVASCRIPT,
+      Icons.JEST,
+      Icons.REDUX,
+      Icons.RTL,
+      Icons["STYLED-COMPONENTS"],
+    ],
+    url: "https://google.com/",
     company: "Syrox",
     image: "/images/projects/green-sheep-thumbnail.jpg",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
   },
   {
-    name: "Snüz",
-    stack: [Icons.REACT, Icons.HTML, Icons.CSS, Icons.JAVASCRIPT],
+    name: "Little Green Sheep",
+    stack: [
+      Icons.HTML,
+      Icons.CSS,
+      Icons.JAVASCRIPT,
+      Icons.JEST,
+      Icons.REDUX,
+      Icons.RTL,
+      Icons["STYLED-COMPONENTS"],
+    ],
+    type: ProjectType.WEBSITE,
+    url: "https://google.com/",
     company: "Syrox",
-    image: "/images/projects/snuz-thumbnail.jpg",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-  },
-  {
-    name: "WCOO",
-    stack: [Icons.HTML, Icons.CSS, Icons.JAVASCRIPT],
-    company: "Syrox",
-    image: "/images/projects/wcoo-thumbnail.jpg",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-  },
-  {
-    name: "Car Data",
-    stack: [Icons.HTML, Icons.CSS, Icons.JAVASCRIPT],
-    company: "Syrox",
-    image: "/images/projects/cardata-thumbnail.jpg",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-  },
-  {
-    name: "Aruna Seth",
-    stack: [Icons.HTML, Icons.CSS, Icons.JAVASCRIPT],
-    company: "Syrox",
-    image: "/images/projects/aruna-thumbnail.jpg",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-  },
-  {
-    name: "Feather",
-    stack: [Icons.HTML, Icons.CSS, Icons.JAVASCRIPT],
-    company: "Syrox",
-    image: "/images/projects/feather-thumbnail.jpg",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-  },
-  {
-    name: "Car Data 2",
-    stack: [Icons.HTML, Icons.CSS, Icons.JAVASCRIPT],
-    company: "Syrox",
-    image: "/images/projects/ruth-thumbnail.jpg",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-  },
-  {
-    name: "Aruna Seth 2",
-    stack: [Icons.HTML, Icons.CSS, Icons.JAVASCRIPT],
-    company: "Syrox",
-    image: "/images/projects/kjlaundry-thumbnail.jpg",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-  },
-  {
-    name: "Feather 2",
-    stack: [Icons.HTML, Icons.CSS, Icons.JAVASCRIPT],
-    company: "Syrox",
-    image: "/images/projects/trilogy-thumbnail.jpg",
+    image: "/images/projects/green-sheep-thumbnail.jpg",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
   },
 ];

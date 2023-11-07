@@ -58,7 +58,7 @@ export interface Project {
   image: string;
   url: string;
   description: string;
-  type: ProjectType;
+  type?: ProjectType;
 }
 
 export enum ProjectType {
