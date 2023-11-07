@@ -1,6 +1,6 @@
 import { Project, Icons, ProjectType } from "../../types/types";
 
-export const projects: Project[] = [
+export const works: Project[] = [
   {
     name: "Little Green Sheep",
     stack: [
@@ -14,7 +14,7 @@ export const projects: Project[] = [
     ],
     url: "https://google.com/",
     company: "Syrox",
-    image: "/images/projects/green-sheep-thumbnail.jpg",
+    image: "/images/works/green-sheep-thumbnail.jpg",
     description: "",
   },
   {
@@ -30,7 +30,7 @@ export const projects: Project[] = [
     ],
     url: "https://google.com/",
     company: "Syrox",
-    image: "/images/projects/green-sheep-thumbnail.jpg",
+    image: "/images/works/green-sheep-thumbnail.jpg",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
   },
   {
@@ -47,7 +47,7 @@ export const projects: Project[] = [
     type: ProjectType.WEBSITE,
     url: "https://google.com/",
     company: "Syrox",
-    image: "/images/projects/green-sheep-thumbnail.jpg",
+    image: "/images/works/green-sheep-thumbnail.jpg",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
   },
 ];

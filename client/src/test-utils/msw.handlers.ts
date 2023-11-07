@@ -15,16 +15,16 @@ export const handlers = [
       ]),
     );
   }),
-  rest.get("api/projects", (_req, res, ctx) => {
+  rest.get("api/works", (_req, res, ctx) => {
     return res(
       ctx.status(200),
       ctx.json({
-        projects: [
+        works: [
           {
             name: "Mock project",
             stack: ["HTML", "CSS", "JAVASCRIPT"],
             company: "Syrox",
-            image: "/images/projects/green-sheep-thumbnail.jpg",
+            image: "/images/works/green-sheep-thumbnail.jpg",
             description: "Mock description",
           },
         ],
@@ -40,7 +40,7 @@ export const handlers = [
             name: "Mock Lab",
             stack: ["HTML", "CSS", "JAVASCRIPT"],
             company: "Syrox",
-            image: "/images/projects/green-sheep-thumbnail.jpg",
+            image: "/images/works/green-sheep-thumbnail.jpg",
             description: "Mock description",
           },
         ],

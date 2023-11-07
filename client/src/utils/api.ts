@@ -8,9 +8,9 @@ export const api = axios.create({
   proxy: false,
 });
 
-export async function getProjects() {
-  return await api.get("/api/projects").then((response) => {
-    return response.data as { projects: Project[] };
+export async function getWorks() {
+  return await api.get("/api/works").then((response) => {
+    return response.data as { works: Project[] };
   });
 }
 export async function getLabs() {

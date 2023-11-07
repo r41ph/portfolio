@@ -8,7 +8,7 @@ describe("Card", () => {
     name: "Test Project",
     stack: [Icons.HTML, Icons.CSS, Icons.JAVASCRIPT],
     company: "Syrox",
-    image: "/images/projects/kjlaundry-thumbnail.jpg",
+    image: "/images/works/kjlaundry-thumbnail.jpg",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   };
 

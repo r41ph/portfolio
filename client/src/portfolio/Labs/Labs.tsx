@@ -22,7 +22,7 @@ export const Labs = () => {
     return (
       <div className="flex justify-center items-center h-96">
         <p className="text-xl text-gray-500">
-          Projects can not be displayed at the moment: {error.message}
+          Labs can not be displayed at the moment: {error.message}
         </p>
       </div>
     );
@@ -32,7 +32,7 @@ export const Labs = () => {
     <CardsGrid projects={data?.labs} />
   ) : (
     <div className="flex justify-center items-center h-96">
-      <p className="text-md text-gray-500">No projects found.</p>
+      <p className="text-md text-gray-500">No labs found.</p>
     </div>
   );
 };

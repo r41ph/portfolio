@@ -18,14 +18,14 @@ app.use((req, res, next) => {
 app.use(cors());
 app.use(bodyParser.json());
 
-app.use("/api/projects", (req, res) => {
+app.use("/api/works", (req, res) => {
   const db = getDb();
-  db.collection("projects")
+  db.collection("works")
     .find()
     .sort({ position: 1 })
     .toArray()
-    .then((projects) => {
-      res.status(200).json({ projects });
+    .then((works) => {
+      res.status(200).json({ works });
     })
     .catch((error) => {
       console.error(error);
@@ -79,63 +79,63 @@ mongoConnect(() => {
 //           "STYLED-COMPONENTS",
 //         ],
 //         company: "Syrox",
-//         image: "/images/projects/green-sheep-thumbnail.jpg",
+//         image: "/images/works/green-sheep-thumbnail.jpg",
 //         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
 //       },
 //       {
 //         name: "Snüz",
 //         stack: ["REACT", "HTML", "CSS", "JAVASCRIPT"],
 //         company: "Syrox",
-//         image: "/images/projects/snuz-thumbnail.jpg",
+//         image: "/images/works/snuz-thumbnail.jpg",
 //         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
 //       },
 //       {
 //         name: "WCOO",
 //         stack: ["HTML", "CSS", "JAVASCRIPT"],
 //         company: "Syrox",
-//         image: "/images/projects/wcoo-thumbnail.jpg",
+//         image: "/images/works/wcoo-thumbnail.jpg",
 //         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
 //       },
 //       {
 //         name: "Car Data",
 //         stack: ["HTML", "CSS", "JAVASCRIPT"],
 //         company: "Syrox",
-//         image: "/images/projects/cardata-thumbnail.jpg",
+//         image: "/images/works/cardata-thumbnail.jpg",
 //         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
 //       },
 //       {
 //         name: "Aruna Seth",
 //         stack: ["HTML", "CSS", "JAVASCRIPT"],
 //         company: "Syrox",
-//         image: "/images/projects/aruna-thumbnail.jpg",
+//         image: "/images/works/aruna-thumbnail.jpg",
 //         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
 //       },
 //       {
 //         name: "Feather",
 //         stack: ["HTML", "CSS", "JAVASCRIPT"],
 //         company: "Syrox",
-//         image: "/images/projects/feather-thumbnail.jpg",
+//         image: "/images/works/feather-thumbnail.jpg",
 //         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
 //       },
 //       {
 //         name: "Car Data 2",
 //         stack: ["HTML", "CSS", "JAVASCRIPT"],
 //         company: "Syrox",
-//         image: "/images/projects/ruth-thumbnail.jpg",
+//         image: "/images/works/ruth-thumbnail.jpg",
 //         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
 //       },
 //       {
 //         name: "Aruna Seth 2",
 //         stack: ["HTML", "CSS", "JAVASCRIPT"],
 //         company: "Syrox",
-//         image: "/images/projects/kjlaundry-thumbnail.jpg",
+//         image: "/images/works/kjlaundry-thumbnail.jpg",
 //         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
 //       },
 //       {
 //         name: "Feather 2",
 //         stack: ["HTML", "CSS", "JAVASCRIPT"],
 //         company: "Syrox",
-//         image: "/images/projects/trilogy-thumbnail.jpg",
+//         image: "/images/works/trilogy-thumbnail.jpg",
 //         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
 //       },
 //     ])

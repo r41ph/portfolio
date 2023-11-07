@@ -1,14 +1,14 @@
 import { Icons } from "../../types/types";
 
-// Projects data
+// Works data
 vi.mock("../assets/data", () => {
   return {
-    projects: [
+    works: [
       {
         name: "Mock project",
         stack: [Icons.HTML, Icons.CSS, Icons.JAVASCRIPT],
         company: "Syrox",
-        image: "/images/projects/green-sheep-thumbnail.jpg",
+        image: "/images/works/green-sheep-thumbnail.jpg",
       },
     ],
   };
