@@ -37,6 +37,7 @@ app.use("/api/labs", (req, res) => {
   const db = getDb();
   db.collection("labs")
     .find()
+    .sort({ position: 1 })
     .toArray()
     .then((labs) => {
       res.status(200).json({ labs });
