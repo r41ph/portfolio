@@ -3,9 +3,21 @@ import tw from "twin.macro";
 import { LabelSize } from "../../../types/types";
 
 export const LabelWrapper = styled.div<{ size?: LabelSize }>(({ size }) => [
+  tw`border
+    inline-flex
+    mr-1
+    mb-0.5
+    rounded
+    px-1.5
+    py-px
+    items-center
+    [&>svg]:mr-1
+    dark:animate-dark-fade-in
+  `,
   size === LabelSize.XS &&
     tw`
       text-xs
+      px-1
       [&>svg]:w-4
       [&>svg]:h-4
     `,
@@ -27,15 +39,4 @@ export const LabelWrapper = styled.div<{ size?: LabelSize }>(({ size }) => [
       [&>svg]:w-7
       [&>svg]:h-7
     `,
-  tw`border
-    inline-flex
-    mr-1
-    mb-0.5
-    rounded
-    px-1.5
-    py-px
-    items-center
-    [&>svg]:mr-1
-    dark:animate-dark-fade-in
-  `,
 ]);

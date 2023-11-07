@@ -3,7 +3,7 @@ import tw from "twin.macro";
 
 export const CardWrapper = styled.article<{ $shadow?: boolean }>(
   ({ $shadow }) => [
-    tw`h-full relative max-w-xs`,
+    tw`h-full relative max-w-[21rem]`,
     $shadow && tw`shadow-lg bg-white m-0 p-1`,
   ],
 );
@@ -15,9 +15,14 @@ export const CardContent = styled.div<{ image: string }>(({ image }) => [
   `,
 ]);
 
-export const CardCaption = tw.footer`
-  pt-1
-`;
+export const CardCaption = styled.footer(() => [
+  tw`pt-2`,
+  // css`
+  //   h2 > div {
+  //     background-color: #999;
+  //   }
+  // `,
+]);
 
 /*
 
