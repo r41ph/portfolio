@@ -22,6 +22,7 @@ app.use("/api/projects", (req, res) => {
   const db = getDb();
   db.collection("projects")
     .find()
+    .sort({ position: 1 })
     .toArray()
     .then((projects) => {
       res.status(200).json({ projects });
