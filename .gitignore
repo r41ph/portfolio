@@ -15,7 +15,8 @@ client/storybook-static
 client/coverage
 dist-ssr
 *.local
-.env.local
+client/.env.local
+server/.env
 
 # Editor directories and files
 .vscode/*

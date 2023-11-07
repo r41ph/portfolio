@@ -1,3 +1,4 @@
+require("dotenv").config();
 const mongodb = require("mongodb");
 const MongoClient = mongodb.MongoClient;
 
@@ -5,7 +6,7 @@ let _db;
 
 const mongoConnect = (callback) => {
   MongoClient.connect(
-    "mongodb+srv://dev:0KoTJXRSQpPPR82j@cluster0.quhdn9j.mongodb.net/portfolio?retryWrites=true&w=majority"
+    `mongodb+srv://dev:${process.env.MONGODB_PASSWORD}@cluster0.quhdn9j.mongodb.net/portfolio?retryWrites=true&w=majority`
   )
     .then((result) => {
       _db = result.db();
