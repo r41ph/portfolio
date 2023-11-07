@@ -56,7 +56,7 @@ export interface Project {
   stack: Icons[];
   company: string;
   image: string;
-  url: string;
+  url?: string;
   description: string;
   type?: ProjectType;
 }

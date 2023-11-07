@@ -25,7 +25,10 @@ export function Card(props: CardProps) {
     },
   };
 
-  const handleClick = (e: MouseEvent<HTMLAnchorElement>, url: string) => {
+  const handleClick = (
+    e: MouseEvent<HTMLAnchorElement>,
+    url: string | undefined,
+  ) => {
     if (!url) {
       e.preventDefault();
     }
@@ -45,7 +48,7 @@ export function Card(props: CardProps) {
           target="_blank"
           rel="noopener noreferrer"
           css={[styles[linkType].link]}
-          onClick={(event) => handleClick(event, project.url)}
+          onClick={(event) => handleClick(event, project?.url)}
         >
           <span css={[styles[linkType].text]}>
             {project.url ? "Visit" : " Offline "}

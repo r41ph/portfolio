@@ -37,7 +37,7 @@ describe("Card", () => {
   });
 
   test("renders a Card with description", () => {
-    render(<Card project={project} description />);
+    render(<Card project={project} />);
     const description = screen.getByText(
       /Lorem ipsum dolor sit amet, consectetur adipiscing elit./i,
     );
