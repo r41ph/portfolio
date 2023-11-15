@@ -10,7 +10,7 @@ describe("Button", () => {
 
   test("calls onClick handler when clicked", () => {
     const handleClick = vi.fn();
-    render(<Button onClick={handleClick}>Click me</Button>);
+    render(<Button onPress={handleClick}>Click me</Button>);
     fireEvent.click(screen.getByRole("button"));
     expect(handleClick).toHaveBeenCalledTimes(1);
   });
