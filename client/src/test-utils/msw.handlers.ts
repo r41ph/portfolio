@@ -15,7 +15,7 @@ export const handlers = [
       ]),
     );
   }),
-  rest.get("api/works", (_req, res, ctx) => {
+  rest.get("data/works", (_req, res, ctx) => {
     return res(
       ctx.status(200),
       ctx.json({
@@ -31,7 +31,7 @@ export const handlers = [
       }),
     );
   }),
-  rest.get("api/labs", (_req, res, ctx) => {
+  rest.get("data/labs", (_req, res, ctx) => {
     return res(
       ctx.status(200),
       ctx.json({
