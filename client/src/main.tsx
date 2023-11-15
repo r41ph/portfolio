@@ -5,28 +5,52 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Layout } from "./portfolio/Layout/Layout.tsx";
 import { Work } from "./portfolio/Work/Work.tsx";
 import { Labs } from "./portfolio/Labs/Labs.tsx";
+import { Login } from "./portfolio/Login/Login.tsx";
 import { NotFound } from "./portfolio/Not-found/NotFound.tsx";
 
 import "normalize.css";
 import "./index.css";
+import { loginAction } from "./portfolio/Login/Login-action.tsx";
+import { Dashboard } from "./dashboard/Dashboard.tsx";
+import { authLoader, logout, loginStatusLoader } from "./utils/auth.ts";
+// import { CustomError } from "./portfolio/CustomError.tsx";
 
 const router = createBrowserRouter([
   {
+    id: "root",
     path: "/",
     element: <Layout />,
+    // errorElement: <CustomError message="An error occurred." />,
+    loader: loginStatusLoader,
     children: [
       {
-        path: "/",
-        element: <Work />,
         index: true,
-      },
-      {
-        path: "/work",
         element: <Work />,
       },
       {
-        path: "/labs",
+        path: "work",
+        element: <Work />,
+      },
+      {
+        path: "labs",
         element: <Labs />,
+      },
+      {
+        path: "login",
+        element: <Login />,
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+        action: loginAction,
+      },
+      {
+        path: "dashboard",
+        element: <Dashboard />,
+        loader: authLoader,
+      },
+      {
+        path: "logout",
+        action: () => {
+          return logout();
+        },
       },
       {
         path: "*",

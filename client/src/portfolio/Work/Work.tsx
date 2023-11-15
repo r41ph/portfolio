@@ -1,4 +1,4 @@
-import { getWorks } from "../../utils/api";
+import { getWorks } from "../../utils/data";
 import { useQuery } from "@tanstack/react-query";
 import { CardsGrid } from "../../components/CardsGrid/CardsGrid";
 

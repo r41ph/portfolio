@@ -82,3 +82,13 @@ export enum ButtonSize {
   LG = "lg",
   AUTO = "auto",
 }
+
+export type LoginData = {
+  username: FormDataEntryValue | null;
+  password: FormDataEntryValue | null;
+};
+
+export type Headers = {
+  // "Content-Type": string;
+  Authorization?: string;
+};
