@@ -8,4 +8,8 @@
   "ts-node": {
     "esm": true,
   },
+  "typeRoots": [
+    "./node_modules/@types",
+    "./types/*.d.ts",
+  ], 
 }

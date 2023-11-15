@@ -1,7 +1,15 @@
 import { getDb } from "../utils/database.ts";
 import express from "express";
+import { expressjwt } from "express-jwt";
 
 export const router = express.Router();
+
+router.use(
+  expressjwt({
+    secret: process.env.JWT_KEY as string,
+    algorithms: ["HS256"]
+  })
+);
 
 router.get("/works", (_req, res) => {
   const db = getDb();

@@ -4,15 +4,15 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import path, { dirname } from "path";
 import { fileURLToPath } from "url";
+import cookieParser from "cookie-parser";
+
+import { router as apiRoutes } from "./routes/dataRoutes.ts";
+import { router as authRoutes } from "./routes/authRoutes.ts";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-// const apiRoutes = require("./routes/apiRoutes");
-// const loginRoutes = require("./routes/loginRoutes");
-import { router as apiRoutes } from "./routes/apiRoutes.js";
-import { router as loginRoutes } from "./routes/loginRoutes.js";
-
 const app = express();
+app.use(cookieParser());
 
 // Set the MIME type for JavaScript files
 app.use((req, res, next) => {
@@ -22,11 +22,18 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(cors());
 app.use(bodyParser.json());
 
-app.use("/api", apiRoutes);
-app.use(loginRoutes);
+app.use(
+  "/auth",
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true
+  }),
+  authRoutes
+);
+app.use(cors());
+app.use("/data", apiRoutes);
 
 app.use(express.static(__dirname + "/public"));
 app.use(express.static(__dirname + "/public/storybook"));
