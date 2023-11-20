@@ -2,7 +2,7 @@ import { getDb } from "../utils/database.ts";
 import express from "express";
 import bcrypt from "bcryptjs";
 import { LoginData, LoginError } from "../types/types.ts";
-import { createJSONToken } from "../utils/auth.ts";
+import { createJSONToken, validateJSONToken } from "../utils/auth.ts";
 
 export const router = express.Router();
 
@@ -41,7 +41,8 @@ router.post("/login", (req, res): LoginError | LoginData => {
 
 router.get("/login", (req, res) => {
   const isCookiePresent = req.cookies?.token;
-  res.status(200).json(!!isCookiePresent);
+  const isTokenValid = validateJSONToken(isCookiePresent);
+  res.status(200).json(!!isTokenValid);
 });
 
 router.post("/logout", (req, res) => {
