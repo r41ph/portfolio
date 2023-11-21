@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import * as Styled from "./DarkMode.styled";
-import { ButtonSize, IconType } from "../../../types/types";
+import { ButtonSize, IconSize, IconType } from "../../../types/types";
 import { Icon } from "../Icon/Icon";
 import useFirstRender from "../../hooks/use-first-render";
 import { Button } from "../Button/Button";
+import { createPortal } from "react-dom";
 
 function DarkModeToggle({
   toggleDarkMode,
@@ -15,17 +16,17 @@ function DarkModeToggle({
   return (
     <Button
       size={ButtonSize.AUTO}
-      tabIndex={1}
-      className="absolute top-1 right-4 z-50"
+      className="z-50 !p-0"
       // onPress => https://react-spectrum.adobe.com/blog/building-a-button-part-1.html
       onPress={toggleDarkMode}
       aria-label="Toggle dark mode"
       noBorder
+      withIcon
     >
       {isDarkTheme ? (
-        <Icon type={IconType.SUN} />
+        <Icon type={IconType.SUN} size={IconSize.SM} />
       ) : (
-        <Icon type={IconType.MOON} />
+        <Icon type={IconType.MOON} size={IconSize.SM} />
       )}
     </Button>
   );
@@ -57,18 +58,21 @@ export function DarkMode() {
         toggleDarkMode={toggleDarkMode}
         isDarkTheme={isDarkTheme}
       />
-      <Styled.DarkMode>
-        <Styled.DarkModeBackground
-          id="theme-background"
-          className={
-            isDarkTheme
-              ? "animate-dark-bg-spread"
-              : isFirstRender
-              ? ""
-              : "animate-dark-bg-shrink"
-          }
-        ></Styled.DarkModeBackground>
-      </Styled.DarkMode>
+      {createPortal(
+        <Styled.DarkMode>
+          <Styled.DarkModeBackground
+            id="theme-background"
+            className={
+              isDarkTheme
+                ? "animate-dark-bg-spread"
+                : isFirstRender
+                ? ""
+                : "animate-dark-bg-shrink"
+            }
+          ></Styled.DarkModeBackground>
+        </Styled.DarkMode>,
+        document.body,
+      )}
     </>
   );
 }

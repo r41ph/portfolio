@@ -44,7 +44,7 @@ export const Footer = () => {
           >
             <Icon
               className="dark:animate-dark-fade-in"
-              type={IconType.ENVELOPE}
+              type={IconType.CONTACT}
             />
           </Link>
         </li>

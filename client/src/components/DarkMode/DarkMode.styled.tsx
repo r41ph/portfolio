@@ -11,7 +11,6 @@ export const DarkMode = styled.div`
   height: 100vh;
   min-height: 400px;
   overflow: hidden;
-  /* background-color: var(--light-theme); */
   z-index: -1;
 `;
 
