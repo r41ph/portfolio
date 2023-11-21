@@ -34,7 +34,7 @@ export async function postLoginForm(
 
 export async function isUserLoggedIn() {
   return await api
-    .get("/auth/login", {
+    .get("/auth/login/status", {
       withCredentials: true,
     })
     .then((response) => {

@@ -40,7 +40,7 @@ router.post("/login", (req, res): LoginError | LoginData => {
     });
 });
 
-router.get("/login", (req, res) => {
+router.get("/login/status", (req, res) => {
   const isCookiePresent = req.cookies?.token;
   if (isCookiePresent) {
     try {

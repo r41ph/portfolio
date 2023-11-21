@@ -1,15 +1,8 @@
 import { getDb } from "../utils/database.ts";
 import express from "express";
-import { expressjwt } from "express-jwt";
+// import { expressjwt } from "express-jwt";
 
 export const router = express.Router();
-
-router.use(
-  expressjwt({
-    secret: process.env.JWT_KEY as string,
-    algorithms: ["HS256"]
-  })
-);
 
 router.get("/works", (_req, res) => {
   const db = getDb();
@@ -40,6 +33,13 @@ router.get("/labs", (_req, res) => {
       res.json({ error });
     });
 });
+
+// router.use(
+//   expressjwt({
+//     secret: process.env.JWT_KEY as string,
+//     algorithms: ["HS256"]
+//   })
+// );
 
 router.post("/add/work", (req, res) => {
   const db = getDb();

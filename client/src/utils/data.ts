@@ -3,26 +3,19 @@ import { Project } from "../../types/types";
 
 export async function getWorks() {
   return await api
-    .get("/data/works", {
-      headers: {
-        Authorization: `Bearer ${import.meta.env.VITE_JWT_TOKEN}`,
-      },
-    })
+    .get("/data/works")
     .then((response) => {
       return response.data as { works: Project[] };
+    })
+    .catch((error) => {
+      console.log("errorrrr> ", error);
     });
 }
 
 export async function getLabs() {
-  return await api
-    .get("/data/labs", {
-      headers: {
-        Authorization: `Bearer ${import.meta.env.VITE_JWT_TOKEN}`,
-      },
-    })
-    .then((response) => {
-      return response.data as { labs: Project[] };
-    });
+  return await api.get("/data/labs").then((response) => {
+    return response.data as { labs: Project[] };
+  });
 }
 
 export async function postProject(type: "works" | "labs", req: Project) {
@@ -30,9 +23,7 @@ export async function postProject(type: "works" | "labs", req: Project) {
     .post(
       `/data/add/${type}`,
       {
-        headers: {
-          Authorization: `Bearer ${import.meta.env.VITE_JWT_TOKEN}`,
-        },
+        withCredentials: true,
       },
       req,
     )
