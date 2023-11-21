@@ -21,7 +21,8 @@ router.post("/login", (req, res): LoginError | LoginData => {
           if (isPasswordCorrect) {
             const token = createJSONToken(dbUser.username);
             res.cookie("token", token, {
-              httpOnly: true
+              httpOnly: true,
+              sameSite: "strict"
             });
             res.json({ ...dbUser });
           } else {
@@ -41,8 +42,17 @@ router.post("/login", (req, res): LoginError | LoginData => {
 
 router.get("/login", (req, res) => {
   const isCookiePresent = req.cookies?.token;
-  const isTokenValid = validateJSONToken(isCookiePresent);
-  res.status(200).json(!!isTokenValid);
+  if (isCookiePresent) {
+    try {
+      const isTokenValid = validateJSONToken(isCookiePresent);
+      res.status(200).json(!!isTokenValid);
+    } catch (err) {
+      console.log("err:", err?.message);
+      res.status(401).send(`Unauthorized, ${err?.message}`);
+    }
+  } else {
+    res.status(401).send("Unauthorized");
+  }
 });
 
 router.post("/logout", (req, res) => {
