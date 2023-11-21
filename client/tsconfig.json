@@ -23,6 +23,7 @@
     "baseUrl": ".",
 
     "types": ["vite/client", "vitest/globals"],
+    "typeRoots": ["./node_modules/@types"]
   },
   "include": ["src", "types", "vite.config.ts", "scripts", ".eslintrc.cjs", "*.spec.ts"],
   "exclude": ["tailwind.config.js"],
