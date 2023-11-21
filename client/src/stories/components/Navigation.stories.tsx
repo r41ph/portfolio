@@ -1,4 +1,4 @@
-import type { Meta, StoryFn, StoryObj } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/react";
 import { Navigation } from "../../components/Navigation/Navigation";
 import { createRemixStub } from "@remix-run/testing";
 
@@ -27,8 +27,6 @@ const meta: Meta<typeof Navigation> = {
 };
 
 export default meta;
-
-type Story = StoryObj<typeof Navigation>;
 
 // export const Default: Story = {};
 // Default.render = () => <Navigation />;
