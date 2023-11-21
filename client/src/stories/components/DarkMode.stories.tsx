@@ -4,7 +4,7 @@ import { within, userEvent } from "@storybook/testing-library";
 import { expect } from "@storybook/jest";
 
 const meta: Meta<typeof DarkMode> = {
-  title: "Portfolio/Components/Dark Mode",
+  title: "/Dark Mode",
   component: DarkMode,
   tags: ["autodocs"],
   parameters: { options: { showPanel: true } },

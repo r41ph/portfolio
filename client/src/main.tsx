@@ -14,8 +14,7 @@ import { loginAction } from "./portfolio/Login/Login-action.tsx";
 import { Dashboard } from "./dashboard/Dashboard.tsx";
 import { authLoader, logout, loginStatusLoader } from "./utils/auth.ts";
 // import { CustomError } from "./portfolio/CustomError.tsx";
-
-const router = createBrowserRouter([
+export const routes = [
   {
     id: "root",
     path: "/",
@@ -58,7 +57,8 @@ const router = createBrowserRouter([
       },
     ],
   },
-]);
+];
+export const router = createBrowserRouter(routes);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>

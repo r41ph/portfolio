@@ -4,7 +4,7 @@ import { ButtonSize, IconSize, IconType } from "../../../types/types";
 import { Icon } from "../../components/Icon/Icon";
 
 const meta: Meta<typeof Button> = {
-  title: "Portfolio/Components/Button",
+  title: "/Button",
   component: Button,
   tags: ["autodocs"],
   args: {

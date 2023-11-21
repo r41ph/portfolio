@@ -4,7 +4,7 @@ import { LabelSize, IconType } from "../../../types/types";
 import { Label } from "../../components/Label/Label";
 
 const meta: Meta<typeof Label> = {
-  title: "Portfolio/Components/Label",
+  title: "/Label",
   component: Label,
   tags: ["autodocs"],
   parameters: { options: { showPanel: true } },

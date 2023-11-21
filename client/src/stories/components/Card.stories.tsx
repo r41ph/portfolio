@@ -5,7 +5,7 @@ import { CardLinkType } from "../../../types/types";
 import { works } from "../../assets/data";
 
 const meta: Meta<typeof Card> = {
-  title: "Portfolio/Components/Card",
+  title: "/Card",
   component: Card,
   parameters: { options: { showPanel: true } },
 };

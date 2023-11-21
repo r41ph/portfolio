@@ -3,7 +3,7 @@ import { Icon } from "../../components/Icon/Icon";
 import { IconSize, Icons } from "../../../types/types";
 
 const meta: Meta<typeof Icon> = {
-  title: "Portfolio/Components/Icon",
+  title: "/Icon",
   component: Icon,
   tags: ["autodocs"],
   args: {
