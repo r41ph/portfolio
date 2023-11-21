@@ -1,7 +1,7 @@
 export enum Icons {
   GITHUB = "Github",
   CODEPEN = "Codepen",
-  ENVELOPE = "Envelope",
+  CONTACT = "Contact",
   HTML = "HTML",
   CSS = "CSS",
   GRAPHQL = "GraphQL",
@@ -16,6 +16,9 @@ export enum Icons {
   RTL = "RTL",
   SUN = "Sun",
   MOON = "Moon",
+  STORYBOOK = "Storybook",
+  LOGIN = "Log-in",
+  LOGOUT = "Log-out",
 }
 
 // IStack and IconType are equal enums

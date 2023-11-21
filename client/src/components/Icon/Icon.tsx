@@ -13,9 +13,12 @@ import { ReactComponent as RTLLogo } from "../../assets/svg/rtl-logo.svg";
 
 import { ReactComponent as GithubLogo } from "../../assets/svg/github.svg";
 import { ReactComponent as CodePenLogo } from "../../assets/svg/codepen.svg";
-import { ReactComponent as Envelope } from "../../assets/svg/envelope.svg";
+import { ReactComponent as Contact } from "../../assets/svg/contact.svg";
 import { ReactComponent as Sun } from "../../assets/svg/sun.svg";
 import { ReactComponent as Moon } from "../../assets/svg/moon.svg";
+import { ReactComponent as Storybook } from "../../assets/svg/storybook.svg";
+import { ReactComponent as LogIn } from "../../assets/svg/log-in.svg";
+import { ReactComponent as LogOut } from "../../assets/svg/log-out.svg";
 
 import { IconSize, IconType } from "../../../types/types";
 import { IconWrapper } from "./Icon.styles";
@@ -31,16 +34,19 @@ export const Icon = ({
   type: iconType,
   className = "",
   size = IconSize.SM,
+  title = false,
 }: {
   type: IconType;
   className?: string;
   size?: IconSize;
+  title?: boolean;
 }) => {
   return (
     <IconWrapper
       size={size}
       data-testid={`${iconType.toLowerCase()}`}
       className={className}
+      title={title ? iconType : ""}
     >
       {iconType === IconType.CSS && <CSSLogo />}
       {iconType === IconType.HTML && <HTMLLogo />}
@@ -56,9 +62,12 @@ export const Icon = ({
       {iconType === IconType.RTL && <RTLLogo />}
       {iconType === IconType.GITHUB && <GithubLogo />}
       {iconType === IconType.CODEPEN && <CodePenLogo />}
-      {iconType === IconType.ENVELOPE && <Envelope />}
+      {iconType === IconType.CONTACT && <Contact />}
       {iconType === IconType.SUN && <Sun />}
       {iconType === IconType.MOON && <Moon />}
+      {iconType === IconType.STORYBOOK && <Storybook />}
+      {iconType === IconType.LOGIN && <LogIn />}
+      {iconType === IconType.LOGOUT && <LogOut />}
     </IconWrapper>
   );
 };
