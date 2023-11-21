@@ -13,7 +13,9 @@ import "./index.css";
 import { loginAction } from "./portfolio/Login/Login-action.tsx";
 import { Dashboard } from "./dashboard/Dashboard.tsx";
 import { authLoader, logout, loginStatusLoader } from "./utils/auth.ts";
+import { loginLoader } from "./portfolio/Login/Login-loader.tsx";
 // import { CustomError } from "./portfolio/CustomError.tsx";
+
 export const routes = [
   {
     id: "root",
@@ -37,8 +39,8 @@ export const routes = [
       {
         path: "login",
         element: <Login />,
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         action: loginAction,
+        loader: loginLoader,
       },
       {
         path: "dashboard",
