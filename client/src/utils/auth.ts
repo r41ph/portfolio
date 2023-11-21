@@ -1,5 +1,5 @@
 import { redirect } from "react-router-dom";
-import { AxiosResponse } from "axios";
+import { AxiosError, AxiosResponse } from "axios";
 import { api } from "./api";
 import { LoginData } from "../../types/types";
 import { LoginError } from "../../../server/types/types";
@@ -32,7 +32,7 @@ export async function postLoginForm(
     });
 }
 
-export async function getLoginStatus() {
+export async function isUserLoggedIn() {
   return await api
     .get("/auth/login", {
       withCredentials: true,
@@ -40,14 +40,14 @@ export async function getLoginStatus() {
     .then((response) => {
       return response.data as boolean;
     })
-    .catch((error) => {
-      console.log("error fetching getLoginStatus", error);
+    .catch((error: AxiosError) => {
+      console.log("error: ", error?.response?.data);
       return null;
     });
 }
 
 export async function authLoader() {
-  const isLoggedIn = await getLoginStatus();
+  const isLoggedIn = await isUserLoggedIn();
   if (!isLoggedIn) {
     return redirect("/login");
   }
@@ -55,6 +55,6 @@ export async function authLoader() {
 }
 
 export async function loginStatusLoader() {
-  const loginStatus = await getLoginStatus();
+  const loginStatus = await isUserLoggedIn();
   return loginStatus;
 }
