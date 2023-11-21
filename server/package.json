@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon --exec ts-node -T index.ts",
-    "start": "ts-node index.ts"
+    "start": "ts-node index.ts",
+    "test": "vitest"
   },
   "author": "",
   "license": "ISC",
@@ -29,6 +30,7 @@
     "@types/node": "^20.9.0",
     "nodemon": "^3.0.1",
     "ts-node": "^10.9.1",
-    "typescript": "^5.2.2"
+    "typescript": "^5.2.2",
+    "vitest": "^0.34.6"
   }
 }
