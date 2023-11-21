@@ -15,11 +15,21 @@ export function Login() {
           <label htmlFor="username" className="my-2">
             Username
           </label>
-          <input type="text" name="username" className="border p-3" />
+          <input
+            type="text"
+            name="username"
+            className="border p-3"
+            aria-label="username"
+          />
           <label htmlFor="password" className="my-2">
             Password
           </label>
-          <input type="password" name="password" className="border p-3" />
+          <input
+            type="password"
+            name="password"
+            className="border p-3"
+            aria-label="password"
+          />
           <Button
             size={ButtonSize.MD}
             type="submit"
