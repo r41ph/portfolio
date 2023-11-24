@@ -3,9 +3,9 @@ import { TopBarWrapper, TopBarList, TopBarItem } from "./TopBar.styled";
 import { Form, NavLink, useRouteLoaderData } from "react-router-dom";
 import { Button } from "../Button/Button";
 import { ButtonSize, IconSize } from "../../../types/types";
-import { Icon } from "../../components/Icon/Icon";
+import { Icon } from "../Icon/Icon";
 import { IconType } from "../../../types/types";
-import { Link } from "../../components/Link/Link";
+import { Link } from "../Link/Link";
 
 export function TopBar() {
   const isLoggedIn = useRouteLoaderData("root") as boolean;

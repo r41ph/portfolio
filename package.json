@@ -3,12 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
+  "root": "true",
   "scripts": {
     "prepare": "husky install",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rm -rf client/dist/* && rm -rf server/public/* && cd client/ && npm run build && cd ..",
-    "postbuild": "copyfiles \"client/dist/**/*\" --up 2 \"server/public\""
+    "build": "rm -rf frontend/dist/* && rm -rf backend/public/* && cd frontend/ && npm run build && cd ..",
+    "postbuild": "copyfiles \"frontend/dist/**/*\" --up 2 \"backend/public\""
   },
   "repository": {
     "type": "git",

@@ -1,4 +1,4 @@
-import { Label } from "../../components/Label/Label";
+import { Label } from "../Label/Label";
 import { CardLinkType, LabelSize, Project } from "../../../types/types";
 import { CardWrapper, CardContent, CardCaption } from "./Card.styled";
 import tw from "twin.macro";

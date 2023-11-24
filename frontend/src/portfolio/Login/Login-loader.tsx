@@ -1,5 +1,5 @@
 import { LoaderFunction, redirect } from "react-router-dom";
-import { isUserLoggedIn } from "../../../src/utils/auth";
+import { isUserLoggedIn } from "../../utils/auth";
 
 export const loginLoader: LoaderFunction = async () => {
   const isLoggedIn = await isUserLoggedIn();

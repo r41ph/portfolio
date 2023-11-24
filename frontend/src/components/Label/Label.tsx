@@ -1,4 +1,4 @@
-import { Icon } from "../../components/Icon/Icon";
+import { Icon } from "../Icon/Icon";
 import { Label as ILabel, LabelSize } from "../../../types/types";
 import { LabelWrapper } from "./Label.styled";
 

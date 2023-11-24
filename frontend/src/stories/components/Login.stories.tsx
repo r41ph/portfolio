@@ -3,8 +3,8 @@ import { StoryFn, Meta } from "@storybook/react";
 // import { routes } from "../../src/main.tsx";
 // import { doc } from "prettier";
 import { createRemixStub } from "@remix-run/testing";
-import { Login } from "../../../src/portfolio/Login/Login.tsx";
-import { loginAction } from "../../portfolio/Login/Login-action";
+import { Login } from "../../portfolio/Login/Login.tsx";
+import { loginAction } from "../../portfolio/Login/Login-action.tsx";
 
 // const App = () => {
 //   const el = document.createElement("div");

@@ -1,7 +1,6 @@
 {
   "name": "portfolio",
   "private": true,
-  "root": true,
   "version": "0.0.5",
   "type": "module",
   "babelMacros": {

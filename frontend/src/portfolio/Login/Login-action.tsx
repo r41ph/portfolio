@@ -1,6 +1,6 @@
 import type { ActionFunction } from "react-router";
 import { redirect } from "react-router-dom";
-import { LoginData, LoginError } from "../../../../server/types/types";
+import { LoginData, LoginError } from "../../../../backend/types/types";
 import { postLoginForm } from "../../utils/auth";
 
 export const loginAction: ActionFunction = async ({ request }) => {
