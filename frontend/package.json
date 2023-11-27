@@ -16,7 +16,7 @@
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build -- -o public/storybook",
+    "build-storybook": "storybook build -- -o dist/storybook",
     "postbuild-storybook": "rm -rf dist/storybook/* && copyfiles \"storybook-static/**/*\" --up 1 \"dist/storybook\" && rm -rf storybook-static",
     "test-storybook": "test-storybook",
     "test": "vitest",
