@@ -3,12 +3,16 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
+  "root": "true",
   "scripts": {
+    "start": "concurrently \"npm run dev -w ./frontend\"  \"npm run dev -w ./backend\"",
     "prepare": "husky install",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rm -rf client/dist/* && rm -rf server/public/* && cd client/ && npm run build && cd ..",
-    "postbuild": "copyfiles \"client/dist/**/*\" --up 2 \"server/public\""
+    "build": "rm -rf frontend/dist/* && rm -rf backend/public/* && cd frontend/ && npm run build && cd ..",
+    "postbuild": "copyfiles \"frontend/dist/**/*\" --up 2 \"backend/public\"",
+    "clean": "rm -rf node_modules ./packages/backend/node_modules/ ./packages/frontend/node_modules/ package-lock.json && npm i"
   },
   "repository": {
     "type": "git",
@@ -28,6 +32,7 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^6.7.5",
     "@typescript-eslint/parser": "^6.7.5",
+    "concurrently": "^8.2.2",
     "eslint": "^8.51.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.1",
@@ -41,5 +46,9 @@
   },
   "engines": {
     "node": ">=18.12.0"
-  }
+  },
+  "workspaces": [
+    "frontend",
+    "backend"
+  ]
 }

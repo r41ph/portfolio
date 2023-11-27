@@ -9,14 +9,14 @@ lerna-debug.log*
 
 node_modules
 dist
-server/public
-client/public/storybook
-client/storybook-static
-client/coverage
+backend/public
+frontend/public/storybook
+frontend/storybook-static
+frontend/coverage
 dist-ssr
 *.local
-client/.env.local
-server/.env
+frontend/.env.local
+backend/.env
 
 # Editor directories and files
 .vscode/*
