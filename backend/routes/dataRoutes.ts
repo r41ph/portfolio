@@ -1,4 +1,4 @@
-import { getDb } from "../utils/database.ts";
+import { getDb } from "../utils/database";
 import express from "express";
 // import { expressjwt } from "express-jwt";
 

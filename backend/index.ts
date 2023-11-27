@@ -1,6 +1,6 @@
 import express from "express";
 import compression from "compression";
-import { mongoConnect } from "./utils/database.ts";
+import { mongoConnect } from "./utils/database";
 import cors from "cors";
 import bodyParser from "body-parser";
 import path, { dirname } from "path";
@@ -8,8 +8,8 @@ import { fileURLToPath } from "url";
 import cookieParser from "cookie-parser";
 import helmet from "helmet";
 
-import { router as apiRoutes } from "./routes/dataRoutes.ts";
-import { router as authRoutes } from "./routes/authRoutes.ts";
+import { router as apiRoutes } from "./routes/dataRoutes";
+import { router as authRoutes } from "./routes/authRoutes";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 

@@ -1,5 +1,5 @@
 import { expect, test, describe } from "vitest";
-import { createJSONToken, validateJSONToken } from "./auth.ts";
+import { createJSONToken, validateJSONToken } from "./auth";
 import { JwtPayload } from "jsonwebtoken";
 
 describe("createJSONToken", () => {

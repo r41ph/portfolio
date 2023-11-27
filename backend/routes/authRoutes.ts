@@ -1,8 +1,8 @@
-import { getDb } from "../utils/database.ts";
+import { getDb } from "../utils/database";
 import express from "express";
 import bcrypt from "bcryptjs";
-import { LoginData, LoginError } from "../types/types.ts";
-import { createJSONToken, validateJSONToken } from "../utils/auth.ts";
+import { LoginData, LoginError } from "../types/types";
+import { createJSONToken, validateJSONToken } from "../utils/auth";
 
 export const router = express.Router();
 

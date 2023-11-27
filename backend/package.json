@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "nodemon --exec ts-node -T ./index.ts",
     "start": "ts-node ./index.ts",
-    "build": "tsc",
+    "build": "tsc --build",
     "start:prod": "node build/server.js",
     "test": "vitest"
   },
