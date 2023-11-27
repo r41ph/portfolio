@@ -17,7 +17,7 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build -- -o public/storybook",
-    "postbuild-storybook": "rm -rf public/storybook/* && copyfiles \"storybook-static/**/*\" --up 1 \"public/storybook\" && rm -rf storybook-static",
+    "postbuild-storybook": "rm -rf dist/storybook/* && copyfiles \"storybook-static/**/*\" --up 1 \"dist/storybook\" && rm -rf storybook-static",
     "test-storybook": "test-storybook",
     "test": "vitest",
     "test:ui": "vitest --ui",
