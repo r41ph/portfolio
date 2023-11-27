@@ -16,7 +16,7 @@ export function TopBar() {
         <TopBarItem>
           <Link
             className="block"
-            href="/storybook"
+            href="/storybook/index.html"
             target="_self"
             rel="noreferrer"
             ariaLabel="Link to r41ph storybook"
