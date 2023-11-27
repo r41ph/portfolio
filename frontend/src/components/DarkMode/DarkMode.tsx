@@ -63,6 +63,7 @@ export function DarkMode() {
           <Styled.DarkModeBackground
             id="theme-background"
             className={
+              // prettier-ignore
               isDarkTheme
                 ? "animate-dark-bg-spread"
                 : isFirstRender

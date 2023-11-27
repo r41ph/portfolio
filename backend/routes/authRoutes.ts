@@ -23,6 +23,7 @@ router.post("/login", (req, res): LoginError | LoginData => {
             res.cookie("token", token, {
               httpOnly: true,
               sameSite: "strict"
+              // secure: true
             });
             res.json({ ...dbUser });
           } else {

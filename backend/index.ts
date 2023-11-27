@@ -1,10 +1,12 @@
 import express from "express";
+import compression from "compression";
 import { mongoConnect } from "./utils/database.ts";
 import cors from "cors";
 import bodyParser from "body-parser";
 import path, { dirname } from "path";
 import { fileURLToPath } from "url";
 import cookieParser from "cookie-parser";
+import helmet from "helmet";
 
 import { router as apiRoutes } from "./routes/dataRoutes.ts";
 import { router as authRoutes } from "./routes/authRoutes.ts";
@@ -12,6 +14,11 @@ import { router as authRoutes } from "./routes/authRoutes.ts";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const app = express();
+app.use(compression());
+// add and conditional that if production use helmet
+if (process.env.NODE_ENV === "production") {
+  app.use(helmet());
+}
 app.use(cookieParser());
 
 // Set the MIME type for JavaScript files

@@ -1,5 +1,5 @@
 {
-  "name": "portfolio",
+  "name": "frontend",
   "private": true,
   "version": "0.0.5",
   "type": "module",
@@ -23,6 +23,16 @@
     "test:ui": "vitest --ui",
     "test:coverage": "vitest run --coverage"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/r41ph/portfolio.git"
+  },
+  "author": "r41ph",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/r41ph/portfolio/issues"
+  },
+  "homepage": "https://github.com/r41ph/portfolio#readme",
   "dependencies": {
     "@react-aria/button": "^3.8.4",
     "@react-aria/focus": "^3.14.3",
