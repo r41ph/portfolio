@@ -34,7 +34,12 @@ app.use(bodyParser.json());
 app.use(
   "/auth",
   cors({
-    origin: ["http://localhost:5173", "http://localhost:6006"],
+    origin: [
+      "http://localhost:5173",
+      "http://localhost:6006",
+      "https://portfolio-3jqf.onrender.com/",
+      "https://ralph.es"
+    ],
     credentials: true
   }),
   authRoutes
