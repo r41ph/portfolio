@@ -22,8 +22,8 @@ router.post("/login", (req, res): LoginError | LoginData => {
             const token = createJSONToken(dbUser.username);
             res.cookie("token", token, {
               httpOnly: true,
-              sameSite: "strict"
-              // secure: true
+              sameSite: "strict",
+              secure: true
             });
             res.json({ ...dbUser });
           } else {
