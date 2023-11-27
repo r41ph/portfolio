@@ -10,8 +10,7 @@
     "prepare": "husky install",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rm -rf frontend/dist/* && rm -rf backend/public/* && cd frontend/ && npm run build && cd ..",
-    "postbuild": "copyfiles \"frontend/dist/**/*\" --up 2 \"backend/public\"",
+    "build:frontend": "npm run build -w ./frontend",
     "clean": "rm -rf node_modules ./packages/backend/node_modules/ ./packages/frontend/node_modules/ package-lock.json && npm i"
   },
   "repository": {
