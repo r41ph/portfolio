@@ -12,6 +12,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:frontend": "npm run build -w ./frontend",
     "build:backend": "npm run build -w ./backend",
+    "start:backend": "npm run start:prod -w ./backend",
     "clean": "rm -rf node_modules ./packages/backend/node_modules/ ./packages/frontend/node_modules/ package-lock.json && npm i"
   },
   "repository": {
