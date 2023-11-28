@@ -44,8 +44,7 @@ app.use(
   }),
   authRoutes
 );
-app.use(cors());
-app.use("/data", apiRoutes);
+app.use("/data", cors(), apiRoutes);
 
 app.use(express.static(__dirname + "/public"));
 app.use(express.static(__dirname + "/public/storybook"));
