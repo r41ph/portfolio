@@ -1,26 +1,15 @@
 import { getDb } from "../utils/database";
 import express from "express";
-import cors from "cors";
-
 import bcrypt from "bcryptjs";
 import { LoginData, LoginError } from "../types/types";
 import { createJSONToken, validateJSONToken } from "../utils/auth";
 
 export const router = express.Router();
 
-// Enable pre-flight requests for auth routes
-router.options("*", cors());
-
-router.use(
-  cors({
-    origin:
-      process.env.NODE_ENV === "production"
-        ? "https://ralph.es"
-        : ["http://localhost:5173", "http://localhost:6006"],
-    optionsSuccessStatus: 200,
-    credentials: true
-  })
-);
+router.use((_req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "https://ralph.es");
+  next();
+});
 
 router.post("/login", (req, res): LoginError | LoginData => {
   const db = getDb();
@@ -38,6 +27,7 @@ router.post("/login", (req, res): LoginError | LoginData => {
             const token = createJSONToken(dbUser.username);
             res.cookie("token", token, {
               httpOnly: true,
+              sameSite: "strict",
               secure: true
             });
             res.json({ ...dbUser });
@@ -71,7 +61,7 @@ router.get("/login/status", (req, res) => {
   }
 });
 
-router.post("/logout", (req, res) => {
+router.post("/logout", (_req, res) => {
   res.clearCookie("token");
   res.sendStatus(200);
 });
