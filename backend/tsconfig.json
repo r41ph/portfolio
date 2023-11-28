@@ -4,9 +4,11 @@
     "moduleResolution": "node",
     "esModuleInterop": true,
     "module": "ESNext",
-    "noEmit": false,
+    "noEmit": true,
     "outDir": "dist",
     "target": "ES6",
+    "allowImportingTsExtensions": true,
+
   },
   "ts-node": {
     "esm": true,

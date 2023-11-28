@@ -16,6 +16,11 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 app.use(compression());
 
+app.use((_req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "https://ralph.es");
+  next();
+});
+
 if (process.env.NODE_ENV === "production") {
   app.use(helmet());
 }

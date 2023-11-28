@@ -6,10 +6,10 @@ import { createJSONToken, validateJSONToken } from "../utils/auth";
 
 export const router = express.Router();
 
-router.use((_req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "https://ralph.es");
-  next();
-});
+// router.use((_req, res, next) => {
+//   res.header("Access-Control-Allow-Origin", "https://ralph.es");
+//   next();
+// });
 
 router.post("/login", (req, res): LoginError | LoginData => {
   const db = getDb();
