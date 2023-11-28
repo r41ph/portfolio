@@ -49,15 +49,15 @@ app.use("/data", cors());
 app.use("/auth", authRoutes);
 app.use("/data", apiRoutes);
 
-app.use(express.static(__dirname + "/public"));
-app.use(express.static(__dirname + "/public/storybook"));
+app.use(express.static(__dirname + "/dist"));
+app.use(express.static(__dirname + "/dist/storybook"));
 
 app.use("/storybook", (_req, res) => {
-  res.sendFile(path.join(__dirname, "public/storybook/index.html"));
+  res.sendFile(path.join(__dirname, "dist/storybook/index.html"));
 });
 
 app.use("*", (_req, res) => {
-  res.sendFile(path.join(__dirname, "public/index.html"));
+  res.sendFile(path.join(__dirname, "dist/index.html"));
 });
 
 mongoConnect(() => {
