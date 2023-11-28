@@ -17,7 +17,7 @@ const app = express();
 app.use(compression());
 
 app.use((_req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "https://ralph.es");
+  res.setHeader("Access-Control-Allow-Origin", "https://ralph.es");
   next();
 });
 
