@@ -6,7 +6,7 @@ import bodyParser from "body-parser";
 import path, { dirname } from "path";
 import { fileURLToPath } from "url";
 import cookieParser from "cookie-parser";
-import helmet from "helmet";
+// import helmet from "helmet";
 
 import { router as apiRoutes } from "./routes/dataRoutes";
 import { router as authRoutes } from "./routes/authRoutes";
@@ -16,9 +16,9 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 app.use(compression());
 
-if (process.env.NODE_ENV === "production") {
-  app.use(helmet());
-}
+// if (process.env.NODE_ENV === "production") {
+//   app.use(helmet());
+// }
 app.use(cookieParser());
 
 // Set the MIME type for JavaScript files
