@@ -61,5 +61,5 @@ app.use("*", (_req, res) => {
 });
 
 mongoConnect(() => {
-  app.listen(3000);
+  app.listen(process.env.PORT || 3000);
 });
