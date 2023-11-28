@@ -7,6 +7,8 @@
     "noEmit": false,
     "outDir": "dist",
     "target": "ES6",
+    // "allowImportingTsExtensions": true,
+
   },
   "ts-node": {
     "esm": true,

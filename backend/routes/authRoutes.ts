@@ -42,6 +42,10 @@ router.post("/login", (req, res): LoginError | LoginData => {
 
 router.get("/login/status", (req, res) => {
   const isCookiePresent = req.cookies?.token;
+  console.log(
+    "🚀 ~ file: authRoutes.ts:51 ~ router.get ~ isCookiePresent:",
+    isCookiePresent
+  );
   if (isCookiePresent) {
     try {
       const isTokenValid = validateJSONToken(isCookiePresent);
@@ -55,7 +59,7 @@ router.get("/login/status", (req, res) => {
   }
 });
 
-router.post("/logout", (req, res) => {
+router.post("/logout", (_req, res) => {
   res.clearCookie("token");
   res.sendStatus(200);
 });
