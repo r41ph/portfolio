@@ -1,10 +1,26 @@
 import { getDb } from "../utils/database";
 import express from "express";
+import cors from "cors";
+
 import bcrypt from "bcryptjs";
 import { LoginData, LoginError } from "../types/types";
 import { createJSONToken, validateJSONToken } from "../utils/auth";
 
 export const router = express.Router();
+
+// Enable pre-flight requests for auth routes
+router.options("*", cors());
+
+router.use(
+  cors({
+    origin:
+      process.env.NODE_ENV === "production"
+        ? "https://ralph.es"
+        : ["http://localhost:5173", "http://localhost:6006"],
+    optionsSuccessStatus: 200,
+    credentials: true
+  })
+);
 
 router.post("/login", (req, res): LoginError | LoginData => {
   const db = getDb();

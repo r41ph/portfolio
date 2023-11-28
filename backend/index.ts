@@ -31,21 +31,6 @@ app.use((req, res, next) => {
 
 app.use(bodyParser.json());
 
-// Enable pre-flight requests for auth routes
-app.options("/auth", cors());
-
-app.use(
-  "/auth",
-  cors({
-    origin:
-      process.env.NODE_ENV === "production"
-        ? "https://ralph.es"
-        : ["http://localhost:5173", "http://localhost:6006"],
-    optionsSuccessStatus: 200,
-    credentials: true
-  })
-);
-
 app.use("/data", cors());
 
 app.use("/auth", authRoutes);
