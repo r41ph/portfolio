@@ -15,7 +15,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const app = express();
 app.use(compression());
-// add and conditional that if production use helmet
+
 if (process.env.NODE_ENV === "production") {
   app.use(helmet());
 }
@@ -37,7 +37,7 @@ app.use(
     origin: [
       "http://localhost:5173",
       "http://localhost:6006",
-      "https://portfolio-3jqf.onrender.com/",
+      "https://portfolio-3jqf.onrender.com",
       "https://ralph.es"
     ],
     credentials: true
