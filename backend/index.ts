@@ -56,7 +56,7 @@ app.use("/storybook", (_req, res) => {
   res.sendFile(path.join(__dirname, "public/storybook/index.html"));
 });
 
-app.use("/", (_req, res) => {
+app.use("*", (_req, res) => {
   res.sendFile(path.join(__dirname, "public/index.html"));
 });
 
