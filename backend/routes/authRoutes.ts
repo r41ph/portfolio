@@ -48,6 +48,10 @@ router.post("/login", (req, res): LoginError | LoginData => {
 
 router.get("/login/status", (req, res) => {
   const isCookiePresent = req.cookies?.token;
+  console.log(
+    "🚀 ~ file: authRoutes.ts:51 ~ router.get ~ isCookiePresent:",
+    isCookiePresent
+  );
   if (isCookiePresent) {
     try {
       const isTokenValid = validateJSONToken(isCookiePresent);
