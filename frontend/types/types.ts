@@ -95,3 +95,10 @@ export type Headers = {
   // "Content-Type": string;
   Authorization?: string;
 };
+
+export interface LoginResponse {
+  password: string;
+  token: string;
+  username: string;
+  _id: string;
+}

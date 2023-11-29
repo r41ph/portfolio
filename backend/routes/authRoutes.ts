@@ -20,12 +20,12 @@ router.post("/login", (req, res): LoginError | LoginData => {
         .then((isPasswordCorrect) => {
           if (isPasswordCorrect) {
             const token = createJSONToken(dbUser.username);
-            res.cookie("token", token, {
-              httpOnly: true,
-              sameSite: "none",
-              secure: true
-            });
-            res.json({ ...dbUser });
+            // res.cookie("token", token, {
+            //   httpOnly: true,
+            //   sameSite: "none",
+            //   secure: true
+            // });
+            res.json({ ...dbUser, token });
           } else {
             res.status(200).json({ error: "Invalid username or password" });
           }
@@ -43,10 +43,6 @@ router.post("/login", (req, res): LoginError | LoginData => {
 
 router.get("/login/status", (req, res) => {
   const isCookiePresent = req.cookies?.token;
-  console.log(
-    "🚀 ~ file: authRoutes.ts:51 ~ router.get ~ isCookiePresent:",
-    isCookiePresent
-  );
   if (isCookiePresent) {
     try {
       const isTokenValid = validateJSONToken(isCookiePresent);
