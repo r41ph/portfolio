@@ -6,11 +6,6 @@ import { createJSONToken, validateJSONToken } from "../utils/auth";
 
 export const router = express.Router();
 
-// router.use((_req, res, next) => {
-//   res.header("Access-Control-Allow-Origin", "https://ralph.es");
-//   next();
-// });
-
 router.post("/login", (req, res): LoginError | LoginData => {
   const db = getDb();
   return db
@@ -27,7 +22,6 @@ router.post("/login", (req, res): LoginError | LoginData => {
             const token = createJSONToken(dbUser.username);
             res.cookie("token", token, {
               httpOnly: true,
-              sameSite: "strict",
               secure: true
             });
             res.json({ ...dbUser });
