@@ -9,7 +9,6 @@ lerna-debug.log*
 
 node_modules
 frontend/dist
-backend/public
 frontend/public/storybook
 frontend/storybook-static
 frontend/coverage

@@ -3,10 +3,6 @@ import express from "express";
 import bcrypt from "bcryptjs";
 import { createJSONToken, validateJSONToken } from "../utils/auth";
 export const router = express.Router();
-// router.use((_req, res, next) => {
-//   res.header("Access-Control-Allow-Origin", "https://ralph.es");
-//   next();
-// });
 router.post("/login", (req, res) => {
     const db = getDb();
     return db
@@ -21,12 +17,12 @@ router.post("/login", (req, res) => {
             .then((isPasswordCorrect) => {
             if (isPasswordCorrect) {
                 const token = createJSONToken(dbUser.username);
-                res.cookie("token", token, {
-                    httpOnly: true,
-                    sameSite: "strict",
-                    secure: true
-                });
-                res.json(Object.assign({}, dbUser));
+                // res.cookie("token", token, {
+                //   httpOnly: true,
+                //   sameSite: "none",
+                //   secure: true
+                // });
+                res.json(Object.assign(Object.assign({}, dbUser), { token }));
             }
             else {
                 res.status(200).json({ error: "Invalid username or password" });
@@ -45,7 +41,6 @@ router.post("/login", (req, res) => {
 router.get("/login/status", (req, res) => {
     var _a;
     const isCookiePresent = (_a = req.cookies) === null || _a === void 0 ? void 0 : _a.token;
-    console.log("🚀 ~ file: authRoutes.ts:51 ~ router.get ~ isCookiePresent:", isCookiePresent);
     if (isCookiePresent) {
         try {
             const isTokenValid = validateJSONToken(isCookiePresent);
