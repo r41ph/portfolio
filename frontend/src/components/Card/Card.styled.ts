@@ -3,7 +3,7 @@ import tw from "twin.macro";
 
 export const CardWrapper = styled.article<{ $shadow?: boolean }>(
   ({ $shadow }) => [
-    tw`h-full relative max-w-[21rem]`,
+    tw`h-full relative sm:max-w-[21rem]`,
     $shadow && tw`shadow-lg bg-white m-0 p-1`,
   ],
 );
