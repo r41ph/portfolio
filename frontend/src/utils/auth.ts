@@ -28,7 +28,10 @@ export async function postLoginForm(
     .then((response) => {
       const token: string = (response.data as LoginResponse).token;
       if (token) {
-        document.cookie = `token=${token}; Secure; SameSite=None`;
+        console.log("🚀 ~ file: auth.ts:31 ~ .then ~ token:", token);
+        const date = new Date();
+        date.setDate(date.getDate() + 1);
+        document.cookie = `token=${token}; Secure; SameSite=None; expires=${date.toUTCString()}`;
       }
 
       return response;
