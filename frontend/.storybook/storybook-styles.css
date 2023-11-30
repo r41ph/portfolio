@@ -2,3 +2,8 @@
 #anchor--dark-mode--default .css-1wjen9k {
   min-height: 140px;
 }
+
+/* Hide shortcuts icon */
+button[title*="Shortcuts"] {
+  display: none !important;
+}
