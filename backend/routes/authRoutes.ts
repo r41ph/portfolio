@@ -20,11 +20,12 @@ router.post("/login", (req, res): LoginError | LoginData => {
         .then((isPasswordCorrect) => {
           if (isPasswordCorrect) {
             const token = createJSONToken(dbUser.username);
-            // res.cookie("token", token, {
-            //   httpOnly: true,
-            //   sameSite: "none",
-            //   secure: true
-            // });
+            res.cookie("token", token, {
+              httpOnly: true,
+              sameSite: "none",
+              secure: true,
+              domain: ".ralph.es"
+            });
             res.json({ ...dbUser, token });
           } else {
             res.status(200).json({ error: "Invalid username or password" });

@@ -24,15 +24,18 @@ export async function postLoginForm(
   return await api
     .post("/auth/login", req, {
       withCredentials: true,
+      headers: {
+        "Content-Type": "application/json",
+      },
     })
     .then((response) => {
-      const token: string = (response.data as LoginResponse).token;
-      if (token) {
-        console.log("🚀 ~ file: auth.ts:31 ~ .then ~ token:", token);
-        const date = new Date();
-        date.setDate(date.getDate() + 1);
-        document.cookie = `token=${token}; Secure; SameSite=None; expires=${date.toUTCString()}; path=/`;
-      }
+      // const token: string = (response.data as LoginResponse).token;
+      // if (token) {
+      //   console.log("🚀 ~ file: auth.ts:31 ~ .then ~ token:", token);
+      //   const date = new Date();
+      //   date.setDate(date.getDate() + 1);
+      //   document.cookie = `token=${token}; Secure; SameSite=None; expires=${date.toUTCString()}; path=/`;
+      // }
 
       return response;
     })
@@ -46,6 +49,9 @@ export async function isUserLoggedIn() {
   return await api
     .get("/auth/login/status", {
       withCredentials: true,
+      headers: {
+        "Content-Type": "application/json",
+      },
     })
     .then((response) => {
       console.log("🚀 ~ file: auth.ts:51 ~ .then ~ response:", response);

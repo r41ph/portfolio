@@ -91,11 +91,6 @@ export type LoginData = {
   password: FormDataEntryValue | null;
 };
 
-export type Headers = {
-  // "Content-Type": string;
-  Authorization?: string;
-};
-
 export interface LoginResponse extends LoginData {
   token: string;
   _id: string;
