@@ -33,12 +33,12 @@ const getUnsplashImage = ({
           // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
           name: response.data[0].user.name,
           // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
-          url: response.data[0].user.links.self,
+          url: response.data[0].user.links.html,
         },
       };
     })
     .catch((error) => {
-      console.log(error);
+      console.log("Error fetching image from Unsplash: ", error);
       return Promise.reject(error);
     });
 };
