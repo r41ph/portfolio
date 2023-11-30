@@ -28,7 +28,7 @@ export function NotFound() {
           <img className="w-full" src={data?.src} alt="404" />
           <figcaption className="text-xs items-end-l mt-1 ml-auto">
             Image by{" "}
-            <a className="underline" href={data?.author.url}>
+            <a className="underline" target="_blank" href={data?.author.url}>
               {data?.author.name}
             </a>
           </figcaption>
