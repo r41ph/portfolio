@@ -1,7 +1,7 @@
 import { redirect } from "react-router-dom";
 import { AxiosError, AxiosResponse } from "axios";
 import { api } from "./api";
-import { LoginData, LoginResponse } from "../../types/types";
+import { LoginData } from "../../types/types";
 import { LoginError } from "../../../backend/types/types";
 
 export function logout() {
