@@ -11,8 +11,7 @@ export function logout() {
       return redirect("/");
     })
     .catch((error) => {
-      console.log("logout error:", error);
-      // Loaders must return a value
+      console.log("Logout error:", error);
       return null;
     });
 }
@@ -24,23 +23,10 @@ export async function postLoginForm(
   return await api
     .post("/auth/login", req, {
       withCredentials: true,
-      headers: {
-        "Content-Type": "application/json",
-      },
     })
-    .then((response) => {
-      // const token: string = (response.data as LoginResponse).token;
-      // if (token) {
-      //   console.log("🚀 ~ file: auth.ts:31 ~ .then ~ token:", token);
-      //   const date = new Date();
-      //   date.setDate(date.getDate() + 1);
-      //   document.cookie = `token=${token}; Secure; SameSite=None; expires=${date.toUTCString()}; path=/`;
-      // }
-
-      return response;
-    })
+    .then((response) => response)
     .catch((error) => {
-      console.log("error fetching /auth/login", error);
+      console.log("Error logging in", error);
       return Promise.reject(error);
     });
 }
@@ -49,17 +35,12 @@ export async function isUserLoggedIn() {
   return await api
     .get("/auth/login/status", {
       withCredentials: true,
-      headers: {
-        "Content-Type": "application/json",
-      },
     })
     .then((response) => {
-      console.log("🚀 ~ file: auth.ts:51 ~ .then ~ response:", response);
       return response.data as boolean;
     })
     .catch((error: AxiosError) => {
-      console.log("🚀 ~ file: auth.ts:55 ~ isUserLoggedIn ~ error:", error);
-      console.log("isUserLoggedIn error: ", error?.response?.data);
+      console.log("Error fetching login status: ", error?.response?.data);
       return null;
     });
 }

@@ -8,7 +8,7 @@ export async function getWorks() {
       return response.data as { works: Project[] };
     })
     .catch((error) => {
-      console.log("errorrrr> ", error);
+      console.log("Error fetching works", error);
     });
 }
 
