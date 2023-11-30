@@ -96,9 +96,7 @@ export type Headers = {
   Authorization?: string;
 };
 
-export interface LoginResponse {
-  password: string;
+export interface LoginResponse extends LoginData {
   token: string;
-  username: string;
   _id: string;
 }
