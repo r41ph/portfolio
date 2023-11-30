@@ -25,7 +25,7 @@ export function NotFound() {
         </div>
       ) : (
         <figure className="flex flex-col items-center w-1/2">
-          <img className="h-96" src={data?.src} alt="404" />
+          <img className="w-full" src={data?.src} alt="404" />
           <figcaption className="text-xs items-end-l mt-1 ml-auto">
             Image by{" "}
             <a className="underline" href={data?.author.url}>
