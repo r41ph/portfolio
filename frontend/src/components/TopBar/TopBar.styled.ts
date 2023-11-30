@@ -37,7 +37,7 @@ export const TopBarItem = styled.li(() => [
     items-center
     justify-center
     h-full
-    px-4
+    pr-4
     cursor-pointer
     xs:px-2
     hover:opacity-70
