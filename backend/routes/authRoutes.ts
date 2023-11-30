@@ -42,6 +42,7 @@ router.post("/login", (req, res): LoginError | LoginData => {
 });
 
 router.get("/login/status", (req, res) => {
+  console.log("🚀 ~ file: authRoutes.ts:45 ~ router.get ~ req:", req);
   const isCookiePresent = req.cookies?.token;
   if (isCookiePresent) {
     try {

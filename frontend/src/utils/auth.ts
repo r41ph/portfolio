@@ -31,7 +31,7 @@ export async function postLoginForm(
         console.log("🚀 ~ file: auth.ts:31 ~ .then ~ token:", token);
         const date = new Date();
         date.setDate(date.getDate() + 1);
-        document.cookie = `token=${token}; Secure; SameSite=None; expires=${date.toUTCString()}`;
+        document.cookie = `token=${token}; Secure; SameSite=None; expires=${date.toUTCString()}; path=/`;
       }
 
       return response;
@@ -48,10 +48,12 @@ export async function isUserLoggedIn() {
       withCredentials: true,
     })
     .then((response) => {
+      console.log("🚀 ~ file: auth.ts:51 ~ .then ~ response:", response);
       return response.data as boolean;
     })
     .catch((error: AxiosError) => {
-      console.log("error: ", error?.response?.data);
+      console.log("🚀 ~ file: auth.ts:55 ~ isUserLoggedIn ~ error:", error);
+      console.log("isUserLoggedIn error: ", error?.response?.data);
       return null;
     });
 }
