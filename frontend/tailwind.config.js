@@ -5,7 +5,7 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        xs: { max: "480px" },
+        xs: "480px",
       },
       keyframes: ({ theme }) => {
         return {
