@@ -53,14 +53,6 @@ export async function isUserLoggedIn() {
     });
 }
 
-export async function authLoader() {
-  const isLoggedIn = await isUserLoggedIn();
-  if (!isLoggedIn) {
-    return redirect("/login");
-  }
-  return isLoggedIn;
-}
-
 export async function loginStatusLoader() {
   const loginStatus = await isUserLoggedIn();
   return loginStatus;

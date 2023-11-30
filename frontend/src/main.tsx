@@ -12,8 +12,9 @@ import "normalize.css";
 import "./index.css";
 import { loginAction } from "./portfolio/Login/Login-action.tsx";
 import { Dashboard } from "./dashboard/Dashboard.tsx";
-import { authLoader, logout, loginStatusLoader } from "./utils/auth.ts";
+import { logout, loginStatusLoader } from "./utils/auth.ts";
 import { loginLoader } from "./portfolio/Login/Login-loader.tsx";
+import { dashboardLoader } from "./dashboard/Dashboard-loader.ts";
 // import { CustomError } from "./portfolio/CustomError.tsx";
 
 export const routes = [
@@ -45,7 +46,7 @@ export const routes = [
       {
         path: "dashboard",
         element: <Dashboard />,
-        loader: authLoader,
+        loader: dashboardLoader,
       },
       {
         path: "logout",
@@ -60,6 +61,7 @@ export const routes = [
     ],
   },
 ];
+
 export const router = createBrowserRouter(routes);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
