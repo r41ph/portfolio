@@ -43,14 +43,13 @@ router.post("/login", (req, res): LoginError | LoginData => {
 });
 
 router.get("/login/status", (req, res) => {
-  console.log("🚀 ~ file: authRoutes.ts:45 ~ router.get ~ req:", req);
   const isCookiePresent = req.cookies?.token;
   if (isCookiePresent) {
     try {
       const isTokenValid = validateJSONToken(isCookiePresent);
       res.status(200).json(!!isTokenValid);
     } catch (err) {
-      console.log("err:", err?.message);
+      console.log("Error checking loggin status:", err?.message);
       res.status(401).send(`Unauthorized, ${err?.message}`);
     }
   } else {
@@ -59,6 +58,9 @@ router.get("/login/status", (req, res) => {
 });
 
 router.post("/logout", (_req, res) => {
-  res.clearCookie("token");
+  res.clearCookie("token", {
+    path: "/",
+    domain: ".ralph.es"
+  });
   res.sendStatus(200);
 });

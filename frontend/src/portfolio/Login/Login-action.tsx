@@ -13,10 +13,6 @@ export const loginAction: ActionFunction = async ({ request }) => {
   let errors = {};
 
   const loginResponse = await postLoginForm(authData);
-  console.log(
-    "🚀 ~ file: Login-action.tsx:16 ~ constloginAction:ActionFunction= ~ loginResponse:",
-    loginResponse,
-  );
 
   if ((loginResponse.data as LoginResponse).token) {
     return redirect("/dashboard");
