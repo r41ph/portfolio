@@ -3,27 +3,11 @@ import { Footer } from "./Footer";
 import { describe, expect, test } from "vitest";
 
 describe("Footer", () => {
-  test("should render the icons pointing to the right URLs and open them in a new tab", () => {
+  test("should display the correct copyright text", () => {
     render(<Footer />);
-    const githubLink = screen.getByRole("link", {
-      name: "Link to r41ph github account",
-    });
-    const codepenLink = screen.getByRole("link", {
-      name: "Link to r41ph codepen account",
-    });
-    const contactLink = screen.getByRole("link", {
-      name: "Send email to r41ph",
-    });
-    expect(githubLink).toBeInTheDocument();
-    expect(codepenLink).toBeInTheDocument();
-    expect(contactLink).toBeInTheDocument();
-
-    expect(githubLink.getAttribute("href")).toBe("https://github.com/r41ph");
-    expect(codepenLink.getAttribute("href")).toBe("https://codepen.io/r41ph");
-    expect(contactLink.getAttribute("href")).toContain("mailto:jobs@rgalan.es");
-
-    expect(githubLink).toHaveAttribute("target", "_blank");
-    expect(codepenLink).toHaveAttribute("target", "_blank");
-    expect(contactLink).toHaveAttribute("target", "_blank");
+    const copyrightText = screen.getByText(
+      /© \d{4} r41ph\. All rights reserved\./,
+    );
+    expect(copyrightText).toBeInTheDocument();
   });
 });

@@ -9,7 +9,7 @@ export const handlers = [
           urls: { small: "testSrc" },
           user: {
             name: "testAuthorName",
-            links: { self: "testAuthorUrl" },
+            links: { html: "testAuthorUrl" },
           },
         },
       ]),
