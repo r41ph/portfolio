@@ -11,8 +11,10 @@ export function Login() {
       {error?.length && <p className="text-red">{error}</p>}
       <Form method="post" className="max-w-md">
         <fieldset className="flex flex-col">
-          <legend className="text-xl mb-4">Log in</legend>
-          <label htmlFor="username" className="my-2">
+          <legend className="text-xl mb-4 dark:animate-dark-fade-in">
+            Log in
+          </legend>
+          <label htmlFor="username" className="my-2 dark:animate-dark-fade-in">
             Username
           </label>
           <input
@@ -21,7 +23,7 @@ export function Login() {
             className="border p-3"
             aria-label="username"
           />
-          <label htmlFor="password" className="my-2">
+          <label htmlFor="password" className="my-2 dark:animate-dark-fade-in">
             Password
           </label>
           <input
@@ -33,7 +35,7 @@ export function Login() {
           <Button
             size={ButtonSize.MD}
             type="submit"
-            className="mt-6"
+            className="mt-6 dark:animate-dark-fade-in"
             isDisabled={isSubmitting}
           >
             {isSubmitting ? "Submitting..." : "Log in"}

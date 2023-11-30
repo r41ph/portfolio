@@ -45,7 +45,7 @@ export const Icon = ({
     <IconWrapper
       size={size}
       data-testid={`${iconType.toLowerCase()}`}
-      className={className}
+      className={`${className} icon`}
       title={title ? iconType : ""}
     >
       {iconType === IconType.CSS && <CSSLogo />}
