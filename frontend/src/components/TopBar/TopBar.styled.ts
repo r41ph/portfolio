@@ -12,11 +12,9 @@ export const TopBarWrapper = styled.div(() => [
     flex
     items-center
     justify-between
-    px-4
     z-50
     dark:animate-dark-fade-in
     xs:h-16
-    xs:px-2
     items-end
   `,
 ]);

@@ -15,7 +15,7 @@ export function Layout() {
         <TopBar />
         <Navigation />
       </Header>
-      <main className="max-w-5xl mx-auto px-5 xl:px-0 relative z-50">
+      <main className="max-w-5xl w-full mx-auto px-5 xl:px-0 relative z-50">
         <Outlet />
       </main>
       <Footer />

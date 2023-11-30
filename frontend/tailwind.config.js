@@ -5,7 +5,7 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        xs: "480px",
+        xs: { max: "480px" },
       },
       keyframes: ({ theme }) => {
         return {
@@ -74,7 +74,7 @@ module.exports = {
       blue: "#0f70b7",
       "blue-light": "#639ec8",
       "blue-dark": "#095187",
-      "blue-darker": "#020D1F", // https://www.fortnight.studio/work
+      "blue-darker": "#020D1F",
       grey: "#8492a6",
       "grey-light": "#d3dce6",
       "grey-dark": "#273444",
