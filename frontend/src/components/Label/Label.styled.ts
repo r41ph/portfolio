@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import tw from "twin.macro";
+import tw, { css } from "twin.macro";
 import { LabelSize } from "../../../types/types";
 
 export const LabelWrapper = styled.div<{ size?: LabelSize }>(({ size }) => [
@@ -39,4 +39,9 @@ export const LabelWrapper = styled.div<{ size?: LabelSize }>(({ size }) => [
       [&>svg]:w-7
       [&>svg]:h-7
     `,
+  css`
+    .icon {
+      ${tw`mr-1`}
+    }
+  `,
 ]);
