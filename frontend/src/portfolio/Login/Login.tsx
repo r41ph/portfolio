@@ -9,7 +9,7 @@ export function Login() {
   return (
     <div className="flex flex-col justify-center items-center">
       {error?.length && <p className="text-red">{error}</p>}
-      <Form method="post" className="max-w-md">
+      <Form method="post" className="max-w-[420px] w-full">
         <fieldset className="flex flex-col">
           <legend className="text-xl mb-4 dark:animate-dark-fade-in">
             Log in
