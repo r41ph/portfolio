@@ -66,6 +66,13 @@ export const router = createBrowserRouter(routes);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <RouterProvider
+      router={router}
+      fallbackElement={
+        <div className="flex justify-center items-center h-screen">
+          <p className="text-2xl">Loading...</p>
+        </div>
+      }
+    />
   </React.StrictMode>,
 );
