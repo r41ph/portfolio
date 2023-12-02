@@ -39,14 +39,22 @@ export const Icon = ({
   type: IconType;
   className?: string;
   size?: IconSize;
-  title?: boolean;
+  title?: boolean | string;
 }) => {
+  const iconTitle =
+    // prettier-ignore
+    typeof title === "string" && title.length
+      ? title
+      : typeof title === "boolean" && title
+      ? iconType
+      : "";
+
   return (
     <IconWrapper
       size={size}
       data-testid={`${iconType.toLowerCase()}`}
       className={`${className} icon`}
-      title={title ? iconType : ""}
+      title={iconTitle}
     >
       {iconType === IconType.CSS && <CSSLogo />}
       {iconType === IconType.HTML && <HTMLLogo />}

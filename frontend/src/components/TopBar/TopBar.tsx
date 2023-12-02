@@ -76,7 +76,7 @@ export function TopBar() {
           ) : (
             <NavLink to="/login">
               <Icon
-                title
+                title="Log in"
                 className="dark:animate-dark-fade-in"
                 type={IconType.LOGIN}
                 size={IconSize.SM}
