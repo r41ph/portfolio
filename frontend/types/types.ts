@@ -19,6 +19,7 @@ export enum Icons {
   STORYBOOK = "Storybook",
   LOGIN = "Log-in",
   LOGOUT = "Log-out",
+  DASHBOARD = "Dashboard",
 }
 
 // IStack and IconType are equal enums

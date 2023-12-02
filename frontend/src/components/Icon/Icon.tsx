@@ -19,6 +19,7 @@ import { ReactComponent as Moon } from "../../assets/svg/moon.svg";
 import { ReactComponent as Storybook } from "../../assets/svg/storybook.svg";
 import { ReactComponent as LogIn } from "../../assets/svg/log-in.svg";
 import { ReactComponent as LogOut } from "../../assets/svg/log-out.svg";
+import { ReactComponent as Dashboard } from "../../assets/svg/dashboard.svg";
 
 import { IconSize, IconType } from "../../../types/types";
 import { IconWrapper } from "./Icon.styles";
@@ -76,6 +77,7 @@ export const Icon = ({
       {iconType === IconType.STORYBOOK && <Storybook />}
       {iconType === IconType.LOGIN && <LogIn />}
       {iconType === IconType.LOGOUT && <LogOut />}
+      {iconType === IconType.DASHBOARD && <Dashboard />}
     </IconWrapper>
   );
 };
