@@ -48,22 +48,6 @@ export function TopBar() {
         <TopBarItem>
           <Link
             className="block"
-            href="https://codepen.io/r41ph"
-            target="_blank"
-            rel="noreferrer"
-            ariaLabel="Link to r41ph codepen account"
-          >
-            <Icon
-              title
-              className="dark:animate-dark-fade-in"
-              type={IconType.CODEPEN}
-              size={IconSize.SM}
-            />
-          </Link>
-        </TopBarItem>
-        <TopBarItem>
-          <Link
-            className="block"
             href="mailto:jobs@rgalan.es?subject=Nice portfolio. Let's talk!"
             target="_blank"
             rel="noreferrer"
