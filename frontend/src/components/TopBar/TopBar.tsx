@@ -61,12 +61,24 @@ export function TopBar() {
             />
           </Link>
         </TopBarItem>
+        {isLoggedIn && (
+          <TopBarItem>
+            <NavLink to="/dashboard">
+              <Icon
+                title
+                className="dark:animate-dark-fade-in"
+                type={IconType.DASHBOARD}
+                size={IconSize.SM}
+              />
+            </NavLink>
+          </TopBarItem>
+        )}
         <TopBarItem>
           {isLoggedIn ? (
             <Form action="/logout" method="post">
               <Button type="submit" size={ButtonSize.AUTO} noBorder>
                 <Icon
-                  title
+                  title="Log out"
                   className="dark:animate-dark-fade-in"
                   type={IconType.LOGOUT}
                   size={IconSize.SM}
