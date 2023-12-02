@@ -24,7 +24,10 @@ router.post("/login", (req, res): LoginError | LoginData => {
               httpOnly: true,
               sameSite: "none",
               secure: true,
-              domain: ".ralph.es"
+              domain:
+                process.env.NODE_ENV === "production"
+                  ? ".ralph.es"
+                  : "localhost"
             });
             res.json({ ...dbUser, token });
           } else {
@@ -60,7 +63,7 @@ router.get("/login/status", (req, res) => {
 router.post("/logout", (_req, res) => {
   res.clearCookie("token", {
     path: "/",
-    domain: ".ralph.es"
+    domain: process.env.NODE_ENV === "production" ? ".ralph.es" : "localhost"
   });
   res.sendStatus(200);
 });
