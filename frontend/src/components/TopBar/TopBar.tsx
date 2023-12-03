@@ -32,7 +32,7 @@ export function TopBar() {
         <TopBarItem>
           <Link
             className="block"
-            href="https://github.com/r41ph"
+            href="https://github.com/r41ph/portfolio"
             target="_blank"
             rel="noreferrer"
             ariaLabel="Link to r41ph github account"
