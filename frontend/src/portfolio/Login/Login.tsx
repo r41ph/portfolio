@@ -6,6 +6,7 @@ export function Login() {
   const navigation = useNavigation();
   const error = useActionData() as string;
   const isSubmitting = navigation.state === "submitting";
+
   return (
     <div className="flex flex-col justify-center items-center">
       {error?.length && <p className="text-red">{error}</p>}
@@ -20,8 +21,9 @@ export function Login() {
           <input
             type="text"
             name="username"
-            className="border p-3"
+            className="border p-3 rounded"
             aria-label="username"
+            required
           />
           <label htmlFor="password" className="my-2 dark:animate-dark-fade-in">
             Password
@@ -29,13 +31,14 @@ export function Login() {
           <input
             type="password"
             name="password"
-            className="border p-3"
+            className="border p-3 rounded"
             aria-label="password"
+            required
           />
           <Button
             size={ButtonSize.MD}
             type="submit"
-            className="mt-6 dark:animate-dark-fade-in"
+            className="mt-10 dark:animate-dark-fade-in"
             isDisabled={isSubmitting}
           >
             {isSubmitting ? "Submitting..." : "Log in"}
