@@ -9,11 +9,9 @@
     "start": "concurrently \"npm run dev -w ./frontend\"  \"npm run dev -w ./backend\"",
     "prepare": "husky install",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build:frontend": "npm run build -w ./frontend",
     "build:backend": "npm install && npm run build -w ./backend",
-    "start:backend": "npm run start:prod -w ./backend",
-    "clean": "rm -rf node_modules ./packages/backend/node_modules/ ./packages/frontend/node_modules/ package-lock.json && npm i"
+    "start:backend": "npm run start:prod -w ./backend"
   },
   "repository": {
     "type": "git",
