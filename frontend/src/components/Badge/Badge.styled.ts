@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import tw, { css } from "twin.macro";
-import { LabelSize } from "../../../types/types";
+import { BadgeSize } from "../../../types/types";
 
-export const LabelWrapper = styled.div<{ size?: LabelSize }>(({ size }) => [
+export const BadgeWrapper = styled.div<{ size?: BadgeSize }>(({ size }) => [
   tw`border
     inline-flex
     mr-1
@@ -14,26 +14,26 @@ export const LabelWrapper = styled.div<{ size?: LabelSize }>(({ size }) => [
     [&>svg]:mr-1
     dark:animate-dark-fade-in
   `,
-  size === LabelSize.XS &&
+  size === BadgeSize.XS &&
     tw`
       text-xs
       px-1
       [&>svg]:w-4
       [&>svg]:h-4
     `,
-  size === LabelSize.SM &&
+  size === BadgeSize.SM &&
     tw`
       text-sm
       [&>svg]:w-5
       [&>svg]:h-5
     `,
-  size === LabelSize.MD &&
+  size === BadgeSize.MD &&
     tw`
       text-base
       [&>svg]:w-6
       [&>svg]:h-6
     `,
-  size === LabelSize.LG &&
+  size === BadgeSize.LG &&
     tw`
       text-lg
       [&>svg]:w-7

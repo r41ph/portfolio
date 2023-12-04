@@ -1,5 +1,5 @@
-import { Label } from "../Label/Label";
-import { CardLinkType, LabelSize, Project } from "../../../types/types";
+import { Badge } from "../Badge/Badge";
+import { CardLinkType, BadgeSize, Project } from "../../../types/types";
 import { CardWrapper, CardContent, CardCaption } from "./Card.styled";
 import tw from "twin.macro";
 import { AriaFocusRingProps, useFocusRing } from "@react-aria/focus";
@@ -58,7 +58,7 @@ export function Card(props: CardProps) {
       <CardCaption>
         <h2 className="text-base pb-2 dark:animate-dark-fade-in flex justify-between">
           {project.name}{" "}
-          {project.type && <Label text={project.type} size={LabelSize.XS} />}
+          {project.type && <Badge text={project.type} size={BadgeSize.XS} />}
         </h2>
 
         {project.description && (
@@ -67,7 +67,7 @@ export function Card(props: CardProps) {
           </p>
         )}
         {project.stack.map((tech) => (
-          <Label key={tech} text={tech} />
+          <Badge key={tech} text={tech} />
         ))}
       </CardCaption>
     </CardWrapper>

@@ -35,15 +35,15 @@ export enum IconSize {
   LG = "lg",
 }
 
-export interface Label {
+export interface Badge {
   text: string;
   icon?: IconType;
   key?: string;
   callback?: () => void;
-  size?: LabelSize;
+  size?: BadgeSize;
 }
 
-export enum LabelSize {
+export enum BadgeSize {
   XS = "xs",
   SM = "sm",
   MD = "md",
