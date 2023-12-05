@@ -1,13 +1,13 @@
 import { Meta, StoryFn } from "@storybook/react";
 import { Icon } from "../../components/Icon/Icon";
-import { IconSize, Icons } from "../../../types/types";
+import { IconSize, IconType } from "../../../types/types";
 
 const meta: Meta<typeof Icon> = {
   title: "/Icon",
   component: Icon,
   tags: ["autodocs"],
   args: {
-    type: Icons.GITHUB,
+    type: IconType.GITHUB,
   },
   parameters: { options: { showPanel: true } },
 };

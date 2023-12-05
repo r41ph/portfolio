@@ -1,16 +1,16 @@
-import { Project, Icons, ProjectType } from "../../types/types";
+import { Project, IconType, ProjectType } from "../../types/types";
 
 export const works: Project[] = [
   {
     name: "Little Green Sheep",
     stack: [
-      Icons.HTML,
-      Icons.CSS,
-      Icons.JAVASCRIPT,
-      Icons.JEST,
-      Icons.REDUX,
-      Icons.RTL,
-      Icons["STYLED-COMPONENTS"],
+      IconType.HTML,
+      IconType.CSS,
+      IconType.JAVASCRIPT,
+      IconType.JEST,
+      IconType.REDUX,
+      IconType.RTL,
+      IconType["STYLED-COMPONENTS"],
     ],
     url: "https://google.com/",
     company: "Syrox",
@@ -20,13 +20,13 @@ export const works: Project[] = [
   {
     name: "Little Green Sheep",
     stack: [
-      Icons.HTML,
-      Icons.CSS,
-      Icons.JAVASCRIPT,
-      Icons.JEST,
-      Icons.REDUX,
-      Icons.RTL,
-      Icons["STYLED-COMPONENTS"],
+      IconType.HTML,
+      IconType.CSS,
+      IconType.JAVASCRIPT,
+      IconType.JEST,
+      IconType.REDUX,
+      IconType.RTL,
+      IconType["STYLED-COMPONENTS"],
     ],
     url: "https://google.com/",
     company: "Syrox",
@@ -36,13 +36,13 @@ export const works: Project[] = [
   {
     name: "Little Green Sheep",
     stack: [
-      Icons.HTML,
-      Icons.CSS,
-      Icons.JAVASCRIPT,
-      Icons.JEST,
-      Icons.REDUX,
-      Icons.RTL,
-      Icons["STYLED-COMPONENTS"],
+      IconType.HTML,
+      IconType.CSS,
+      IconType.JAVASCRIPT,
+      IconType.JEST,
+      IconType.REDUX,
+      IconType.RTL,
+      IconType["STYLED-COMPONENTS"],
     ],
     type: ProjectType.WEBSITE,
     url: "https://google.com/",

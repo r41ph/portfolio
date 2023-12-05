@@ -1,4 +1,4 @@
-import { CardLinkType, Icons } from "../../../types/types";
+import { CardLinkType, IconType } from "../../../types/types";
 import { render, screen } from "../../test-utils/utils";
 import { Card } from "./Card";
 import { describe, expect, test } from "vitest";
@@ -6,7 +6,7 @@ import { describe, expect, test } from "vitest";
 describe("Card", () => {
   const project = {
     name: "Test Project",
-    stack: [Icons.HTML, Icons.CSS, Icons.JAVASCRIPT],
+    stack: [IconType.HTML, IconType.CSS, IconType.JAVASCRIPT],
     company: "Syrox",
     image: "/images/works/kjlaundry-thumbnail.jpg",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
