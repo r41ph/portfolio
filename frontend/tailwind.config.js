@@ -82,6 +82,8 @@ module.exports = {
       white: "#FFFFFF",
       transparent: "transparent",
       red: "tomato",
+      "red-light": "#ff9999",
+      "red-dark": "#A50021",
     },
   },
   plugins: [],
