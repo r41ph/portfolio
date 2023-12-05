@@ -1,4 +1,4 @@
-export enum Icons {
+export enum IconType {
   GITHUB = "Github",
   CODEPEN = "Codepen",
   CONTACT = "Contact",
@@ -21,12 +21,6 @@ export enum Icons {
   LOGOUT = "Log-out",
   DASHBOARD = "Dashboard",
 }
-
-// IStack and IconType are equal enums
-// See https://devimalplanet.com/typescript-how-to-extend-one-enum-from-another
-export type IconType = Icons;
-// eslint-disable-next-line @typescript-eslint/no-redeclare
-export const IconType = { ...Icons };
 
 export enum IconSize {
   XS = "xs",
@@ -57,7 +51,7 @@ export enum CardLinkType {
 
 export interface Project {
   name: string;
-  stack: Icons[];
+  stack: string[];
   company: string;
   image: string;
   url?: string;
@@ -95,4 +89,9 @@ export type LoginData = {
 export interface LoginResponse extends LoginData {
   token: string;
   _id: string;
+}
+
+export interface InputProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {
+  noBorder?: boolean;
 }
