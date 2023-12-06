@@ -26,6 +26,7 @@
   "dependencies": {
     "copyfiles": "^2.4.1",
     "husky": "^8.0.3",
+    "react-select": "^5.8.0",
     "typescript": "^5.2.2"
   },
   "devDependencies": {
