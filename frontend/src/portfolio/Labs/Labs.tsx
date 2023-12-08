@@ -1,9 +1,10 @@
 import { getLabs } from "../../utils/data";
 import { useQuery } from "@tanstack/react-query";
 import { CardsGrid } from "../../components/CardsGrid/CardsGrid";
+import { LabData } from "../../../types/types";
 
 export const Labs = () => {
-  const { isLoading, isError, data, error } = useQuery({
+  const { isLoading, isError, data, error } = useQuery<LabData>({
     queryKey: ["labs"],
     queryFn: getLabs,
     refetchOnWindowFocus: false,

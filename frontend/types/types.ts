@@ -57,6 +57,7 @@ export interface Project {
   url?: string;
   description: string;
   type?: ProjectType;
+  position?: number;
 }
 
 export enum ProjectType {
@@ -91,7 +92,22 @@ export interface LoginResponse extends LoginData {
   _id: string;
 }
 
+export interface SelectOption {
+  value: string;
+  label: string;
+}
+
+export type OptionMutation = (option: string) => Promise<void>;
+
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
   noBorder?: boolean;
 }
+
+export type LabData = {
+  labs: Project[];
+};
+
+export type WorkData = {
+  works: Project[];
+};

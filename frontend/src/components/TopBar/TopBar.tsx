@@ -9,9 +9,13 @@ import { Link } from "../Link/Link";
 
 export function TopBar() {
   const isLoggedIn = useRouteLoaderData("root") as boolean;
+  const username = sessionStorage.getItem("username");
 
   return (
     <TopBarWrapper>
+      {isLoggedIn && username && (
+        <p className="min-w-[100px] ml-2 inline-block">{`Hi, ${username}`}</p>
+      )}
       <TopBarList>
         <TopBarItem>
           <Link

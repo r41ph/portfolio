@@ -12,6 +12,7 @@ export function SelectOptions<
       options={props.options}
       defaultValue={props.defaultValue}
       isMulti={props.isMulti}
+      isClearable={props.isClearable}
       styles={{
         control: (baseStyles) => ({
           ...baseStyles,

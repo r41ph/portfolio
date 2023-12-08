@@ -47,6 +47,18 @@ export const handlers = [
       }),
     );
   }),
+  rest.post("/data/add/stack/option", (_req, res, ctx) => {
+    return res(ctx.status(200));
+  }),
+  rest.post("/data/delete/stack/option", (_req, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json([
+        { value: "option2", label: "Option 2" },
+        { value: "option3", label: "Option 3" },
+      ]),
+    );
+  }),
   rest.get("*", (req, res, ctx) => {
     console.error(`Please add request handler for ${req.url.toString()}`);
     return res(

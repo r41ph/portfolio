@@ -23,6 +23,7 @@ export function Login() {
             name="username"
             className="border p-3 rounded"
             aria-label="username"
+            autoComplete="username"
             required
           />
           <label htmlFor="password" className="my-2 dark:animate-dark-fade-in">
@@ -33,6 +34,7 @@ export function Login() {
             name="password"
             className="border p-3 rounded"
             aria-label="password"
+            autoComplete="current-password"
             required
           />
           <Button

@@ -1,11 +1,11 @@
 import { api } from "./api";
-import { Project } from "../../types/types";
+import { LabData, Project, WorkData } from "../../types/types";
 
 export async function getWorks() {
   return await api
     .get("/data/works")
     .then((response) => {
-      return response.data as { works: Project[] };
+      return response.data as WorkData;
     })
     .catch((error) => {
       console.log("Error fetching works", error);
@@ -14,11 +14,22 @@ export async function getWorks() {
 
 export async function getLabs() {
   return await api.get("/data/labs").then((response) => {
-    return response.data as { labs: Project[] };
+    return response.data as LabData;
   });
 }
 
-export async function postProject(type: "works" | "labs", req: Project) {
+export async function getFormOptions() {
+  return await api.get("/data/form/options").then((response) => {
+    return response.data as {
+      _id: string;
+      stack: string[];
+      projectType: string[];
+      siteType: string[];
+    }[];
+  });
+}
+
+export async function addProject(type: "works" | "labs", req: Project) {
   return await api
     .post(
       `/data/add/${type}`,
@@ -29,6 +40,34 @@ export async function postProject(type: "works" | "labs", req: Project) {
     )
     .then((response) => {
       console.log(response.data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+
+export async function addStackOption(option: string) {
+  return await api
+    .post(`/data/add/stack/option`, {
+      withCredentials: true,
+      option,
+    })
+    .then((response) => {
+      console.log(response.data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+
+export async function deleteStackOption(option: string) {
+  return await api
+    .post(`/data/delete/stack/option`, {
+      withCredentials: true,
+      option,
+    })
+    .then((response) => {
+      // return response.data as { value: string; label: string }[];
     })
     .catch((error) => {
       console.log(error);

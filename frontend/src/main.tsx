@@ -15,6 +15,7 @@ import { Dashboard } from "./dashboard/Dashboard.tsx";
 import { logout, loginStatusLoader } from "./utils/auth.ts";
 import { loginLoader } from "./portfolio/Login/Login-loader.tsx";
 import { dashboardLoader } from "./dashboard/Dashboard-loader.ts";
+import { dashboardAction } from "./dashboard/Dashboard-action.ts";
 // import { CustomError } from "./portfolio/CustomError.tsx";
 
 export const routes = [
@@ -47,10 +48,12 @@ export const routes = [
         path: "dashboard",
         element: <Dashboard />,
         loader: dashboardLoader,
+        action: dashboardAction,
       },
       {
         path: "logout",
         action: () => {
+          sessionStorage.removeItem("username");
           return logout();
         },
       },

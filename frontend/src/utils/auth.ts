@@ -24,7 +24,13 @@ export async function postLoginForm(
     .post("/auth/login", req, {
       withCredentials: true,
     })
-    .then((response) => response)
+    .then((response: AxiosResponse<LoginData>) => {
+      if (response.data.username) {
+        sessionStorage.setItem("username", response.data.username as string);
+      }
+
+      return response;
+    })
     .catch((error) => {
       console.log("Error logging in", error);
       return Promise.reject(error);

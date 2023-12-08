@@ -22,19 +22,6 @@ window.matchMedia =
     };
   });
 
-// const wrappers = ({ children }: { children: React.ReactNode }) => {
-//   const queryClient = new QueryClient();
-//   return (
-//     <BrowserRouter>
-//       <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
-//     </BrowserRouter>
-//   );
-// };
-
-// type RenderWithWrappersResult = {
-//   user: ReturnType<typeof userEvent.setup>;
-// } & ReturnType<typeof rtlRender>;
-
 /**
  * Custom render for @testing-library/react with React Router (createMemoryRouter)
  * to be able to use useRouteLoaderData as it must be used within a data router =>
@@ -51,7 +38,13 @@ const renderWithWrappers = (
   options?: Omit<RenderOptions, "wrapper">,
 ) => {
   const { pathname } = new URL(`http://www.r41ph.es${path}`);
-  const queryClient = new QueryClient();
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        retry: false,
+      },
+    },
+  });
   const router = createMemoryRouter(
     [
       {
