@@ -1,17 +1,16 @@
 import { getDb } from "../utils/database";
 import express from "express";
 import bcrypt from "bcryptjs";
-import { LoginData, LoginError } from "../types/types";
 import { createJSONToken, validateJSONToken } from "../utils/auth";
 
 export const router = express.Router();
 
-router.post("/login", (req, res): LoginError | LoginData => {
+router.post("/login", (req, res) => {
   const db = getDb();
   return db
     .collection("users")
     .findOne({ username: req.body.username })
-    .then((dbUser: LoginData) => {
+    .then((dbUser) => {
       if (!dbUser) {
         return res.status(200).json({ error: "Invalid username or password" });
       }
@@ -52,7 +51,6 @@ router.get("/login/status", (req, res) => {
       const isTokenValid = validateJSONToken(isCookiePresent);
       res.status(200).json(!!isTokenValid);
     } catch (err) {
-      console.log("Error checking loggin status:", err?.message);
       res.status(401).send(`Unauthorized, ${err?.message}`);
     }
   } else {
