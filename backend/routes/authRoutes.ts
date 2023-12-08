@@ -28,7 +28,11 @@ router.post("/login", (req, res) => {
                   ? ".ralph.es"
                   : "localhost"
             });
-            res.json({ ...dbUser, token });
+            console.log(
+              "🚀 ~ file: authRoutes.ts:28 ~ .then ~ process.env.NODE_ENV:",
+              process.env.NODE_ENV
+            );
+            res.json({ ...dbUser, token, node: process.env.NODE_ENV });
           } else {
             res.status(200).json({ error: "Invalid username or password" });
           }
