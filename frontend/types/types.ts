@@ -97,7 +97,7 @@ export interface SelectOption {
   label: string;
 }
 
-export type OptionMutation = (option: string) => Promise<void>;
+export type OptionMutation = (option: string) => Promise<void | SelectOption[]>;
 
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {

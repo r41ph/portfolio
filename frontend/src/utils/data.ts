@@ -1,5 +1,5 @@
 import { api } from "./api";
-import { LabData, Project, WorkData } from "../../types/types";
+import { LabData, Project, SelectOption, WorkData } from "../../types/types";
 
 export async function getWorks() {
   return await api
@@ -67,7 +67,7 @@ export async function deleteStackOption(option: string) {
       option,
     })
     .then((response) => {
-      // return response.data as { value: string; label: string }[];
+      return response.data as SelectOption[];
     })
     .catch((error) => {
       console.log(error);
