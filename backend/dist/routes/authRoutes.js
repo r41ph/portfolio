@@ -17,12 +17,16 @@ router.post("/login", (req, res) => {
             .then((isPasswordCorrect) => {
             if (isPasswordCorrect) {
                 const token = createJSONToken(dbUser.username);
-                // res.cookie("token", token, {
-                //   httpOnly: true,
-                //   sameSite: "none",
-                //   secure: true
-                // });
-                res.json(Object.assign(Object.assign({}, dbUser), { token }));
+                res.cookie("token", token, {
+                    httpOnly: true,
+                    sameSite: "none",
+                    secure: true,
+                    domain: process.env.NODE_ENV === "production"
+                        ? ".ralph.es"
+                        : "localhost"
+                });
+                console.log("🚀 ~ file: authRoutes.ts:28 ~ .then ~ process.env.NODE_ENV:", process.env.NODE_ENV);
+                res.json(Object.assign(Object.assign({}, dbUser), { token, node: process.env.NODE_ENV }));
             }
             else {
                 res.status(200).json({ error: "Invalid username or password" });
@@ -47,7 +51,6 @@ router.get("/login/status", (req, res) => {
             res.status(200).json(!!isTokenValid);
         }
         catch (err) {
-            console.log("err:", err === null || err === void 0 ? void 0 : err.message);
             res.status(401).send(`Unauthorized, ${err === null || err === void 0 ? void 0 : err.message}`);
         }
     }
@@ -56,6 +59,9 @@ router.get("/login/status", (req, res) => {
     }
 });
 router.post("/logout", (_req, res) => {
-    res.clearCookie("token");
+    res.clearCookie("token", {
+        path: "/",
+        domain: process.env.NODE_ENV === "production" ? ".ralph.es" : "localhost"
+    });
     res.sendStatus(200);
 });

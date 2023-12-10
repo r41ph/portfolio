@@ -1,7 +1,7 @@
 import { redirect } from "react-router-dom";
 import { AxiosError, AxiosResponse } from "axios";
 import { api } from "./api";
-import { LoginData } from "../../types/types";
+import { LoginData, LoginResponse } from "../../types/types";
 import { LoginError } from "../../../backend/types/types";
 
 export function logout() {
@@ -24,9 +24,14 @@ export async function postLoginForm(
     .post("/auth/login", req, {
       withCredentials: true,
     })
-    .then((response: AxiosResponse<LoginData>) => {
-      if (response.data.username) {
+    .then((response: AxiosResponse<LoginResponse>) => {
+      const username = response.data.username;
+      const token: string = response.data.token;
+      if (token && username) {
         sessionStorage.setItem("username", response.data.username as string);
+        const date = new Date();
+        date.setDate(date.getDate() + 1);
+        document.cookie = `token=${token}; Secure; SameSite=None; expires=${date.toUTCString()}; path=/`;
       }
 
       return response;
