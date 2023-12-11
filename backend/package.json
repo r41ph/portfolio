@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "nodemon --experimental-specifier-resolution=node --exec ts-node -T ./index.ts",
     "start": "ts-node ./index.ts",
-    "build": "rm -rf dist && tsc --build",
+    "build": "tsc --build",
     "start:prod": "node --experimental-specifier-resolution=node dist/index.js",
     "test": "vitest"
   },
