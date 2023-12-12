@@ -4,9 +4,10 @@ export function SelectOptions<
   Option,
   IsMulti extends boolean = false,
   Group extends GroupBase<Option> = GroupBase<Option>,
->(props: Props<Option, IsMulti, Group>) {
+>(props: Props<Option, IsMulti, Group> & { required?: boolean }) {
   return (
     <Select
+      required={props.required}
       name={props.name}
       className="project-type-select"
       options={props.options}
