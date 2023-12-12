@@ -50,7 +50,6 @@ export function AddProject() {
 
   const errors = useActionData() as AddProjectFormErrors;
   const [stackOptions, setStackOptions] = useState<SelectOption[]>();
-  // const [newStackOptions, setNewStackOptions] = useState<string[]>([]);
   const [selectedStack, setSelectedStack] = useState<MultiValue<SelectOption>>(
     [],
   );
@@ -60,6 +59,8 @@ export function AddProject() {
   const [siteTypeOptions, setSiteTypeOptions] = useState<
     SelectOption[] | undefined
   >(undefined);
+  const [selectedSiteType, setSelectedSiteType] =
+    useState<SingleValue<SelectOption>>();
 
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
@@ -72,7 +73,7 @@ export function AddProject() {
       setProjectTypeOptions(projectOptions);
       setSiteTypeOptions(siteOptions);
     }
-  }, [data, data?.stack]);
+  }, [data]);
 
   const handleChangeStack = (newValue: MultiValue<SelectOption>) => {
     setSelectedStack(newValue);
@@ -82,7 +83,6 @@ export function AddProject() {
     const option = createOptions([newOption]);
     setStackOptions((prev = []) => [...prev, ...option]);
     setSelectedStack((prev = []) => [...prev, ...option]);
-    // setNewStackOptions((prev = []) => [...prev, newOption]);
     formOptionsMutation.mutate({ type: "stack", value: newOption });
   };
 
@@ -94,26 +94,17 @@ export function AddProject() {
     setSelectedStack((prev = []) =>
       prev.filter((option) => option.value !== optionToDelete),
     );
-    // setNewStackOptions((prev = []) =>
-    //   prev.filter((option) => option !== optionToDelete),
-    // );
     await deleteFormOption({ type: "stack", value: optionToDelete });
   };
-
-  const [selectedSiteType, setSelectedSiteType] =
-    useState<SingleValue<SelectOption>>();
 
   const handleChangeSiteType = (newValue: SingleValue<SelectOption>) => {
     setSelectedSiteType(newValue);
   };
 
-  // const [newSiteTypeOptions, setNewSiteTypeOptions] = useState<string[]>([]);
-
   const handleCreateSiteTypeOption = (newOption: string) => {
     const option = createOptions([newOption]);
     setSiteTypeOptions((prev = []) => [...prev, ...option]);
     setSelectedSiteType(option[0]);
-    // setNewSiteTypeOptions((prev = []) => [...prev, newOption]);
     formOptionsMutation.mutate({ type: "siteType", value: newOption });
   };
 
@@ -123,9 +114,6 @@ export function AddProject() {
     );
     setSiteTypeOptions(newOptions);
     setSelectedSiteType(createOptions([optionToDelete])[0]);
-    // setNewSiteTypeOptions((prev = []) =>
-    //   prev.filter((option) => option !== optionToDelete),
-    // );
     await deleteFormOption({ type: "siteType", value: optionToDelete });
   };
 
@@ -213,22 +201,11 @@ export function AddProject() {
             onDeleteOption={handleDeleteSiteTypeOption}
             isClearable
           />
-          {/* 
-            By default, `react-select` doesn't work well with traditional form
-            submissions because it doesn't use an actual `select` HTML element
-            under the hood, so we send the selected stack in a hidden input field
-          */}
           <input
             type="hidden"
             name="site-type"
             value={selectedSiteType?.value}
           />
-          {/* <SelectOptions
-            name="site-type"
-            options={siteTypeOptions}
-            defaultValue={siteTypeOptions?.[0]}
-            isClearable
-          /> */}
         </FormControl>
         <FormControl>
           <Label htmlFor="url">Url</Label>
