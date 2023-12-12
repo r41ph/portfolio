@@ -103,7 +103,9 @@ describe("SelectOptionsCreate component", () => {
   });
 
   test("renders customOption if deleteOption prop is present and delete option", async () => {
-    const deleteOption = vi.fn(deleteFormOption);
+    const deleteOption = vi.fn((option: string) =>
+      deleteFormOption({ type: option, value: option }),
+    );
 
     const { container } = renderWithWrappers(
       <SelectOptionsCreate
