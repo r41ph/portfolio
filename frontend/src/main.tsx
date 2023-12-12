@@ -15,7 +15,8 @@ import { Dashboard } from "./dashboard/Dashboard.tsx";
 import { logout, loginStatusLoader } from "./utils/auth.ts";
 import { loginLoader } from "./portfolio/Login/Login-loader.tsx";
 import { dashboardLoader } from "./dashboard/Dashboard-loader.ts";
-import { dashboardAction } from "./dashboard/Dashboard-action.ts";
+import { AddProjectAction } from "./dashboard/AddProject/AddProject-action.ts";
+import { AddProject } from "./dashboard/AddProject/AddProject.tsx";
 // import { CustomError } from "./portfolio/CustomError.tsx";
 
 export const routes = [
@@ -48,7 +49,13 @@ export const routes = [
         path: "dashboard",
         element: <Dashboard />,
         loader: dashboardLoader,
-        action: dashboardAction,
+        children: [
+          {
+            path: "add-project",
+            element: <AddProject />,
+            action: AddProjectAction,
+          },
+        ],
       },
       {
         path: "logout",

@@ -1,5 +1,5 @@
 import { api } from "./api";
-import { LabData, Project, SelectOption, WorkData } from "../../types/types";
+import { FormOptions, LabData, Project, WorkData } from "../../types/types";
 
 export async function getWorks() {
   return await api
@@ -25,7 +25,7 @@ export async function getFormOptions() {
       stack: string[];
       projectType: string[];
       siteType: string[];
-    }[];
+    };
   });
 }
 
@@ -46,9 +46,9 @@ export async function addProject(type: "works" | "labs", req: Project) {
     });
 }
 
-export async function addStackOption(option: string) {
+export async function addFormOption(option: { type: string; value: string }) {
   return await api
-    .post(`/data/add/stack/option`, {
+    .post(`/data/add/form/option`, {
       withCredentials: true,
       option,
     })
@@ -60,14 +60,17 @@ export async function addStackOption(option: string) {
     });
 }
 
-export async function deleteStackOption(option: string) {
+export async function deleteFormOption(option: {
+  type: string;
+  value: string;
+}) {
   return await api
-    .post(`/data/delete/stack/option`, {
+    .post(`/data/delete/form/option`, {
       withCredentials: true,
       option,
     })
     .then((response) => {
-      return response.data as SelectOption[];
+      return response.data as FormOptions;
     })
     .catch((error) => {
       console.log(error);

@@ -97,7 +97,9 @@ export interface SelectOption {
   label: string;
 }
 
-export type OptionMutation = (option: string) => Promise<void | SelectOption[]>;
+export type OptionMutation = (
+  option: string,
+) => Promise<void | FormOptions | SelectOption[]>;
 
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -111,3 +113,16 @@ export type LabData = {
 export type WorkData = {
   works: Project[];
 };
+
+export interface AddProjectFormErrors {
+  projectType?: string;
+  name?: string;
+  stack?: string;
+}
+
+export interface FormOptions {
+  _id: string;
+  stack: string[];
+  projectType: string[];
+  siteType: string[];
+}

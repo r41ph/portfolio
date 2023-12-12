@@ -1,4 +1,4 @@
-import { deleteStackOption } from "../../../utils/data";
+import { deleteFormOption } from "../../../utils/data";
 import {
   render,
   renderWithWrappers,
@@ -103,7 +103,7 @@ describe("SelectOptionsCreate component", () => {
   });
 
   test("renders customOption if deleteOption prop is present and delete option", async () => {
-    const deleteOption = vi.fn(deleteStackOption);
+    const deleteOption = vi.fn(deleteFormOption);
 
     const { container } = renderWithWrappers(
       <SelectOptionsCreate

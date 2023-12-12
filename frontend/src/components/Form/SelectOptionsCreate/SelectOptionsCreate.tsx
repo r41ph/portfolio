@@ -25,7 +25,7 @@ function CustomOption<
     mutationFn: deleteOption,
     onSuccess: async (data) => {
       await queryClient.invalidateQueries({ queryKey: ["formOptions"] });
-      await queryClient.setQueryData(["formOptions", {}], data);
+      await queryClient.setQueryData(["formOptions"], data);
     },
     onError: (error) => {
       console.log("error deleting option:", error);
@@ -85,6 +85,7 @@ export function SelectOptionsCreate<
     onDeleteOption,
     name,
     classNames,
+    isClearable,
   } = props;
 
   let customComponents = {};
@@ -102,6 +103,7 @@ export function SelectOptionsCreate<
     <CreatableSelect
       name={name}
       isMulti={isMulti}
+      isClearable={isClearable}
       options={options}
       value={value}
       onChange={onChange}
