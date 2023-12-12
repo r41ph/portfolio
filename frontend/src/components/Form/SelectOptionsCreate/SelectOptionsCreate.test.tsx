@@ -1,4 +1,4 @@
-import { deleteFormOption } from "../../../utils/data";
+import { deleteFormOption } from "../../../utils/api-data";
 import {
   render,
   renderWithWrappers,
