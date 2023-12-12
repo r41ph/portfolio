@@ -47,10 +47,10 @@ export const handlers = [
       }),
     );
   }),
-  rest.post("/data/add/stack/option", (_req, res, ctx) => {
+  rest.post("/data/add/form/option", (_req, res, ctx) => {
     return res(ctx.status(200));
   }),
-  rest.post("/data/delete/stack/option", (_req, res, ctx) => {
+  rest.post("/data/delete/form/option", (_req, res, ctx) => {
     return res(
       ctx.status(200),
       ctx.json([
@@ -59,7 +59,7 @@ export const handlers = [
       ]),
     );
   }),
-  rest.get("*", (req, res, ctx) => {
+  rest.all("*", (req, res, ctx) => {
     console.error(`Please add request handler for ${req.url.toString()}`);
     return res(
       ctx.status(500),
