@@ -12,6 +12,8 @@ type ButtonProps = AriaButtonProps &
     size?: ButtonSize;
     noBorder?: boolean;
     withIcon?: boolean;
+    name?: string;
+    value?: string;
   };
 
 export function Button(props: ButtonProps) {
@@ -23,6 +25,8 @@ export function Button(props: ButtonProps) {
     size = ButtonSize.SM,
     noBorder = false,
     withIcon = false,
+    name = "",
+    value = "",
   } = props;
   const { buttonProps } = useButton(props, ref);
   const { isFocusVisible, focusProps } = useFocusRing();
@@ -30,6 +34,8 @@ export function Button(props: ButtonProps) {
   const mergedAriaProps = mergeProps(buttonProps, focusProps, hoverProps);
   return (
     <ButtonStyled
+      name={name}
+      value={value}
       {...mergedAriaProps}
       className={`${className ?? ""} ${isFocusVisible ? "focus-ring" : ""}`}
       ref={ref}
