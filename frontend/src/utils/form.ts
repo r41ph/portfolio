@@ -1,4 +1,5 @@
 import { SelectOption } from "../../types/types";
+import { capitalize } from "./string";
 
 /**
  * Utility for creating options for react-select
@@ -13,6 +14,6 @@ import { SelectOption } from "../../types/types";
 export const createSelectOptions = (options: string[]): SelectOption[] => {
   return options.map((option) => ({
     value: option,
-    label: option.charAt(0).toUpperCase() + option.slice(1),
+    label: capitalize(option),
   }));
 };
