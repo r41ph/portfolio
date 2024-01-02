@@ -7,6 +7,7 @@ export function SelectOptions<
 >(props: Props<Option, IsMulti, Group> & { required?: boolean }) {
   return (
     <Select
+      onChange={props.onChange}
       required={props.required}
       name={props.name}
       className="project-type-select"

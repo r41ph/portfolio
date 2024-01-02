@@ -6,11 +6,12 @@ import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
 import helmet from "helmet";
 
-import { router as apiRoutes } from "./routes/dataRoutes";
+import { router as dataRoutes } from "./routes/dataRoutes";
 import { router as authRoutes } from "./routes/authRoutes";
 
 const app = express();
 app.use(compression());
+// app.use(cors());
 
 if (process.env.NODE_ENV === "production") {
   app.use(helmet());
@@ -49,7 +50,7 @@ app.use(
 app.use("/data", cors());
 
 app.use("/auth", authRoutes);
-app.use("/data", apiRoutes);
+app.use("/data", dataRoutes);
 
 mongoConnect(() => {
   app.listen(process.env.PORT || 3000);

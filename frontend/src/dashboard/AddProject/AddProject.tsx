@@ -1,10 +1,24 @@
-import { useState } from "react";
-import { Form } from "react-router-dom";
-import { useActionData, useNavigation } from "react-router-dom";
+import { useState, MouseEvent, ChangeEvent, FormEvent, useEffect } from "react";
+import {
+  Form,
+  useSubmit,
+  useNavigation,
+  useActionData,
+} from "react-router-dom";
 import { useMutation, useQuery } from "@tanstack/react-query";
+import { ValidationError, number, object, string } from "yup";
 
-import { AddProjectFormErrors, ButtonSize } from "../../../types/types";
-import { FormControl } from "../Dashboard.styled";
+import {
+  AddProjectFormErrors,
+  ButtonSize,
+  DashboardActionResponse,
+  FormDataErrors,
+  FormDataType,
+  IconSize,
+  IconType,
+  SelectOption,
+} from "../../../types/types";
+import { FormControl } from "./AddProject.styled";
 import { Button } from "../../components/Button/Button";
 import { Input } from "../../components/Form/Input/Input";
 import { Label } from "../../components/Form/Label/Label";
@@ -15,11 +29,61 @@ import { SelectStack } from "./SelectStack";
 import { SelectSiteType } from "./SelectSiteType";
 import { addFormOption, getFormOptions } from "../../utils/api-data";
 import { createSelectOptions } from "../../utils/form";
+import { ActionMeta } from "react-select";
+import { FormError } from "../../components/Form/FormError/FormError";
+import { Icon } from "../../components/Icon/Icon";
+
+const FORM_DATA_ERRORS: FormDataErrors = {
+  PROJECTTYPE: "Required. Select a project type",
+  NAME: "Required. Add the project's name",
+  STACK: "Required. Select project's stack",
+  IMAGE: "Required. Select an image",
+  // SITETYPE: "Must be a string",
+  URL: "Must be a valid URL",
+  // COMPANY: "",
+  DESCRIPTION: "Must be max 90 characters",
+  POSITION: "Must be higher or equal to 0",
+};
+
+const defaultFormData: FormDataType = {
+  projectType: { value: "", error: "" },
+  name: { value: "", error: "" },
+  stack: { value: "", error: "" },
+  siteType: { value: "", error: "" },
+  url: { value: "", error: "" },
+  company: { value: "", error: "" },
+  image: { value: "", error: "" },
+  description: { value: "", error: "" },
+  position: { value: 1, error: "" },
+  source: "add-project-form",
+};
+
+const addProjectValidationSchema = object().shape({
+  projectType: string()
+    .oneOf(["Work", "Lab"], FORM_DATA_ERRORS.PROJECTTYPE)
+    .required(),
+  name: string()
+    .min(3, "Name must be min 3 characters")
+    .required(FORM_DATA_ERRORS.NAME),
+  stack: string().required(FORM_DATA_ERRORS.STACK),
+  image: string().required(FORM_DATA_ERRORS.IMAGE),
+  siteType: string().notRequired(),
+  url: string().url(FORM_DATA_ERRORS.URL).notRequired(),
+  company: string().notRequired(),
+  description: string().max(90, FORM_DATA_ERRORS.DESCRIPTION).notRequired(),
+  position: number().min(-10, FORM_DATA_ERRORS.POSITION).required(),
+});
 
 export function AddProject() {
   const navigation = useNavigation();
+  const submit = useSubmit();
+  const actionData = useActionData() as DashboardActionResponse;
   const isSubmitting = navigation.state === "submitting";
-  const { isLoading, data, error } = useQuery({
+  const {
+    isLoading,
+    data,
+    error: errorFetchingFormData,
+  } = useQuery({
     queryKey: ["formOptions"],
     queryFn: getFormOptions,
   });
@@ -34,88 +98,266 @@ export function AddProject() {
       // Handle error
     },
   });
-  const errors = useActionData() as AddProjectFormErrors;
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const [formData, setFormData] = useState<FormDataType>(defaultFormData);
+
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+
+  const handleImageChange = (event: ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
     if (files) {
       const file = files[0];
       const imageUrl = URL.createObjectURL(file);
       setSelectedImage(imageUrl);
+      setFormData((formData) => {
+        return {
+          ...formData,
+          image: {
+            value: imageUrl,
+            error: "",
+          },
+        };
+      });
     }
   };
 
-  if (error) {
-    return <p>Error: {error.message}</p>;
+  const handleOnChange = (
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    const { name, value } = event.target;
+    setFormData((formData) => {
+      return {
+        ...formData,
+        [name]: { value, error: "" },
+      };
+    });
+  };
+
+  const handleOnSelectChange = (
+    option: SelectOption | null | SelectOption[],
+    actionMeta: Partial<ActionMeta<SelectOption>>,
+  ) => {
+    const { name } = actionMeta;
+    let value: string | string[];
+
+    if (Array.isArray(option)) {
+      value = option.map((option) => option.value).join(", ");
+    } else {
+      value = option?.value || "";
+    }
+
+    if (name) {
+      setFormData({
+        ...formData,
+        [name]: { value, error: "" },
+      });
+    }
+  };
+
+  const handleOnSubmit = (
+    event: MouseEvent<HTMLButtonElement> | FormEvent<HTMLFormElement>,
+  ) => {
+    event.preventDefault();
+    const formDataValues = {
+      projectType: formData.projectType.value,
+      name: formData.name.value,
+      stack: formData.stack.value,
+      siteType: formData.siteType.value,
+      url: formData.url.value,
+      company: formData.company.value,
+      image: formData.image.value,
+      description: formData.description.value,
+      position: formData.position.value,
+      source: formData.source,
+    };
+
+    addProjectValidationSchema
+      .validate(formDataValues, { abortEarly: false })
+      .then(() => {
+        submit(formDataValues, {
+          method: "post",
+          action: "/dashboard",
+          encType: "application/x-www-form-urlencoded",
+        });
+      })
+      .catch((errors) => {
+        if (errors instanceof ValidationError) {
+          const updatedFormErrors = errors.inner.reduce((formData, error) => {
+            return {
+              ...formData,
+              [error.path as keyof AddProjectFormErrors]: {
+                value:
+                  formData[error.path as keyof AddProjectFormErrors]?.value,
+                error: error.message,
+              },
+            };
+          }, formData);
+
+          setFormData((formData) => {
+            return {
+              ...formData,
+              ...updatedFormErrors,
+            };
+          });
+        }
+      });
+  };
+
+  useEffect(() => {
+    const validationErrors = actionData?.errors;
+
+    if (Array.isArray(validationErrors) && validationErrors.length) {
+      setFormData((currentFormData) => {
+        const updatedErrors = Object.fromEntries(
+          validationErrors?.map(({ field }) => [
+            field,
+            {
+              value: "",
+              error:
+                FORM_DATA_ERRORS[
+                  (field as string).replace("_", "").toUpperCase()
+                ],
+            },
+          ]),
+        );
+
+        return { ...currentFormData, ...updatedErrors };
+      });
+    } else if (actionData?.valid) {
+      setShowSuccessMessage(true);
+      setTimeout(() => {
+        setSelectedImage(null);
+        setFormData(defaultFormData);
+        setShowSuccessMessage(false);
+      }, 3000);
+    }
+  }, [actionData]);
+
+  if (errorFetchingFormData) {
+    return (
+      <p className="text-red">
+        Error fetching form data: {errorFetchingFormData.message}
+      </p>
+    );
   }
 
   if (isLoading || !data) {
     return <p>Loading...</p>;
   }
+
+  if (showSuccessMessage) {
+    return (
+      <p className="text-green">
+        Project added successfully.{" "}
+        <Icon type={IconType.CODEPEN} size={IconSize.MD} />
+      </p>
+    );
+  }
+
   return (
-    <Form
-      method="post"
-      action="/dashboard/add-project"
-      className="max-w-[420px] w-full"
-    >
+    <Form noValidate onSubmit={handleOnSubmit} className="max-w-[420px] w-full">
       <fieldset className="flex flex-col">
         <legend className="text-xl mb-4 dark:animate-dark-fade-in">
           Add new project
         </legend>
         <FormControl>
-          <Label htmlFor="project-type">Project type</Label>
-          <SelectOptions
-            name="project-type"
-            options={createSelectOptions(data?.projectType)}
-          />
+          <FormError error={formData?.projectType?.error}>
+            <Label htmlFor="projectType">Project type*</Label>
+            <SelectOptions
+              name="projectType"
+              options={createSelectOptions(data?.projectType)}
+              onChange={handleOnSelectChange}
+            />
+          </FormError>
         </FormControl>
         <FormControl>
-          <Label htmlFor="name">Name</Label>
-          <Input name="name" required minLength={3} />
-          {errors?.name && <p className="text-red">{errors.name}</p>}
+          <FormError error={formData?.position?.error}>
+            <Label htmlFor="position">Position</Label>
+            <Input
+              type="number"
+              name="position"
+              onChange={handleOnChange}
+              value={formData.position.value}
+            />
+          </FormError>
         </FormControl>
         <FormControl>
-          <Label htmlFor="image">Image</Label>
-          <Image img={selectedImage} className="mb-8" />
-          <Input
-            type="file"
-            name="image"
-            noBorder
-            required
-            onChange={handleImageChange}
-          />
+          <FormError error={formData?.name?.error}>
+            <Label htmlFor="name">Name*</Label>
+            <Input
+              name="name"
+              onChange={handleOnChange}
+              value={formData.name.value}
+            />
+          </FormError>
         </FormControl>
         <FormControl>
-          <Label htmlFor="stack">Stack</Label>
-          <SelectStack
-            formOptionsMutation={formOptionsMutation}
-            options={data?.stack}
-          />
+          <FormError error={formData?.image?.error}>
+            <Label htmlFor="image">Image*</Label>
+            <Image img={selectedImage} className="mb-8" />
+            <Input
+              type="file"
+              name="image"
+              noBorder
+              onChange={handleImageChange}
+            />
+          </FormError>
         </FormControl>
         <FormControl>
-          <Label htmlFor="site-type">Site type</Label>
-          <SelectSiteType
-            formOptionsMutation={formOptionsMutation}
-            options={data?.siteType}
-          />
+          <FormError error={formData?.stack?.error}>
+            <Label htmlFor="stack">Stack*</Label>
+            <SelectStack
+              name="stack"
+              formOptionsMutation={formOptionsMutation}
+              options={data?.stack}
+              onChange={handleOnSelectChange}
+            />
+          </FormError>
         </FormControl>
         <FormControl>
-          <Label htmlFor="url">Url</Label>
-          <Input
-            type="url"
-            name="url"
-            placeholder="https://example.com"
-            pattern="https://.*|http://www.*"
-          />
+          <FormError error={formData?.siteType?.error}>
+            <Label htmlFor="siteType">Site type</Label>
+            <SelectSiteType
+              name="siteType"
+              formOptionsMutation={formOptionsMutation}
+              options={data?.siteType}
+              onChange={handleOnSelectChange}
+            />
+          </FormError>
         </FormControl>
         <FormControl>
-          <Label htmlFor="company">Company</Label>
-          <Input name="company" />
+          <FormError error={formData?.url?.error}>
+            <Label htmlFor="url">Url</Label>
+            <Input
+              type="url"
+              name="url"
+              placeholder="https://example.com"
+              onChange={handleOnChange}
+              value={formData.url.value}
+            />
+          </FormError>
         </FormControl>
         <FormControl>
-          <Label>Description</Label>
-          <Textarea name="description" maxLength={90} />
+          <FormError error={formData?.company?.error}>
+            <Label htmlFor="company">Company</Label>
+            <Input
+              name="company"
+              onChange={handleOnChange}
+              value={formData.company.value}
+            />
+          </FormError>
+        </FormControl>
+        <FormControl>
+          <FormError error={formData?.description?.error}>
+            <Label>Description</Label>
+            <Textarea
+              name="description"
+              maxLength={90}
+              onChange={handleOnChange}
+              value={formData.description.value}
+            />
+          </FormError>
         </FormControl>
         <Button
           size={ButtonSize.MD}
