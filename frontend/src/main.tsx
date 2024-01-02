@@ -15,16 +15,16 @@ import { Dashboard } from "./dashboard/Dashboard.tsx";
 import { logout, loginStatusLoader } from "./utils/auth.ts";
 import { loginLoader } from "./portfolio/Login/Login-loader.tsx";
 import { dashboardLoader } from "./dashboard/Dashboard-loader.ts";
-import { AddProjectAction } from "./dashboard/AddProject/AddProject-action.ts";
+import { dashboardAction } from "./dashboard/Dashboard-action.ts";
 import { AddProject } from "./dashboard/AddProject/AddProject.tsx";
-// import { CustomError } from "./portfolio/CustomError.tsx";
+import { CustomError } from "./portfolio/CustomError.tsx";
 
 export const routes = [
   {
     id: "root",
     path: "/",
     element: <Layout />,
-    // errorElement: <CustomError message="An error occurred." />,
+    errorElement: <CustomError />,
     loader: loginStatusLoader,
     children: [
       {
@@ -49,11 +49,11 @@ export const routes = [
         path: "dashboard",
         element: <Dashboard />,
         loader: dashboardLoader,
+        action: dashboardAction,
         children: [
           {
             path: "add-project",
             element: <AddProject />,
-            action: AddProjectAction,
           },
         ],
       },

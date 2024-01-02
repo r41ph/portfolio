@@ -14,11 +14,13 @@ type ButtonProps = AriaButtonProps &
     withIcon?: boolean;
     name?: string;
     value?: string;
+    type?: "button" | "submit" | "reset";
   };
 
 export function Button(props: ButtonProps) {
   const ref = useRef<HTMLButtonElement>(null);
   const {
+    onClick,
     children,
     className,
     tabIndex,
@@ -27,6 +29,7 @@ export function Button(props: ButtonProps) {
     withIcon = false,
     name = "",
     value = "",
+    type = "button",
   } = props;
   const { buttonProps } = useButton(props, ref);
   const { isFocusVisible, focusProps } = useFocusRing();
@@ -34,6 +37,8 @@ export function Button(props: ButtonProps) {
   const mergedAriaProps = mergeProps(buttonProps, focusProps, hoverProps);
   return (
     <ButtonStyled
+      type={type}
+      onClick={onClick}
       name={name}
       value={value}
       {...mergedAriaProps}

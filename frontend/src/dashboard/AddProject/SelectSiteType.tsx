@@ -1,14 +1,17 @@
 import { useEffect, useState } from "react";
-import { SingleValue } from "react-select";
+import { ActionMeta, SingleValue } from "react-select";
 import { createSelectOptions } from "../../utils/form";
 import { deleteFormOption } from "../../utils/api-data";
 import { SelectOption } from "../../../types/types";
 import { UseMutationResult } from "@tanstack/react-query";
 import { SelectOptionsCreate } from "../../components/Form/SelectOptionsCreate/SelectOptionsCreate";
+import { capitalize } from "../../utils/string";
 
 export const SelectSiteType = ({
   options,
   formOptionsMutation,
+  onChange,
+  name,
 }: {
   options: string[] | [];
   formOptionsMutation: UseMutationResult<
@@ -17,6 +20,11 @@ export const SelectSiteType = ({
     { type: string; value: string },
     unknown
   >;
+  onChange: (
+    option: SelectOption | null | SelectOption[],
+    actionMeta: ActionMeta<SelectOption>,
+  ) => void;
+  name: string;
 }) => {
   const [selectedSiteType, setSelectedSiteType] =
     useState<SingleValue<SelectOption>>();
@@ -24,14 +32,24 @@ export const SelectSiteType = ({
     SelectOption[] | undefined
   >(undefined);
 
-  const handleChangeSiteType = (newValue: SingleValue<SelectOption>) => {
+  const handleChangeSiteType = (
+    newValue: SingleValue<SelectOption>,
+    actionMeta: ActionMeta<SelectOption>,
+  ) => {
     setSelectedSiteType(newValue);
+    if (onChange) {
+      onChange(newValue as SelectOption, actionMeta);
+    }
   };
   const handleCreateSiteTypeOption = (newOption: string) => {
-    const option = createSelectOptions([newOption]);
+    const capitalizedOption = capitalize(newOption);
+    const option = createSelectOptions([capitalizedOption]);
     setSiteTypeOptions((prev = []) => [...prev, ...option]);
     setSelectedSiteType(option[0]);
-    formOptionsMutation.mutate({ type: "siteType", value: newOption });
+    formOptionsMutation.mutate({
+      type: "siteType",
+      value: capitalizedOption,
+    });
   };
   const handleDeleteSiteTypeOption = async (optionToDelete: string) => {
     const newOptions = siteTypeOptions?.filter(
@@ -50,18 +68,17 @@ export const SelectSiteType = ({
   }, [options]);
 
   return (
-    <>
-      <SelectOptionsCreate
-        name="site-type"
-        options={siteTypeOptions}
-        defaultValue={siteTypeOptions?.[0]}
-        value={selectedSiteType}
-        onChange={handleChangeSiteType}
-        onCreateOption={handleCreateSiteTypeOption}
-        onDeleteOption={handleDeleteSiteTypeOption}
-        isClearable
-      />
-      <input type="hidden" name="site-type" value={selectedSiteType?.value} />
-    </>
+    <SelectOptionsCreate
+      name={name}
+      options={siteTypeOptions}
+      defaultValue={siteTypeOptions?.[0]}
+      value={selectedSiteType}
+      onChange={(option, actionMeta) =>
+        handleChangeSiteType(option, actionMeta)
+      }
+      onCreateOption={handleCreateSiteTypeOption}
+      onDeleteOption={handleDeleteSiteTypeOption}
+      isClearable
+    />
   );
 };
