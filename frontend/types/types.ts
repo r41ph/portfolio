@@ -1,4 +1,3 @@
-import Select from "react-select";
 export enum IconType {
   GITHUB = "Github",
   CODEPEN = "Codepen",

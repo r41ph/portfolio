@@ -4,7 +4,6 @@ import {
   useSubmit,
   useNavigation,
   useActionData,
-  redirect,
 } from "react-router-dom";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { ValidationError, number, object, string } from "yup";
@@ -15,6 +14,8 @@ import {
   DashboardActionResponse,
   FormDataErrors,
   FormDataType,
+  IconSize,
+  IconType,
   SelectOption,
 } from "../../../types/types";
 import { FormControl } from "./AddProject.styled";
@@ -30,6 +31,7 @@ import { addFormOption, getFormOptions } from "../../utils/api-data";
 import { createSelectOptions } from "../../utils/form";
 import { ActionMeta } from "react-select";
 import { FormError } from "../../components/Form/FormError/FormError";
+import { Icon } from "../../components/Icon/Icon";
 
 const FORM_DATA_ERRORS: FormDataErrors = {
   PROJECTTYPE: "Required. Select a project type",
@@ -41,6 +43,19 @@ const FORM_DATA_ERRORS: FormDataErrors = {
   // COMPANY: "",
   DESCRIPTION: "Must be max 90 characters",
   POSITION: "Must be higher or equal to 0",
+};
+
+const defaultFormData: FormDataType = {
+  projectType: { value: "", error: "" },
+  name: { value: "", error: "" },
+  stack: { value: "", error: "" },
+  siteType: { value: "", error: "" },
+  url: { value: "", error: "" },
+  company: { value: "", error: "" },
+  image: { value: "", error: "" },
+  description: { value: "", error: "" },
+  position: { value: 1, error: "" },
+  source: "add-project-form",
 };
 
 const addProjectValidationSchema = object().shape({
@@ -85,18 +100,9 @@ export function AddProject() {
   });
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-  const [formData, setFormData] = useState<FormDataType>({
-    projectType: { value: "", error: "" },
-    name: { value: "", error: "" },
-    stack: { value: "", error: "" },
-    siteType: { value: "", error: "" },
-    url: { value: "", error: "" },
-    company: { value: "", error: "" },
-    image: { value: "", error: "" },
-    description: { value: "", error: "" },
-    position: { value: 1, error: "" },
-    source: "add-project-form",
-  });
+  const [formData, setFormData] = useState<FormDataType>(defaultFormData);
+
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
   const handleImageChange = (event: ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
@@ -219,7 +225,12 @@ export function AddProject() {
         return { ...currentFormData, ...updatedErrors };
       });
     } else if (actionData?.valid) {
-      redirect("/success");
+      setShowSuccessMessage(true);
+      setTimeout(() => {
+        setSelectedImage(null);
+        setFormData(defaultFormData);
+        setShowSuccessMessage(false);
+      }, 3000);
     }
   }, [actionData]);
 
@@ -233,6 +244,15 @@ export function AddProject() {
 
   if (isLoading || !data) {
     return <p>Loading...</p>;
+  }
+
+  if (showSuccessMessage) {
+    return (
+      <p className="text-green">
+        Project added successfully.{" "}
+        <Icon type={IconType.CODEPEN} size={IconSize.MD} />
+      </p>
+    );
   }
 
   return (
