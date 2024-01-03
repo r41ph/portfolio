@@ -250,7 +250,7 @@ export function AddProject() {
     return (
       <p className="text-green">
         Project added successfully.{" "}
-        <Icon type={IconType.CODEPEN} size={IconSize.MD} />
+        <Icon type={IconType.CHECK} size={IconSize.MD} />
       </p>
     );
   }
