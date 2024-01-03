@@ -10,7 +10,7 @@
     "prepare": "husky install",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "build:frontend": "npm run build -w ./frontend",
-    "build:backend": "npm run build -w ./backend",
+    "build:backend": "npm install && npm run build -w ./backend",
     "start:backend": "npm run start:prod -w ./backend"
   },
   "repository": {
