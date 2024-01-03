@@ -66,16 +66,28 @@ export function TopBar() {
           </Link>
         </TopBarItem>
         {isLoggedIn && (
-          <TopBarItem>
-            <NavLink to="/dashboard">
-              <Icon
-                title
-                className="dark:animate-dark-fade-in"
-                type={IconType.DASHBOARD}
-                size={IconSize.SM}
-              />
-            </NavLink>
-          </TopBarItem>
+          <>
+            <TopBarItem>
+              <NavLink to="/dashboard">
+                <Icon
+                  title
+                  className="dark:animate-dark-fade-in"
+                  type={IconType.DASHBOARD}
+                  size={IconSize.SM}
+                />
+              </NavLink>
+            </TopBarItem>
+            <TopBarItem>
+              <NavLink to="/work">
+                <Icon
+                  title
+                  className="dark:animate-dark-fade-in"
+                  type={IconType.HOME}
+                  size={IconSize.SM}
+                />
+              </NavLink>
+            </TopBarItem>
+          </>
         )}
         <TopBarItem>
           {isLoggedIn ? (
