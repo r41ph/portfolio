@@ -10,7 +10,6 @@ import { ReactComponent as StyledComponentsLogo } from "../../assets/svg/styled-
 import { ReactComponent as WordpressLogo } from "../../assets/svg/wordpress-logo.svg";
 import { ReactComponent as JestLogo } from "../../assets/svg/jest-logo.svg";
 import { ReactComponent as RTLLogo } from "../../assets/svg/rtl-logo.svg";
-
 import { ReactComponent as GithubLogo } from "../../assets/svg/github.svg";
 import { ReactComponent as CodePenLogo } from "../../assets/svg/codepen.svg";
 import { ReactComponent as Contact } from "../../assets/svg/contact.svg";
@@ -20,6 +19,8 @@ import { ReactComponent as Storybook } from "../../assets/svg/storybook.svg";
 import { ReactComponent as LogIn } from "../../assets/svg/log-in.svg";
 import { ReactComponent as LogOut } from "../../assets/svg/log-out.svg";
 import { ReactComponent as Dashboard } from "../../assets/svg/dashboard.svg";
+import { ReactComponent as Home } from "../../assets/svg/home.svg";
+import { ReactComponent as Check } from "../../assets/svg/check.svg";
 
 import { IconSize, IconType } from "../../../types/types";
 import { IconWrapper } from "./Icon.styles";
@@ -78,6 +79,8 @@ export const Icon = ({
       {iconType === IconType.LOGIN && <LogIn />}
       {iconType === IconType.LOGOUT && <LogOut />}
       {iconType === IconType.DASHBOARD && <Dashboard />}
+      {iconType === IconType.HOME && <Home />}
+      {iconType === IconType.CHECK && <Check />}
     </IconWrapper>
   );
 };

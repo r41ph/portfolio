@@ -20,6 +20,8 @@ export enum IconType {
   LOGIN = "Log-in",
   LOGOUT = "Log-out",
   DASHBOARD = "Dashboard",
+  HOME = "Home",
+  CHECK = "Check",
 }
 
 export enum IconSize {
