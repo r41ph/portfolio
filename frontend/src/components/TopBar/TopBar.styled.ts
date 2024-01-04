@@ -1,10 +1,6 @@
-// Description: this file contains the styled components for the TopBar component
-
 import styled from "styled-components";
 import tw from "twin.macro";
 
-// The topbar wrapper that contains the a list with the items
-// It is fixed and responsive
 export const TopBarWrapper = styled.div(() => [
   tw`
     w-full
@@ -19,7 +15,6 @@ export const TopBarWrapper = styled.div(() => [
   `,
 ]);
 
-// The list of items
 export const TopBarList = styled.ul(() => [
   tw`
     flex
@@ -30,7 +25,6 @@ export const TopBarList = styled.ul(() => [
   `,
 ]);
 
-// The items
 export const TopBarItem = styled.li(() => [
   tw`
     flex
