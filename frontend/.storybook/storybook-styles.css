@@ -7,3 +7,8 @@
 button[title*="Shortcuts"] {
   display: none !important;
 }
+
+/* Fix Select preview height */
+[id*="anchor--form-select"] .css-kdwx3d .css-1wjen9k {
+  height: 300px;
+}

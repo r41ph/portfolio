@@ -6,9 +6,11 @@ import { FormEvent } from "react";
 
 const FormInput = ({
   error = "",
+  placeholder = "",
   label,
 }: {
   error: string;
+  placeholder?: string;
   label?: string;
 }) => {
   const onClick = (e: FormEvent) => {
@@ -18,7 +20,7 @@ const FormInput = ({
     <form className="w-64" onSubmit={onClick}>
       <FormError error={error}>
         {label && <Label>{label}</Label>}
-        <Input />
+        <Input placeholder={placeholder} />
       </FormError>
     </form>
   );
@@ -29,6 +31,11 @@ const meta: Meta<typeof FormInput> = {
   component: FormInput,
   tags: ["autodocs"],
   parameters: { options: { showPanel: true } },
+  args: {
+    error: "",
+    placeholder: "",
+    label: "",
+  },
 };
 
 export default meta;
@@ -47,8 +54,9 @@ export const WithError: Story = {
     error: "There is an error in this input field.",
   },
 };
-export const WithErrorAndNoLabel: Story = {
+
+export const WithPlaceholder: Story = {
   args: {
-    error: "There is an error in this input field.",
+    placeholder: "Enter email",
   },
 };
