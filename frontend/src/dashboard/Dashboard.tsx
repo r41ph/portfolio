@@ -35,18 +35,18 @@ export function Dashboard() {
             name="Projects"
             end
           />
+          <NavigationLogo />
           <NavigationItem
             classNames="mr-5"
             to="/dashboard/add-project"
             name="Add Project"
           />
-          <NavigationLogo />
-          <NavigationItem
+          {/* <NavigationItem
             classNames="mr-5"
             to="/dashboard/edit-project"
             name="Edit Project"
-          />
-          <NavigationItem to="/dashboard/sort-projects" name="Sort Projects" />
+          /> */}
+          {/* <NavigationItem to="/dashboard/sort-projects" name="Sort Projects" /> */}
         </Navigation>
         {showSuccessMessage ? (
           <SuccessMessage>

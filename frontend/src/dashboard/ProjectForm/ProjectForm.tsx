@@ -71,7 +71,13 @@ const projectFormValidationSchema = object().shape({
   position: number().min(-10, FORM_DATA_ERRORS.POSITION).required(),
 });
 
-export function ProjectForm() {
+export function ProjectForm({
+  title,
+  project,
+}: {
+  title?: string;
+  project?: FormDataType;
+}) {
   const navigation = useNavigation();
   const submit = useSubmit();
   const actionData = useActionData() as DashboardActionResponse;
@@ -221,6 +227,12 @@ export function ProjectForm() {
     }
   }, [actionData]);
 
+  useEffect(() => {
+    if (project) {
+      setFormData(project);
+    }
+  }, [project]);
+
   if (errorFetchingFormData) {
     return (
       <p className="text-red">
@@ -236,9 +248,11 @@ export function ProjectForm() {
   return (
     <Form noValidate onSubmit={handleOnSubmit} className="max-w-[420px] w-full">
       <fieldset className="flex flex-col">
-        <legend className="text-xl mb-4 dark:animate-dark-fade-in">
-          Add new project
-        </legend>
+        {title && (
+          <legend className="text-xl mb-4 dark:animate-dark-fade-in">
+            {title}
+          </legend>
+        )}
         <FormControl>
           <FormError error={formData?.projectType?.error}>
             <Label htmlFor="projectType">Project type*</Label>
