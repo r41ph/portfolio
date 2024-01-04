@@ -6,6 +6,7 @@ export const SuccessMessage = styled.p(() => [
     flex 
     flex-col 
     items-center
+    text-lg
   `,
   css`
     .icon {
