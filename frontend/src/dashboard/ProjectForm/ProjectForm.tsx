@@ -92,10 +92,10 @@ export function ProjectForm({
   });
   const formOptionsMutation = useMutation({
     mutationFn: addFormOption,
-    onSuccess: (x) => {
+    onSuccess: () => {
       // TODO: Implement notification system
     },
-    onError: (error) => {
+    onError: () => {
       // Handle error
     },
   });
