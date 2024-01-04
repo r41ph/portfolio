@@ -52,8 +52,20 @@ export const routes = [
         action: dashboardAction,
         children: [
           {
+            path: "",
+            element: <p>Dashboard</p>,
+          },
+          {
             path: "add-project",
             element: <AddProject />,
+          },
+          {
+            path: "edit-project",
+            element: <p>Edit project</p>,
+          },
+          {
+            path: "sort-projects",
+            element: <p>Sort projects</p>,
           },
         ],
       },
