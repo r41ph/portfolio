@@ -14,8 +14,6 @@ import {
   DashboardActionResponse,
   FormDataErrors,
   FormDataType,
-  IconSize,
-  IconType,
   SelectOption,
 } from "../../../types/types";
 import { FormControl } from "./AddProject.styled";
@@ -31,7 +29,6 @@ import { addFormOption, getFormOptions } from "../../utils/api-data";
 import { createSelectOptions } from "../../utils/form";
 import { ActionMeta } from "react-select";
 import { FormError } from "../../components/Form/FormError/FormError";
-import { Icon } from "../../components/Icon/Icon";
 
 const FORM_DATA_ERRORS: FormDataErrors = {
   PROJECTTYPE: "Required. Select a project type",
@@ -102,8 +99,6 @@ export function AddProject() {
 
   const [formData, setFormData] = useState<FormDataType>(defaultFormData);
 
-  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-
   const handleImageChange = (event: ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
     if (files) {
@@ -171,7 +166,6 @@ export function AddProject() {
       position: formData.position.value,
       source: formData.source,
     };
-
     addProjectValidationSchema
       .validate(formDataValues, { abortEarly: false })
       .then(() => {
@@ -225,12 +219,8 @@ export function AddProject() {
         return { ...currentFormData, ...updatedErrors };
       });
     } else if (actionData?.valid) {
-      setShowSuccessMessage(true);
-      setTimeout(() => {
-        setSelectedImage(null);
-        setFormData(defaultFormData);
-        setShowSuccessMessage(false);
-      }, 3000);
+      setSelectedImage(null);
+      setFormData(defaultFormData);
     }
   }, [actionData]);
 
@@ -244,15 +234,6 @@ export function AddProject() {
 
   if (isLoading || !data) {
     return <p>Loading...</p>;
-  }
-
-  if (showSuccessMessage) {
-    return (
-      <p className="text-green">
-        Project added successfully.{" "}
-        <Icon type={IconType.CHECK} size={IconSize.MD} />
-      </p>
-    );
   }
 
   return (
