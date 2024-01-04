@@ -48,7 +48,7 @@ export function Dashboard() {
           />
           <NavigationItem to="/dashboard/sort-projects" name="Sort Projects" />
         </Navigation>
-        {!showSuccessMessage ? (
+        {showSuccessMessage ? (
           <SuccessMessage>
             Project successfully added.
             <Icon type={IconType.CHECK} size={IconSize.MD} />

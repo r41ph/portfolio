@@ -116,7 +116,7 @@ export type WorkData = {
   works: Project[];
 };
 
-export interface AddProjectFormErrors {
+export interface ProjectFormErrors {
   projectType?: string;
   name?: string;
   stack?: string;
