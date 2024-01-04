@@ -78,7 +78,7 @@ export function TopBar() {
               </NavLink>
             </TopBarItem>
             <TopBarItem>
-              <NavLink to="/work">
+              <NavLink to="/">
                 <Icon
                   title
                   className="dark:animate-dark-fade-in"
