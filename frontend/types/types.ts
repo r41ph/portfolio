@@ -52,8 +52,8 @@ export enum CardLinkType {
 }
 
 export interface Project {
-  projectType: "work" | "lab";
-  _id: string;
+  projectType?: "work" | "lab";
+  _id?: string;
   name: string;
   stack: string[];
   company: string;
