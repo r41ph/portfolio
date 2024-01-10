@@ -52,13 +52,15 @@ export enum CardLinkType {
 }
 
 export interface Project {
+  projectType: "work" | "lab";
+  _id: string;
   name: string;
   stack: string[];
   company: string;
   image: string;
   url?: string;
   description: string;
-  type?: ProjectType;
+  siteType?: ProjectType;
   position?: number;
 }
 
@@ -66,6 +68,9 @@ export enum ProjectType {
   APPLICATION = "application",
   WEBSITE = "website",
   ECOMMERCE = "ecommerce",
+  STARTUP = "startup",
+  CREATIVE_AGENCY = "creative_agency",
+  CONTRACTOR = "contractor",
 }
 
 export interface UnsplashImage {

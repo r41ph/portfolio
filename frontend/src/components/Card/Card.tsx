@@ -58,7 +58,9 @@ export function Card(props: CardProps) {
       <CardCaption>
         <h2 className="text-base pb-2 dark:animate-dark-fade-in flex justify-between">
           {project.name}{" "}
-          {project.type && <Badge text={project.type} size={BadgeSize.XS} />}
+          {project.siteType && (
+            <Badge text={project.siteType} size={BadgeSize.XS} />
+          )}
         </h2>
 
         {project.description && (
