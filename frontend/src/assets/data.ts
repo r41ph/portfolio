@@ -2,7 +2,9 @@ import { Project, IconType, ProjectType } from "../../types/types";
 
 export const works: Project[] = [
   {
+    _id: "IHU92483",
     name: "Little Green Sheep",
+    projectType: "work",
     stack: [
       IconType.HTML,
       IconType.CSS,
@@ -18,7 +20,9 @@ export const works: Project[] = [
     description: "",
   },
   {
+    _id: "LKNk876JBK",
     name: "Little Green Sheep",
+    projectType: "work",
     stack: [
       IconType.HTML,
       IconType.CSS,
@@ -34,7 +38,9 @@ export const works: Project[] = [
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
   },
   {
+    _id: "JKHKJHKHK646",
     name: "Little Green Sheep",
+    projectType: "work",
     stack: [
       IconType.HTML,
       IconType.CSS,
@@ -44,7 +50,7 @@ export const works: Project[] = [
       IconType.RTL,
       IconType["STYLED-COMPONENTS"],
     ],
-    type: ProjectType.WEBSITE,
+    siteType: ProjectType.WEBSITE,
     url: "https://google.com/",
     company: "Syrox",
     image: "/images/works/green-sheep-thumbnail.jpg",
