@@ -93,7 +93,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       router={router}
       fallbackElement={
         <div className="flex justify-center items-center h-screen">
-          <p className="text-2xl">Spinning up the server. This shouldn’t take long...</p>
+          <p className="text-2xl">
+            Spinning up the server. This shouldn’t take long...
+          </p>
         </div>
       }
     />
